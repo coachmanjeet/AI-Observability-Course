@@ -4,7 +4,7 @@ CHAIN := $(EXAMPLES)/01-speedy-order-lookup.json \
          $(EXAMPLES)/02-speedy-refund-40.json \
          $(EXAMPLES)/03-outcome-refund-40.json
 
-.PHONY: test receipt tamper maturity trace lint trace-receipts handoff \
+.PHONY: labs test receipt tamper maturity trace lint trace-receipts handoff \
         decisions collector figures
 
 test:            ## every chapter's tests
@@ -48,3 +48,9 @@ collector:       ## Chapter 7: a night through redaction and tail sampling
 
 figures:         ## print figures: SVG sources to 300 DPI grayscale PNG
 	sh figures/build.sh
+
+# Chapter 8 onward: one fragment per chapter in mk/ (see mk/README.md)
+LABS :=
+-include mk/ch*.mk
+
+labs: $(LABS)    ## every lab from Chapter 8 on

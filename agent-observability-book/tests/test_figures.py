@@ -1,12 +1,20 @@
 """Print rules for every figure: grayscale, 4.6 in wide, text >= 8 pt."""
+import importlib
 import pathlib
+import pkgutil
 import re
 import xml.etree.ElementTree as ET
 
 import pytest
 
-from figures import (chapter02, chapter03, chapter04, chapter05,
-                     chapter06, chapter07)
+import figures
+from figures import chapter02, chapter03
+
+# Chapter 4 onward: every figures/chapterNN.py exports FIGURES.
+LATER = [importlib.import_module(f"figures.{m.name}")
+         for m in pkgutil.iter_modules(figures.__path__)
+         if re.fullmatch(r"chapter\d\d", m.name)
+         and int(m.name[-2:]) >= 4]
 
 FLEET = pathlib.Path(__file__).parent.parent / "maturity" / "fleet.json"
 
@@ -16,10 +24,8 @@ FIGURES = {**{name: draw() for name, draw in chapter02.FIGURES.items()},
            "fig-3-3": chapter03.reference_architecture(),
            "fig-3-4": chapter03.maturity_ladder(FLEET),
            "fig-3-5": chapter03.legend(),
-           **{name: draw() for name, draw in chapter04.FIGURES.items()},
-           **{name: draw() for name, draw in chapter05.FIGURES.items()},
-           **{name: draw() for name, draw in chapter06.FIGURES.items()},
-           **{name: draw() for name, draw in chapter07.FIGURES.items()}}
+           **{name: draw() for module in LATER
+              for name, draw in module.FIGURES.items()}}
 
 
 @pytest.mark.parametrize("name", FIGURES)
