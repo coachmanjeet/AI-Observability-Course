@@ -1,0 +1,44 @@
+{
+  "receipt_version": "0.1",
+  "receipt_id": "rcpt_01JD7QA3N6F0J8P2V4X9C5LBEG",
+  "issued_at": "2026-11-14T02:11:52Z",
+  "conformance": "R1",
+  "consequence": {
+    "side_effect": "financial",
+    "reason": "Issued a refund through the payments API"
+  },
+  "who": {
+    "agent_id": "agent://unregistered/night-owl",
+    "agent_name": "Night Owl",
+    "agent_version": "unknown",
+    "kind": "shadow",
+    "owner": "unknown",
+    "runtime": "analyst-laptop"
+  },
+  "did_what": {
+    "action": {
+      "operation": "execute_tool",
+      "tool": "payments.refund",
+      "via": "api",
+      "target": "order:ord_5530",
+      "arguments_digest": "sha256:ad5aaca9013eb72e7f39754e6371b594c0f144eade7d757773709c10ae894732"
+    },
+    "effect": {
+      "status": "succeeded",
+      "external_ref": "refund:rf_9934",
+      "summary": "Refunded $85.00 with no policy check and no human approval",
+      "amount": {
+        "value": "85.00",
+        "currency": "USD"
+      }
+    },
+    "outcome": {
+      "status": "unknown",
+      "metric": "unknown"
+    }
+  },
+  "evidence": {
+    "trace_id": "9a1c47e2b3d04f6c8e5a7b9d1f3c5e70",
+    "span_id": "a3f1c9e7b5d2f8a1"
+  }
+}

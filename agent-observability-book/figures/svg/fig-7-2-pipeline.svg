@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="3.28in" viewBox="0 0 460 328">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="328" fill="#ffffff"/>
+<rect x="4" y="30" width="86" height="50" rx="9" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="47.0" y="52.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Speedy</text>
+<text x="47.0" y="66.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">runtime</text>
+<path d="M90,55 L112,55" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="114" y="22" width="214" height="66" rx="0" fill="none" stroke="#000000" stroke-width="1.0" stroke-dasharray="6 3.5"/>
+<text x="120" y="16.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" font-style="italic" fill="#000000">Collector</text>
+<rect x="124" y="34" width="86" height="42" rx="0" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="167" y="52.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">redact</text>
+<text x="167" y="68.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">allowlist</text>
+<path d="M210,55 L230,55" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="232" y="34" width="88" height="42" rx="0" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="276" y="52.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">tail-sample</text>
+<text x="276" y="68.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">keep incidents</text>
+<path d="M320,55 L352,55" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M354,33 v46 a51.0,5 0 0 0 102,0 v-46" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<ellipse cx="405.0" cy="33" rx="51.0" ry="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="405.0" y="58.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">trace</text>
+<text x="405.0" y="72.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">backend</text>
+<path d="M220,55 L220,112" fill="none" stroke="#000000" stroke-width="1.6"/>
+<path d="M220,112 L352,112" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M354,96 H456 V136 L449.6,130 L443.2,136 L436.9,130 L430.5,136 L424.1,130 L417.8,136 L411.4,130 L405.0,136 L398.6,130 L392.2,136 L385.9,130 L379.5,136 L373.1,130 L366.8,136 L360.4,130 L354.0,136 Z" fill="#ffffff" stroke="#000000" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="405" y="120.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">receipt builder</text>
+<text x="228" y="106.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" font-style="italic" fill="#000000">every redacted span</text>
+<text x="4" y="166.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">What each stage holds (one night, 1,000 conversations)</text>
+<rect x="4" y="182" width="300.0" height="22" rx="0" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="310.0" y="198.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">8.6 MB</text>
+<text x="4" y="220.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">received: 1,000 traces, 5,189 spans, 1,157 PII values</text>
+<rect x="4" y="230" width="198.19085632955696" height="22" rx="0" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="208.19085632955696" y="246.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">5.7 MB</text>
+<text x="4" y="268.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">after redaction: 1,000 traces, 5,189 spans, 0 PII values</text>
+<rect x="4" y="278" width="84.32298333416806" height="22" rx="0" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="94.32298333416806" y="294.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">2.4 MB</text>
+<text x="4" y="316.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">after tail sampling: 300 traces, 2,095 spans, 0 PII values</text>
+</svg>

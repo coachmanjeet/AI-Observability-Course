@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="4.52in" viewBox="0 0 460 452">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="452" fill="#ffffff"/>
+<path d="M214,8 H424 V444 L417.8,438 L411.6,444 L405.5,438 L399.3,444 L393.1,438 L386.9,444 L380.8,438 L374.6,444 L368.4,438 L362.2,444 L356.1,438 L349.9,444 L343.7,438 L337.5,444 L331.4,438 L325.2,444 L319.0,438 L312.8,444 L306.6,438 L300.5,444 L294.3,438 L288.1,444 L281.9,438 L275.8,444 L269.6,438 L263.4,444 L257.2,438 L251.1,444 L244.9,438 L238.7,444 L232.5,438 L226.4,444 L220.2,438 L214.0,444 Z" fill="#ffffff" stroke="#000000" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="224" y="32.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">who</text>
+<text x="224" y="47.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">Speedy 2.3.1, first party</text>
+<path d="M0,18 v32 a84.0,5 0 0 0 168,0 v-32" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<ellipse cx="84.0" cy="18" rx="84.0" ry="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84.0" y="36.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Registry and runtime</text>
+<text x="84.0" y="50.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 15, 16</text>
+<path d="M171,35 L210,35" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,58 L424,58" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
+<text x="224" y="78.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">for_whom</text>
+<text x="224" y="93.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">cust_7f3a91, two scopes</text>
+<rect x="0" y="65" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84" y="78.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Identity provider</text>
+<text x="84" y="92.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 17, 18</text>
+<path d="M171,81 L210,81" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,104 L424,104" fill="none" stroke="#000000" stroke-width="1.4"/>
+<text x="224" y="124.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">knowing_what</text>
+<text x="224" y="139.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">pack 1.4.0, three sources</text>
+<path d="M0,110 v32 a84.0,5 0 0 0 168,0 v-32" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<ellipse cx="84.0" cy="110" rx="84.0" ry="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84.0" y="128.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Context packs, sources</text>
+<text x="84.0" y="142.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 6, 9, 11–13</text>
+<path d="M171,127 L210,127" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,150 L424,150" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
+<text x="224" y="170.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">under_which_rule</text>
+<text x="224" y="185.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">allow, sampled review</text>
+<polygon points="18,157 34,173 18,189 2,173" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="42" y="170.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">Policy gateway</text>
+<text x="42" y="184.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">Ch 19, 21</text>
+<path d="M171,173 L210,173" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,196 L424,196" fill="none" stroke="#000000" stroke-width="1.4"/>
+<text x="224" y="216.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">did_what</text>
+<text x="224" y="231.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">refund $40, outcome pending</text>
+<path d="M0,204 v-7 h28 v7" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<rect x="0" y="203" width="168" height="34" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84.0" y="217.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Tools, systems of record</text>
+<text x="84.0" y="231.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 5, 8, 27</text>
+<path d="M171,219 L210,219" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,242 L424,242" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
+<text x="224" y="262.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">at_what_cost</text>
+<text x="224" y="277.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">$0.0142, one meter</text>
+<rect x="0" y="249" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84" y="262.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Meter</text>
+<text x="84" y="276.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 7, 28</text>
+<path d="M171,265 L210,265" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,288 L424,288" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
+<text x="224" y="308.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">where</text>
+<text x="224" y="323.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">aws us-west-2, data in US</text>
+<rect x="0" y="295" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84" y="308.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Cloud resource attributes</text>
+<text x="84" y="322.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 32</text>
+<path d="M171,311 L210,311" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,334 L424,334" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
+<text x="224" y="354.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">evidence</text>
+<text x="224" y="369.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">trace 4bf92f35…</text>
+<rect x="0" y="341" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84" y="354.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Trace pipeline (OTel)</text>
+<text x="84" y="368.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 5</text>
+<path d="M171,357 L210,357" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M214,380 L424,380" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
+<text x="224" y="400.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">integrity</text>
+<text x="224" y="415.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">prev_hash, hash</text>
+<path d="M0,386 v32 a84.0,5 0 0 0 168,0 v-32" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<ellipse cx="84.0" cy="386" rx="84.0" ry="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="84.0" y="404.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Receipt store</text>
+<text x="84.0" y="418.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 8</text>
+<path d="M171,403 L210,403" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M430,16 L434,16 L434,104 L430,104" fill="none" stroke="#000000" stroke-width="1.4"/>
+<text transform="translate(451,60.0) rotate(-90)" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Discover</text>
+<path d="M430,108 L434,108 L434,196 L430,196" fill="none" stroke="#000000" stroke-width="1.4"/>
+<text transform="translate(451,152.0) rotate(-90)" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Govern</text>
+<path d="M430,200 L434,200 L434,426 L430,426" fill="none" stroke="#000000" stroke-width="1.4"/>
+<text transform="translate(451,313.0) rotate(-90)" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Observe</text>
+</svg>

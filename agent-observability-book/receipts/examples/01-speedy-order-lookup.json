@@ -1,0 +1,139 @@
+{
+  "receipt_version": "0.1",
+  "receipt_id": "rcpt_01JD7Q8M2K4V9X3T6B5N0PZRAV",
+  "issued_at": "2026-11-14T02:06:41Z",
+  "conformance": "R4",
+  "consequence": {
+    "side_effect": "read_sensitive",
+    "reason": "Reads a customer's order, which holds personal data"
+  },
+  "who": {
+    "agent_id": "agent://pronto/speedy",
+    "agent_name": "Speedy",
+    "agent_version": "2.3.1",
+    "kind": "first_party",
+    "owner": "team:customer-support",
+    "registry_ref": "registry://pronto/agents/speedy@2.3.1",
+    "workload_id": "spiffe://pronto.example/ns/support/agent/speedy",
+    "runtime": "pronto-support-runtime"
+  },
+  "for_whom": {
+    "principal_type": "user",
+    "principal_id": "cust_7f3a91",
+    "tenant_id": "pronto",
+    "scopes": [
+      "orders:read:own",
+      "refunds:create:max_50"
+    ],
+    "delegation_chain": [
+      {
+        "actor": "spiffe://pronto.example/ns/support/agent/speedy",
+        "via": "rfc8693_token_exchange",
+        "scopes": [
+          "orders:read:own",
+          "refunds:create:max_50"
+        ]
+      }
+    ],
+    "token_ref": "sha256:478ab5a12a15f5c9620b66eee8664009d2003789e022ca0fb208283decc68f1a"
+  },
+  "knowing_what": {
+    "model": {
+      "provider": "mock",
+      "request_model": "pronto-mock-1",
+      "response_model": "pronto-mock-1"
+    },
+    "context_pack": {
+      "id": "pronto-support",
+      "version": "1.4.0",
+      "digest": "sha256:3631935aa54fcf18d9c8de14dd83d6bba02e1e940815aaf5f92643fbe1766d3e"
+    },
+    "sources": [],
+    "memory_reads": [
+      {
+        "store_id": "mem://pronto/support/cust_7f3a91",
+        "record_count": 2
+      }
+    ]
+  },
+  "under_which_rule": {
+    "decision": "allow",
+    "engine": "cedar",
+    "policy_set": {
+      "id": "pronto-refunds",
+      "version": "3",
+      "digest": "sha256:0daf2617f82d3e13b4a6c0521fe24d21abf779d30cdafcba9fd7dc61f2ef49d9"
+    },
+    "determining_policies": [
+      "orders-read-own-customer"
+    ],
+    "enforcement_point": "gateway://pronto/mcp-gateway-us-west",
+    "evaluated_at": "2026-11-14T02:06:41Z",
+    "autonomy_tier": "act_autonomously",
+    "request": {
+      "subject": "agent://pronto/speedy",
+      "action": "orders.get",
+      "resource": "order:ord_5521",
+      "context": {
+        "on_behalf_of": "cust_7f3a91"
+      }
+    },
+    "approvals": []
+  },
+  "did_what": {
+    "action": {
+      "operation": "execute_tool",
+      "tool": "orders.get",
+      "tool_call_id": "call_8c20",
+      "via": "mcp",
+      "mcp_method": "tools/call",
+      "target": "order:ord_5521",
+      "arguments_digest": "sha256:c9a8d402304340e0fc13c2a166ca0b95c6f27cad3b4aa1b67bd916bf7a50425a"
+    },
+    "effect": {
+      "status": "succeeded",
+      "summary": "Read order ord_5521 for the requesting customer"
+    },
+    "outcome": {
+      "status": "not_applicable",
+      "metric": "none"
+    }
+  },
+  "at_what_cost": {
+    "tokens": {
+      "input": 2410,
+      "output": 96,
+      "cache_read": 1800
+    },
+    "model_cost": {
+      "value": "0.00508",
+      "currency": "USD"
+    },
+    "billable": [
+      {
+        "meter": "agent_action",
+        "quantity": 0,
+        "status": "not_billable"
+      }
+    ],
+    "billing_account": "tenant:pronto"
+  },
+  "where": {
+    "cloud_provider": "aws",
+    "region": "us-west-2",
+    "environment": "production",
+    "data_residency": "US",
+    "model_endpoint_region": "us-west-2"
+  },
+  "evidence": {
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+    "span_id": "00f067aa0ba902b6",
+    "conversation_id": "conv_44be2d",
+    "mcp_session_id": "mcps_19c4850a"
+  },
+  "integrity": {
+    "canonicalization": "JCS-RFC8785",
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "hash": "sha256:ef2e907965fd7dad1d65db137392eef9160aa4a75a4ccef39dfd74de19a051f1"
+  }
+}

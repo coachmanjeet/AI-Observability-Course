@@ -1,0 +1,108 @@
+# Pronto's Collector pipeline (Chapter 7), for otelcol-contrib.
+# The same stages as collector/processors.py: redact, then fork. One
+# pipeline keeps every redacted span for the receipt builder; the
+# other tail-samples what goes to the trace backend.
+#
+# Check it: otelcol-contrib validate --config collector/pronto-collector.yaml
+# CI runs that check against the version pinned in the workflow.
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 80
+    spike_limit_percentage: 20
+
+  # Fail closed: only the trace profile's keys pass. Content keys
+  # (gen_ai.input.messages and the rest) are not on the list.
+  redaction:
+    allow_all_keys: false
+    allowed_keys:
+      - error.type
+      - gen_ai.agent.id
+      - gen_ai.agent.name
+      - gen_ai.agent.version
+      - gen_ai.conversation.id
+      - gen_ai.data_source.id
+      - gen_ai.operation.name
+      - gen_ai.provider.name
+      - gen_ai.request.model
+      - gen_ai.response.finish_reasons
+      - gen_ai.response.id
+      - gen_ai.response.model
+      - gen_ai.tool.call.id
+      - gen_ai.tool.name
+      - gen_ai.tool.type
+      - gen_ai.usage.cache_read.input_tokens
+      - gen_ai.usage.input_tokens
+      - gen_ai.usage.output_tokens
+      - jsonrpc.request.id
+      - mcp.method.name
+      - mcp.protocol.version
+      - mcp.session.id
+      - messaging.destination.name
+      - messaging.message.id
+      - messaging.operation.type
+      - messaging.system
+      - network.transport
+      - pronto.effect.amount
+      - pronto.effect.currency
+      - pronto.effect.ref
+      - pronto.effect.status
+      - pronto.source.version
+      - pronto.tool.arguments_digest
+      - pronto.tool.target
+    blocked_values:
+      - "[\\w.+-]+@[\\w-]+\\.[\\w.]+"          # email
+      - "\\b\\d{3}[-. ]\\d{3}[-. ]\\d{4}\\b"   # US phone
+      - "\\b(?:\\d[ -]?){13,16}\\b"              # card number
+    summary: info
+
+  # Keep a whole trace if any policy matches.
+  tail_sampling:
+    decision_wait: 30s
+    num_traces: 50000
+    expected_new_traces_per_sec: 100
+    policies:
+      - name: errors
+        type: status_code
+        status_code:
+          status_codes: [ERROR]
+      - name: actions
+        type: string_attribute
+        string_attribute:
+          key: pronto.effect.status
+          values: [succeeded, blocked]
+      - name: slow
+        type: latency
+        latency:
+          threshold_ms: 30000
+      - name: baseline
+        type: probabilistic
+        probabilistic:
+          sampling_percentage: 10
+
+  batch: {}
+
+exporters:
+  otlphttp/backend:
+    endpoint: https://traces.pronto.example
+  file/receipts:
+    path: /var/lib/pronto/receipt-spans.json
+
+service:
+  pipelines:
+    traces/receipts:
+      receivers: [otlp]
+      processors: [memory_limiter, redaction, batch]
+      exporters: [file/receipts]
+    traces/backend:
+      receivers: [otlp]
+      processors: [memory_limiter, redaction, tail_sampling, batch]
+      exporters: [otlphttp/backend]

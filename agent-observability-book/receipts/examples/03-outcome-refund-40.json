@@ -1,0 +1,29 @@
+{
+  "record_type": "outcome",
+  "receipt_version": "0.1",
+  "receipt_id": "rcpt_01JD7Q9B4R8C2W5Y7H1M3KQSTD",
+  "recorded_at": "2026-11-21T02:07:13Z",
+  "status": "achieved",
+  "metric": "resolved_without_escalation_within_7d",
+  "evidence": {
+    "source": "crm://pronto/cases/case_221",
+    "evaluation": {
+      "name": "resolved_without_escalation",
+      "score_value": 1,
+      "score_label": "pass"
+    }
+  },
+  "billable": [
+    {
+      "meter": "resolved_conversation",
+      "quantity": 1,
+      "status": "billed",
+      "idempotency_key": "conv_44be2d:resolved"
+    }
+  ],
+  "integrity": {
+    "canonicalization": "JCS-RFC8785",
+    "prev_hash": "sha256:f862495f8b62e5d92ba39a523601caa0d8af3a02e61330ec2413c3c07c6ab6c3",
+    "hash": "sha256:8d221a86608cb0ac96c3e1a83ee412b8c04388edb2ec4c9042d0302dafa8394c"
+  }
+}

@@ -1,0 +1,740 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/coachmanjeet/agent-observability-governance/receipts/agent-receipt-0.1.schema.json",
+  "title": "Agent Receipt v0.1",
+  "description": "One record per consequential agent action. It answers seven questions: who acted, for whom, knowing what, under which rule, doing what, at what cost, and where.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_version",
+    "receipt_id",
+    "issued_at",
+    "conformance",
+    "consequence",
+    "who",
+    "did_what",
+    "evidence"
+  ],
+  "properties": {
+    "receipt_version": {
+      "const": "0.1"
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^rcpt_[0-9A-Za-z]{10,40}$"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "conformance": {
+      "description": "R1 Traced, R2 Identified, R3 Bounded, R4 Accountable. Each level requires the sections of the levels below it.",
+      "enum": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ]
+    },
+    "consequence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "side_effect",
+        "reason"
+      ],
+      "properties": {
+        "side_effect": {
+          "enum": [
+            "read_sensitive",
+            "write",
+            "financial",
+            "external_communication",
+            "permission_change",
+            "destructive"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "who": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "agent_name",
+        "agent_version",
+        "kind",
+        "owner"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string"
+        },
+        "agent_name": {
+          "type": "string"
+        },
+        "agent_version": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "first_party",
+            "third_party",
+            "shadow"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "registry_ref": {
+          "type": "string"
+        },
+        "workload_id": {
+          "type": "string",
+          "description": "Workload identity, for example a SPIFFE ID"
+        },
+        "runtime": {
+          "type": "string"
+        }
+      }
+    },
+    "for_whom": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "principal_type",
+        "principal_id",
+        "tenant_id",
+        "scopes"
+      ],
+      "properties": {
+        "principal_type": {
+          "enum": [
+            "user",
+            "service",
+            "agent",
+            "none"
+          ]
+        },
+        "principal_id": {
+          "type": "string",
+          "description": "Pseudonymous identifier. Never an email address or a name."
+        },
+        "tenant_id": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "delegation_chain": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "actor",
+              "via"
+            ],
+            "properties": {
+              "actor": {
+                "type": "string"
+              },
+              "via": {
+                "enum": [
+                  "rfc8693_token_exchange",
+                  "oauth_authorization_code",
+                  "client_credentials",
+                  "a2a_delegation",
+                  "static_credential"
+                ]
+              },
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "token_ref": {
+          "$ref": "#/$defs/digest",
+          "description": "Digest of the token ID. Never the token itself."
+        },
+        "consent_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "knowing_what": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "sources"
+      ],
+      "properties": {
+        "model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provider",
+            "request_model"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string"
+            },
+            "request_model": {
+              "type": "string"
+            },
+            "response_model": {
+              "type": "string"
+            }
+          }
+        },
+        "context_pack": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "digest"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "digest": {
+              "$ref": "#/$defs/digest"
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "version",
+              "retrieved_at"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "authority": {
+                "type": "string"
+              },
+              "sensitivity": {
+                "enum": [
+                  "public",
+                  "internal",
+                  "confidential",
+                  "restricted"
+                ]
+              }
+            }
+          }
+        },
+        "memory_reads": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "store_id",
+              "record_count"
+            ],
+            "properties": {
+              "store_id": {
+                "type": "string"
+              },
+              "record_count": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "under_which_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision",
+        "engine",
+        "policy_set",
+        "determining_policies",
+        "enforcement_point",
+        "evaluated_at",
+        "autonomy_tier"
+      ],
+      "properties": {
+        "decision": {
+          "enum": [
+            "allow",
+            "deny",
+            "allow_with_approval"
+          ]
+        },
+        "engine": {
+          "type": "string"
+        },
+        "policy_set": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "digest"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "digest": {
+              "$ref": "#/$defs/digest"
+            }
+          }
+        },
+        "determining_policies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "enforcement_point": {
+          "type": "string"
+        },
+        "evaluated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "autonomy_tier": {
+          "enum": [
+            "suggest_only",
+            "act_with_approval",
+            "act_with_sampled_review",
+            "act_autonomously"
+          ]
+        },
+        "request": {
+          "description": "The authorization request in AuthZEN shape: subject, action, resource, context",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "subject",
+            "action",
+            "resource"
+          ],
+          "properties": {
+            "subject": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string"
+            },
+            "resource": {
+              "type": "string"
+            },
+            "context": {
+              "type": "object"
+            }
+          }
+        },
+        "approvals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "approver",
+              "decided_at",
+              "decision"
+            ],
+            "properties": {
+              "approver": {
+                "type": "string"
+              },
+              "decided_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "decision": {
+                "enum": [
+                  "approved",
+                  "rejected"
+                ]
+              },
+              "method": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "did_what": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "effect",
+        "outcome"
+      ],
+      "properties": {
+        "action": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "operation",
+            "tool",
+            "target",
+            "arguments_digest"
+          ],
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "gen_ai.operation.name, usually execute_tool"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "tool_call_id": {
+              "type": "string"
+            },
+            "via": {
+              "enum": [
+                "direct",
+                "mcp",
+                "a2a",
+                "queue",
+                "api",
+                "cli"
+              ]
+            },
+            "mcp_method": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "arguments_digest": {
+              "$ref": "#/$defs/digest"
+            }
+          }
+        },
+        "effect": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "succeeded",
+                "failed",
+                "blocked",
+                "partial"
+              ]
+            },
+            "external_ref": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "amount": {
+              "$ref": "#/$defs/money"
+            }
+          }
+        },
+        "outcome": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "metric"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "achieved",
+                "not_achieved",
+                "not_applicable",
+                "unknown"
+              ]
+            },
+            "metric": {
+              "type": "string"
+            },
+            "due_by": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "at_what_cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tokens",
+        "model_cost",
+        "billable"
+      ],
+      "properties": {
+        "tokens": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "input",
+            "output"
+          ],
+          "properties": {
+            "input": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "output": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "cache_read": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "model_cost": {
+          "$ref": "#/$defs/money"
+        },
+        "tool_cost": {
+          "$ref": "#/$defs/money"
+        },
+        "billable": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "meter",
+              "quantity",
+              "status"
+            ],
+            "properties": {
+              "meter": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "status": {
+                "enum": [
+                  "billed",
+                  "pending_outcome",
+                  "not_billable"
+                ]
+              },
+              "idempotency_key": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "billing_account": {
+          "type": "string"
+        }
+      }
+    },
+    "where": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cloud_provider",
+        "region",
+        "environment",
+        "data_residency"
+      ],
+      "properties": {
+        "cloud_provider": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "data_residency": {
+          "type": "string"
+        },
+        "model_endpoint_region": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trace_id",
+        "span_id"
+      ],
+      "properties": {
+        "trace_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "span_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{16}$"
+        },
+        "conversation_id": {
+          "type": "string"
+        },
+        "mcp_session_id": {
+          "type": "string"
+        },
+        "parent_receipt_id": {
+          "type": "string"
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization",
+        "prev_hash",
+        "hash"
+      ],
+      "properties": {
+        "canonicalization": {
+          "const": "JCS-RFC8785"
+        },
+        "prev_hash": {
+          "$ref": "#/$defs/digest"
+        },
+        "hash": {
+          "$ref": "#/$defs/digest"
+        },
+        "signature": {
+          "type": "string",
+          "description": "Optional detached JWS over the hash"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "conformance": {
+            "enum": [
+              "R2",
+              "R3",
+              "R4"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "for_whom"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "conformance": {
+            "enum": [
+              "R3",
+              "R4"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "knowing_what",
+          "under_which_rule"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "conformance": {
+            "const": "R4"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "at_what_cost",
+          "where",
+          "integrity"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "money": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "currency"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Decimal string, never a float"
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
+    }
+  }
+}

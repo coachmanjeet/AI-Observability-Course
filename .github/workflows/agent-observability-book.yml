@@ -1,0 +1,34 @@
+name: agent-observability-book
+on:
+  pull_request:
+    paths: ["agent-observability-book/**"]
+  push:
+    branches: [main, book2-draft]
+    paths: ["agent-observability-book/**"]
+  schedule:
+    - cron: "0 7 * * 1"                 # weekly, against upstream releases
+defaults:
+  run:
+    working-directory: agent-observability-book
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+      - run: make receipt                 # Chapter 2 lab
+      - run: make maturity                # Chapter 3 lab
+      - run: make trace lint trace-receipts   # Chapter 4 lab
+      - run: make handoff                 # Chapter 5 lab
+      - run: make decisions               # Chapter 6 lab
+      - run: make collector               # Chapter 7 lab
+      - name: Validate the Collector config (Chapter 7)
+        run: |
+          V=0.165.0
+          curl -sSL -o otelcol.tgz "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v${V}/otelcol-contrib_${V}_linux_amd64.tar.gz"
+          tar xzf otelcol.tgz otelcol-contrib
+          ./otelcol-contrib validate --config collector/pronto-collector.yaml
+      - run: git diff --exit-code receipts/examples traces   # outputs are current

@@ -1,0 +1,5 @@
+jsonschema>=4.18
+rfc3339-validator>=0.1.4   # lets jsonschema check date-time fields
+opentelemetry-sdk>=1.45,<2   # Chapter 4 onward
+pytest>=8
+pyyaml>=6   # Chapter 7: checks the Collector config

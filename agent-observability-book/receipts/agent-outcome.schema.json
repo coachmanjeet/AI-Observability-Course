@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/coachmanjeet/agent-observability-governance/receipts/agent-outcome-0.1.schema.json",
+  "title": "Agent Outcome Record v0.1",
+  "description": "Appended after a receipt when the business outcome is known. Receipts never change; outcomes link back to them.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_type", "receipt_version", "receipt_id", "recorded_at", "status", "metric", "evidence", "integrity"],
+  "properties": {
+    "record_type": { "const": "outcome" },
+    "receipt_version": { "const": "0.1" },
+    "receipt_id": { "type": "string", "pattern": "^rcpt_[0-9A-Za-z]{10,40}$" },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["achieved", "not_achieved", "unknown"] },
+    "metric": { "type": "string" },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source"],
+      "properties": {
+        "source": { "type": "string" },
+        "evaluation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "score_value"],
+          "properties": {
+            "name": { "type": "string", "description": "gen_ai.evaluation.name" },
+            "score_value": { "type": "number", "description": "gen_ai.evaluation.score.value" },
+            "score_label": { "type": "string", "description": "gen_ai.evaluation.score.label" }
+          }
+        }
+      }
+    },
+    "billable": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["meter", "quantity", "status", "idempotency_key"],
+        "properties": {
+          "meter": { "type": "string" },
+          "quantity": { "type": "integer", "minimum": 0 },
+          "status": { "enum": ["billed", "not_billable"] },
+          "idempotency_key": { "type": "string" }
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "prev_hash", "hash"],
+      "properties": {
+        "canonicalization": { "const": "JCS-RFC8785" },
+        "prev_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "signature": { "type": "string" }
+      }
+    }
+  }
+}

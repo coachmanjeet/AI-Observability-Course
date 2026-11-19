@@ -1,0 +1,173 @@
+{
+  "receipt_version": "0.1",
+  "receipt_id": "rcpt_01JD7Q9B4R8C2W5Y7H1M3KQSTD",
+  "issued_at": "2026-11-14T02:07:13Z",
+  "conformance": "R4",
+  "consequence": {
+    "side_effect": "financial",
+    "reason": "Issues a refund to the customer's card"
+  },
+  "who": {
+    "agent_id": "agent://pronto/speedy",
+    "agent_name": "Speedy",
+    "agent_version": "2.3.1",
+    "kind": "first_party",
+    "owner": "team:customer-support",
+    "registry_ref": "registry://pronto/agents/speedy@2.3.1",
+    "workload_id": "spiffe://pronto.example/ns/support/agent/speedy",
+    "runtime": "pronto-support-runtime"
+  },
+  "for_whom": {
+    "principal_type": "user",
+    "principal_id": "cust_7f3a91",
+    "tenant_id": "pronto",
+    "scopes": [
+      "orders:read:own",
+      "refunds:create:max_50"
+    ],
+    "delegation_chain": [
+      {
+        "actor": "spiffe://pronto.example/ns/support/agent/speedy",
+        "via": "rfc8693_token_exchange",
+        "scopes": [
+          "orders:read:own",
+          "refunds:create:max_50"
+        ]
+      }
+    ],
+    "token_ref": "sha256:478ab5a12a15f5c9620b66eee8664009d2003789e022ca0fb208283decc68f1a"
+  },
+  "knowing_what": {
+    "model": {
+      "provider": "mock",
+      "request_model": "pronto-mock-1",
+      "response_model": "pronto-mock-1"
+    },
+    "context_pack": {
+      "id": "pronto-support",
+      "version": "1.4.0",
+      "digest": "sha256:3631935aa54fcf18d9c8de14dd83d6bba02e1e940815aaf5f92643fbe1766d3e"
+    },
+    "sources": [
+      {
+        "id": "order:ord_5521",
+        "uri": "orders://ord_5521",
+        "version": "etag-9f2c",
+        "retrieved_at": "2026-11-14T02:06:41Z",
+        "authority": "system:orders",
+        "sensitivity": "confidential"
+      },
+      {
+        "id": "policy:refunds",
+        "uri": "kb://pronto/policies/refunds",
+        "version": "2026-10-01",
+        "retrieved_at": "2026-11-14T02:06:45Z",
+        "authority": "team:finance",
+        "sensitivity": "internal"
+      },
+      {
+        "id": "photo:photo_7c1",
+        "uri": "photos://photo_7c1",
+        "version": "etag-41c7",
+        "retrieved_at": "2026-11-14T02:06:52Z",
+        "authority": "system:photos",
+        "sensitivity": "confidential"
+      }
+    ],
+    "memory_reads": [
+      {
+        "store_id": "mem://pronto/support/cust_7f3a91",
+        "record_count": 2
+      }
+    ]
+  },
+  "under_which_rule": {
+    "decision": "allow",
+    "engine": "cedar",
+    "policy_set": {
+      "id": "pronto-refunds",
+      "version": "3",
+      "digest": "sha256:0daf2617f82d3e13b4a6c0521fe24d21abf779d30cdafcba9fd7dc61f2ef49d9"
+    },
+    "determining_policies": [
+      "refunds-under-50-sampled-review"
+    ],
+    "enforcement_point": "gateway://pronto/mcp-gateway-us-west",
+    "evaluated_at": "2026-11-14T02:07:12Z",
+    "autonomy_tier": "act_with_sampled_review",
+    "request": {
+      "subject": "agent://pronto/speedy",
+      "action": "refunds.create",
+      "resource": "order:ord_5521",
+      "context": {
+        "amount": "40.00",
+        "currency": "USD",
+        "on_behalf_of": "cust_7f3a91"
+      }
+    },
+    "approvals": []
+  },
+  "did_what": {
+    "action": {
+      "operation": "execute_tool",
+      "tool": "refunds.create",
+      "tool_call_id": "call_8c21",
+      "via": "mcp",
+      "mcp_method": "tools/call",
+      "target": "order:ord_5521",
+      "arguments_digest": "sha256:6c5ce5682a1fd46f07e93962a3702b7397b3aec8f31e89081c24b1209860cbe7"
+    },
+    "effect": {
+      "status": "succeeded",
+      "external_ref": "refund:rf_9931",
+      "summary": "Refunded $40.00 for spoiled strawberries reported with a photo",
+      "amount": {
+        "value": "40.00",
+        "currency": "USD"
+      }
+    },
+    "outcome": {
+      "status": "pending",
+      "metric": "resolved_without_escalation_within_7d",
+      "due_by": "2026-11-21T02:07:13Z"
+    }
+  },
+  "at_what_cost": {
+    "tokens": {
+      "input": 3120,
+      "output": 410,
+      "cache_read": 1800
+    },
+    "model_cost": {
+      "value": "0.0142",
+      "currency": "USD"
+    },
+    "billable": [
+      {
+        "meter": "resolved_conversation",
+        "quantity": 0,
+        "status": "pending_outcome",
+        "idempotency_key": "conv_44be2d:resolved"
+      }
+    ],
+    "billing_account": "tenant:pronto"
+  },
+  "where": {
+    "cloud_provider": "aws",
+    "region": "us-west-2",
+    "environment": "production",
+    "data_residency": "US",
+    "model_endpoint_region": "us-west-2"
+  },
+  "evidence": {
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+    "span_id": "00f067aa0ba902b7",
+    "conversation_id": "conv_44be2d",
+    "mcp_session_id": "mcps_19c4850a"
+  },
+  "integrity": {
+    "canonicalization": "JCS-RFC8785",
+    "prev_hash": "sha256:ef2e907965fd7dad1d65db137392eef9160aa4a75a4ccef39dfd74de19a051f1",
+    "hash": "sha256:f862495f8b62e5d92ba39a523601caa0d8af3a02e61330ec2413c3c07c6ab6c3"
+  }
+}

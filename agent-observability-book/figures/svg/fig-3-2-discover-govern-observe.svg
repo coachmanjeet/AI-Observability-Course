@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="3.52in" viewBox="0 0 460 352">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="352" fill="#ffffff"/>
+<polygon points="4,62 230,6 456,62" fill="#ececec" stroke="#000" stroke-width="1.4"/>
+<text x="230" y="40.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#000000">AI Control Tower</text>
+<text x="230" y="56.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">runs all three, for 1P and 3P agents (Part VI)</text>
+<rect x="14" y="72" width="138" height="196" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="83.0" y="92.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#000000">Discover</text>
+<text x="83.0" y="110.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" font-style="italic" fill="#000000">Which agents run,</text>
+<text x="83.0" y="124.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" font-style="italic" fill="#000000">as whom?</text>
+<path d="M26,136 L140,136" fill="none" stroke="#000000" stroke-width="0.9"/>
+<text x="83.0" y="154.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Discovery</text>
+<text x="83.0" y="168.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Registry</text>
+<text x="83.0" y="182.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Agent identity</text>
+<text x="83.0" y="196.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Delegation</text>
+<path d="M26,210 L140,210" fill="none" stroke="#000000" stroke-width="0.9"/>
+<text x="83.0" y="228.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Who acted?</text>
+<text x="83.0" y="242.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">For whom?</text>
+<text x="83.0" y="284.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">Part IV</text>
+<rect x="161" y="72" width="138" height="196" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="230.0" y="92.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#000000">Govern</text>
+<text x="230.0" y="110.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" font-style="italic" fill="#000000">What may they</text>
+<text x="230.0" y="124.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" font-style="italic" fill="#000000">know and do?</text>
+<path d="M173,136 L287,136" fill="none" stroke="#000000" stroke-width="0.9"/>
+<text x="230.0" y="154.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Trusted context</text>
+<text x="230.0" y="168.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Least privilege</text>
+<text x="230.0" y="182.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Policy gates</text>
+<text x="230.0" y="196.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Approvals</text>
+<path d="M173,210 L287,210" fill="none" stroke="#000000" stroke-width="0.9"/>
+<text x="230.0" y="228.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Knowing what?</text>
+<text x="230.0" y="242.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Under which rule?</text>
+<text x="230.0" y="284.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">Parts III, V</text>
+<rect x="308" y="72" width="138" height="196" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="377.0" y="92.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#000000">Observe</text>
+<text x="377.0" y="110.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" font-style="italic" fill="#000000">What did they do,</text>
+<text x="377.0" y="124.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" font-style="italic" fill="#000000">at what cost?</text>
+<path d="M320,136 L434,136" fill="none" stroke="#000000" stroke-width="0.9"/>
+<text x="377.0" y="154.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Traces</text>
+<text x="377.0" y="168.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Audit trails</text>
+<text x="377.0" y="182.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Metering</text>
+<text x="377.0" y="196.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Compliance</text>
+<path d="M320,210 L434,210" fill="none" stroke="#000000" stroke-width="0.9"/>
+<text x="377.0" y="228.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Doing what?</text>
+<text x="377.0" y="242.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">At what cost?</text>
+<text x="377.0" y="256.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Where?</text>
+<text x="377.0" y="284.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">Parts II, VII, VIII</text>
+<path d="M4,294 H456 V344 L449.9,338 L443.8,344 L437.7,338 L431.6,344 L425.5,338 L419.4,344 L413.2,338 L407.1,344 L401.0,338 L394.9,344 L388.8,338 L382.7,344 L376.6,338 L370.5,344 L364.4,338 L358.3,344 L352.2,338 L346.1,344 L339.9,338 L333.8,344 L327.7,338 L321.6,344 L315.5,338 L309.4,344 L303.3,338 L297.2,344 L291.1,338 L285.0,344 L278.9,338 L272.8,344 L266.6,338 L260.5,344 L254.4,338 L248.3,344 L242.2,338 L236.1,344 L230.0,338 L223.9,344 L217.8,338 L211.7,344 L205.6,338 L199.5,344 L193.4,338 L187.2,344 L181.1,338 L175.0,344 L168.9,338 L162.8,344 L156.7,338 L150.6,344 L144.5,338 L138.4,344 L132.3,338 L126.2,344 L120.1,338 L113.9,344 L107.8,338 L101.7,344 L95.6,338 L89.5,344 L83.4,338 L77.3,344 L71.2,338 L65.1,344 L59.0,338 L52.9,344 L46.8,338 L40.6,344 L34.5,338 L28.4,344 L22.3,338 L16.2,344 L10.1,338 L4.0,344 Z" fill="#ffffff" stroke="#000000" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="230" y="314.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#000000">Agent Receipt</text>
+<text x="230" y="330.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">one record per consequential action, seven answers (Ch 2)</text>
+</svg>
