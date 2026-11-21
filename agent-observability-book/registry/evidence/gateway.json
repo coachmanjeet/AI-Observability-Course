@@ -1,0 +1,11 @@
+{
+  "source": "gateway",
+  "about": "MCP and A2A traffic through gateway://pronto/mcp-gateway-us-west",
+  "rows": [
+    {"agent_id": "agent://pronto/speedy", "credential": "key:speedy", "server": "example.pronto/commerce", "calls": {"orders.get": 1310, "refunds.create": 402, "cases.escalate": 61}},
+    {"agent_id": "agent://pronto/pick", "credential": "key:pick", "server": "example.pronto/catalog", "calls": {"catalog.search": 8120, "substitutions.set": 1475}},
+    {"agent_id": "agent://pronto/route", "credential": "key:route", "server": "example.pronto/dispatch", "calls": {"dispatch.assign": 2031}},
+    {"agent_id": "agent://campaignly/promo", "credential": "oauth:campaignly", "server": "example.pronto/customers", "calls": {"segments.list": 230, "customers.export": 14}},
+    {"agent_id": "agent://payco/ledger", "credential": "oauth:payco", "server": "a2a:https://a2a.payco.example", "calls": {"message/send": 352}}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "api",
+  "about": "Access logs from systems of record, grouped by credential, client and host",
+  "rows": [
+    {"system": "payments", "endpoint": "POST /refunds", "credential": "tok:na-7731", "client": "night-owl/0.2", "host": "lt-analyst-042", "calls": 7, "status": {"401": 7}},
+    {"system": "inventory", "endpoint": "POST /inventory/adjust", "credential": "svc:inventory-sync", "client": "tally/0.4", "host": "wh-ops-pc-03", "calls": 212, "status": {"200": 212}},
+    {"system": "inventory", "endpoint": "POST /inventory/adjust", "credential": "svc:inventory-sync", "client": "inv-sync-job/2.1", "host": "batch-01", "calls": 7, "status": {"200": 7}},
+    {"system": "git", "endpoint": "git push catalog-service", "credential": "pat:eng-0417", "client": "coder/1.9", "host": "ci-runner-pool", "calls": 63, "status": {"200": 63}}
+  ]
+}

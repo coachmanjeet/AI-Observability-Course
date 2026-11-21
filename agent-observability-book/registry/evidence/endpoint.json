@@ -1,0 +1,10 @@
+{
+  "source": "endpoint",
+  "about": "Managed devices: agent processes and MCP client configs found by the device scanner",
+  "rows": [
+    {"host": "lt-analyst-042", "role": "analyst-laptop", "user": "user:analyst-0233", "processes": ["night-owl"], "mcp_servers": []},
+    {"host": "wh-ops-pc-03", "role": "warehouse-office-pc", "user": "user:whsup-0118", "processes": ["tally"], "mcp_servers": []},
+    {"host": "lt-dev-118", "role": "developer-laptop", "user": "user:eng-0118", "processes": ["ide-assistant"], "mcp_servers": [{"name": "pg-prod", "listen": "0.0.0.0:8808", "target": "postgres://orders-prod"}]},
+    {"host": "lt-design-07", "role": "designer-laptop", "user": "user:des-0007", "processes": ["chat-app"], "mcp_servers": []}
+  ]
+}

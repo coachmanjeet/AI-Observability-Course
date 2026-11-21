@@ -1,0 +1,14 @@
+{
+  "source": "egress",
+  "about": "Calls to model providers seen at the network egress proxy",
+  "rows": [
+    {"from": "pronto-support-runtime", "calls": 5240},
+    {"from": "pronto-fulfillment-runtime", "calls": 19800},
+    {"from": "pronto-dispatch-runtime", "calls": 4410},
+    {"from": "ci-runner-pool", "calls": 820},
+    {"from": "lt-analyst-042", "calls": 14},
+    {"from": "wh-ops-pc-03", "calls": 655},
+    {"from": "lt-dev-118", "calls": 1290},
+    {"from": "lt-design-07", "calls": 96}
+  ]
+}

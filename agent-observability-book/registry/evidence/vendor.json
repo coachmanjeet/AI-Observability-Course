@@ -1,0 +1,8 @@
+{
+  "source": "vendor",
+  "about": "Procurement's vendor register: third-party agents under contract",
+  "rows": [
+    {"agent_id": "agent://payco/ledger", "vendor": "PayCo", "card": "https://a2a.payco.example/.well-known/agent-card.json"},
+    {"agent_id": "agent://campaignly/promo", "vendor": "Campaignly", "mcp_server": "example.campaignly/promo"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "cloud",
+  "about": "Agent runtimes in Pronto's cloud accounts, from the provider's control-plane APIs",
+  "rows": [
+    {"agent_id": "agent://pronto/speedy", "runtime": "pronto-support-runtime", "account": "prod-support"},
+    {"agent_id": "agent://pronto/pick", "runtime": "pronto-fulfillment-runtime", "account": "prod-fulfillment"},
+    {"agent_id": "agent://pronto/route", "runtime": "pronto-dispatch-runtime", "account": "prod-logistics"},
+    {"agent_id": "agent://pronto/coder", "runtime": "ci-runner-pool", "account": "build"}
+  ]
+}

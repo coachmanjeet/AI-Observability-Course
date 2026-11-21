@@ -1,0 +1,14 @@
+{
+  "source": "idp",
+  "about": "Credentials from the identity provider, the secrets vault and the git host",
+  "rows": [
+    {"credential": "key:speedy", "type": "agent", "owner": "agent://pronto/speedy", "status": "active", "scopes": ["orders:read:own", "refunds:create:max_50"]},
+    {"credential": "key:pick", "type": "agent", "owner": "agent://pronto/pick", "status": "active", "scopes": ["catalog:read", "substitutions:write"]},
+    {"credential": "key:route", "type": "agent", "owner": "agent://pronto/route", "status": "active", "scopes": ["dispatch:write"]},
+    {"credential": "oauth:campaignly", "type": "oauth_grant", "owner": "vendor:campaignly", "status": "active", "scopes": ["segments:read", "customers:export:all"]},
+    {"credential": "oauth:payco", "type": "oauth_grant", "owner": "vendor:payco", "status": "active", "scopes": ["disputes:write"]},
+    {"credential": "tok:na-7731", "type": "person", "owner": "user:analyst-0233", "status": "revoked 2026-11-23", "scopes": ["payments:refund"]},
+    {"credential": "svc:inventory-sync", "type": "service_account", "owner": "team:fulfillment", "status": "active", "scopes": ["inventory:write"]},
+    {"credential": "pat:eng-0417", "type": "person", "owner": "user:eng-0417", "status": "active", "scopes": ["repo:all"]}
+  ]
+}
