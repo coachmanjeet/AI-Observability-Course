@@ -24,17 +24,17 @@ class Part:
     name: str
     runs_on: str            # "code" or "model"
     owner: str              # who runs it: "pronto" or "payco"
-    tools: tuple = ()       # consequential tools it calls itself
+    tools: tuple = ()       # consequential tools it calls
     instructs: tuple = ()   # parts it can send instructions to
 
 
 @dataclass(frozen=True)
 class Hop:
     actor: str              # the part that acts
-    tool: str               # a tool, or "agent:<Part>" for a call
+    tool: str               # a tool, or "agent:<Part>"
     via: str                # direct, mcp, a2a or queue
     gate: str = ""          # Pronto enforcement point, if any
-    routed_by: str = ""     # "code" or "model": who chose this hop
+    routed_by: str = ""     # "code" or "model" chose this hop
     keeps_context: bool = True   # carries the request's context
 
 
@@ -54,37 +54,41 @@ NOTIFY = "queue://pronto/notify"
 def _refund(routed_by):
     """Speedy's part of the task, the same in every topology."""
     return [Hop("Speedy", "orders.get", "mcp", MCP, routed_by),
-            Hop("Speedy", "refunds.create", "mcp", MCP, "model"),
-            Hop("Speedy", "notify.send", "queue", NOTIFY, "model")]
+            Hop("Speedy", "refunds.create", "mcp", MCP,
+                "model"),
+            Hop("Speedy", "notify.send", "queue", NOTIFY,
+                "model")]
 
 
 def _ledger(keeps_context=True):
     return [Hop("Ledger", "orders.get", "mcp", MCP, "model",
                 keeps_context),
-            Hop("Ledger", "disputes.open", "direct", "", "model",
-                keeps_context)]
+            Hop("Ledger", "disputes.open", "direct", "",
+                "model", keeps_context)]
 
 
 def router():
-    """Code reads the intent and calls one specialist per intent."""
+    """Code reads the intent and calls one specialist."""
     parts = {"Router": Part("Router", "code", "pronto", (),
                             ("Speedy", "Ledger")),
              "Speedy": SPEEDY, "Ledger": LEDGER}
     hops = (_refund("code")
-            + [Hop("Router", "agent:Ledger", "a2a", A2A, "code")]
+            + [Hop("Router", "agent:Ledger", "a2a", A2A,
+                   "code")]
             + _ledger())
     return "router", "Router", parts, hops
 
 
 def supervisor():
     """A model plans and calls each specialist as a tool."""
-    parts = {"Concierge": Part("Concierge", "model", "pronto", (),
-                               ("Speedy", "Ledger")),
+    parts = {"Concierge": Part("Concierge", "model", "pronto",
+                               (), ("Speedy", "Ledger")),
              "Speedy": SPEEDY, "Ledger": LEDGER}
     hops = ([Hop("Concierge", "agent:Speedy", "direct", "",
                  "model")]
             + _refund("model")
-            + [Hop("Concierge", "agent:Ledger", "a2a", A2A, "model")]
+            + [Hop("Concierge", "agent:Ledger", "a2a", A2A,
+                   "model")]
             + _ledger())
     return "supervisor", "Concierge", parts, hops
 
@@ -96,25 +100,28 @@ def handoff():
                   ("Ledger",))
     parts = {"Speedy": speedy, "Ledger": LEDGER}
     hops = (_refund("code")
-            + [Hop("Speedy", "agent:Ledger", "a2a", A2A, "model")]
+            + [Hop("Speedy", "agent:Ledger", "a2a", A2A,
+                   "model")]
             + _ledger())
     return "handoff", "Speedy", parts, hops
 
 
 def broker(forward_context=False):
-    """Speedy posts the dispute to a broker, which picks an agent
-    from the registry at run time. By default the broker re-issues
-    the task as itself, as many brokers do."""
+    """Speedy posts the dispute to a broker, which picks an
+    agent from the registry at run time. By default the broker
+    re-issues the task as itself, as many brokers do."""
     speedy = Part("Speedy", "model", "pronto", SPEEDY.tools,
                   ("Broker",))
     parts = {"Broker": Part("Broker", "model", "pronto", (),
-                            ("Speedy", "Ledger", "Pick", "Promo")),
+                            ("Speedy", "Ledger", "Pick",
+                             "Promo")),
              "Speedy": speedy, "Ledger": LEDGER, "Pick": PICK,
              "Promo": PROMO}
     hops = (_refund("code")
-            + [Hop("Speedy", "agent:Broker", "direct", "", "model"),
-               Hop("Broker", "agent:Ledger", "a2a", A2A, "model",
-                   forward_context)]
+            + [Hop("Speedy", "agent:Broker", "direct", "",
+                   "model"),
+               Hop("Broker", "agent:Ledger", "a2a", A2A,
+                   "model", forward_context)]
             + _ledger(forward_context))
     return "broker", "Speedy", parts, hops
 
