@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="1.42in" viewBox="0 0 460 142">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="142" fill="#ffffff"/>
+<rect x="4" y="20" width="78" height="48" rx="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="43" y="40.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">agent span</text>
+<text x="43" y="57.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">conv_6f43…</text>
+<path d="M82,44 L95,44" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="95" y="20" width="78" height="48" rx="5" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="134" y="40.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">usage event</text>
+<text x="134" y="57.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">pending, key</text>
+<path d="M173,44 L186,44" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="186" y="20" width="78" height="48" rx="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="225" y="40.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">outcome</text>
+<text x="225" y="57.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">record, day 7</text>
+<path d="M264,44 L277,44" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="277" y="20" width="78" height="48" rx="5" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="316" y="40.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">billed event</text>
+<text x="316" y="57.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">same key, 1</text>
+<path d="M355,44 L368,44" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="368" y="20" width="78" height="48" rx="5" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="407" y="40.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">invoice line</text>
+<text x="407" y="57.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">$0.40</text>
+<text x="4" y="96.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">duplicate from a retry: same key, dropped</text>
+<text x="4" y="114.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">outcome after the close: billed next month, original date</text>
+<text x="4" y="132.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">review reverses it: credit, key + ':credit'</text>
+</svg>
