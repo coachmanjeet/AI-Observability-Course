@@ -1,0 +1,16 @@
+// Pronto's entities and refund action, for validation.
+namespace Pronto {
+  entity Agent = { registry_state: String };
+  entity Order = { owner: String };
+  action "refunds.create" appliesTo {
+    principal: [Agent],
+    resource: [Order],
+    context: {
+      amount: __cedar::decimal,
+      currency: String,
+      on_behalf_of: String,
+      scopes: Set<String>,
+      freeze: Bool,
+    },
+  };
+}

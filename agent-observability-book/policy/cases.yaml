@@ -1,0 +1,13 @@
+# Policy tests: each case must get the expected decision.
+- {name: speedy 40, amount: "40.00", expect: allow}
+- {name: speedy 50.00 exactly, amount: "50.00", expect: allow}
+- {name: speedy 50.01, amount: "50.01", expect: deny}
+- {name: speedy 85, amount: "85.00", expect: deny}
+- {name: other customer's order, owner: cust_2b8c04,
+   expect: deny}
+- {name: euros, currency: EUR, expect: deny}
+- {name: no refund scope, scopes: [orders:read:own],
+   expect: deny}
+- {name: shadow agent, agent: agent://unregistered/night-owl,
+   state: shadow, expect: deny}
+- {name: payments freeze, freeze: true, expect: deny}
