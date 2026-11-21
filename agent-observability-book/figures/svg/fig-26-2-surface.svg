@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="2.38in" viewBox="0 0 460 238">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="238" fill="#ffffff"/>
+<rect x="4" y="12" width="130" height="34" rx="9" fill="#ffffff" stroke="#000000" stroke-width="1.4" stroke-dasharray="6 3.5"/>
+<text x="69.0" y="33.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Shopper Assistant</text>
+<text x="69" y="60.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">signed, granted</text>
+<path d="M134,29 L176,88" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="4" y="70" width="130" height="34" rx="9" fill="#ffffff" stroke="#000000" stroke-width="1.4" stroke-dasharray="6 3.5"/>
+<text x="69.0" y="91.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">Reseller Buyer</text>
+<text x="69" y="118.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">signed, partner</text>
+<path d="M134,87 L176,96" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="4" y="128" width="130" height="34" rx="9" fill="#ffffff" stroke="#000000" stroke-width="2.2" stroke-dasharray="1.6 2.6"/>
+<text x="69.0" y="149.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">unknown client</text>
+<text x="69" y="176.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">unsigned</text>
+<path d="M134,145 L176,104" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<polygon points="212,66 242,96 212,126 182,96" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="212" y="100.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">surface</text>
+<rect x="256" y="8" width="200" height="162" rx="4" fill="none" stroke="#000000" stroke-width="1.2" stroke-dasharray="6 3.5"/>
+<text x="262" y="22.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" font-style="italic" fill="#000000">pronto-shop MCP</text>
+<rect x="266" y="30" width="180" height="36" rx="4" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="274" y="45.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="700" text-anchor="start" fill="#000000">public</text>
+<text x="274" y="60.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">catalog.search</text>
+<path d="M242,96 L264,48" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="266" y="74" width="180" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="274" y="89.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="700" text-anchor="start" fill="#000000">delegated</text>
+<text x="274" y="104.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">cart.add, orders.place</text>
+<path d="M242,96 L264,92" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="266" y="118" width="180" height="36" rx="4" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="274" y="133.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="700" text-anchor="start" fill="#000000">confirm</text>
+<text x="274" y="148.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">orders over $150</text>
+<path d="M242,96 L264,136" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<path d="M300,180 H420 V212 L414.0,206 L408.0,212 L402.0,206 L396.0,212 L390.0,206 L384.0,212 L378.0,206 L372.0,212 L366.0,206 L360.0,212 L354.0,206 L348.0,212 L342.0,206 L336.0,212 L330.0,206 L324.0,212 L318.0,206 L312.0,212 L306.0,206 L300.0,212 Z" fill="#ffffff" stroke="#000000" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="360" y="200.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">receipt: agent</text>
+<text x="360" y="228.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">+ customer + session</text>
+</svg>
