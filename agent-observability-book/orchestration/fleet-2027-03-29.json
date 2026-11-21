@@ -1,0 +1,152 @@
+{
+  "estate": "Pronto",
+  "as_of": "2027-03-29",
+  "window": "7d",
+  "agents": [
+    {
+      "name": "Speedy",
+      "agent_id": "agent://pronto/speedy",
+      "kind": "1P",
+      "serves": "consumers",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:customer-support",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 1206,
+      "r4_receipts_7d": 1206,
+      "note": "Book 1's support agent; the $50 rule lives in the refund tool",
+      "tower": {
+        "R3": 0,
+        "R1": 0,
+        "denies": 5,
+        "cost": "18.10",
+        "achieved": 0.91
+      }
+    },
+    {
+      "name": "Pick",
+      "agent_id": "agent://pronto/pick",
+      "kind": "1P",
+      "serves": "business",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:fulfillment",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 9402,
+      "r4_receipts_7d": 9214,
+      "note": "Allergen rules moved to the gateway; a batch path still writes R1",
+      "tower": {
+        "R3": 0,
+        "R1": 188,
+        "denies": 41,
+        "cost": "61.20",
+        "achieved": 0.97
+      }
+    },
+    {
+      "name": "Route",
+      "agent_id": "agent://pronto/route",
+      "kind": "1P",
+      "serves": "business",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:logistics",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 2180,
+      "r4_receipts_7d": 2180,
+      "note": "Durable workflows; phone bridge v2 carries trace context",
+      "tower": {
+        "R3": 0,
+        "R1": 0,
+        "denies": 3,
+        "cost": "40.95",
+        "achieved": 0.94
+      }
+    },
+    {
+      "name": "Coder",
+      "agent_id": "agent://pronto/coder",
+      "kind": "1P",
+      "serves": "business",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:platform",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 398,
+      "r4_receipts_7d": 398,
+      "note": "Own workload identity; personal token revoked",
+      "tower": {
+        "R3": 0,
+        "R1": 0,
+        "denies": 7,
+        "cost": "22.30",
+        "achieved": 0.88
+      }
+    },
+    {
+      "name": "Ledger",
+      "agent_id": "agent://payco/ledger",
+      "kind": "3P",
+      "serves": "business",
+      "found_by": "vendor-register",
+      "registered": true,
+      "owner": "team:finance",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 311,
+      "r4_receipts_7d": 0,
+      "note": "PayCo sends R3 receipts over A2A; no cost or region",
+      "tower": {
+        "R3": 311,
+        "R1": 0,
+        "denies": 2,
+        "cost": null,
+        "achieved": 0.79
+      }
+    },
+    {
+      "name": "Promo",
+      "agent_id": "agent://campaignly/promo",
+      "kind": "3P",
+      "serves": "business",
+      "found_by": "vendor-register",
+      "registered": true,
+      "owner": "team:marketing",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": false,
+      "actions_7d": 4870,
+      "r4_receipts_7d": 0,
+      "note": "Gateway policy on Pronto's MCP surface; vendor sends no traces",
+      "tower": {
+        "R3": 0,
+        "R1": 4870,
+        "denies": 19,
+        "cost": null,
+        "achieved": null
+      }
+    }
+  ],
+  "retired": [
+    {
+      "name": "Night Owl",
+      "agent_id": "agent://unregistered/night-owl",
+      "retired_on": "2027-01-29"
+    }
+  ]
+}
