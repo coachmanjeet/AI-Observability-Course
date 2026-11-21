@@ -1,0 +1,2 @@
+{"time": "2026-11-14T02:07:13Z", "event": "refund.created", "refund": "rf_9931", "order": "ord_5521", "amount": "40.00", "currency": "USD", "caller": "svc:pronto-support-runtime", "credential_issued": "2026-11-13", "credential": "service token"}
+{"time": "2026-11-14T02:11:52Z", "event": "refund.created", "refund": "rf_9934", "order": "ord_5530", "amount": "85.00", "currency": "USD", "caller": "user:emp_4410", "credential_issued": "2026-08-12", "credential": "personal token"}

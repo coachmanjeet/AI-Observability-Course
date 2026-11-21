@@ -10,11 +10,11 @@ import pytest
 import figures
 from figures import chapter02, chapter03
 
-# Chapter 4 onward: every figures/chapterNN.py exports FIGURES.
+# Every figures/chapterNN.py but 02 and 03 exports FIGURES.
 LATER = [importlib.import_module(f"figures.{m.name}")
          for m in pkgutil.iter_modules(figures.__path__)
          if re.fullmatch(r"chapter\d\d", m.name)
-         and int(m.name[-2:]) >= 4]
+         and int(m.name[-2:]) not in (2, 3)]
 
 FLEET = pathlib.Path(__file__).parent.parent / "maturity" / "fleet.json"
 
