@@ -1,0 +1,8 @@
+{
+  "name": "example.campaignly/promo",
+  "description": "Campaignly's campaign agent tools.",
+  "version": "2026.11.2",
+  "remotes": [{"type": "streamable-http",
+               "url": "https://mcp.campaignly.example/promo"}],
+  "tools": ["campaigns.create", "customers.export", "email.send"]
+}

@@ -1,0 +1,13 @@
+{
+  "protocolVersion": "1.0",
+  "name": "Ledger",
+  "description": "PayCo's card dispute agent.",
+  "url": "https://agents.payco.example/a2a/ledger",
+  "version": "4.2.0",
+  "provider": {"organization": "PayCo", "url": "https://payco.example"},
+  "capabilities": {"streaming": true},
+  "skills": [
+    {"id": "disputes.open", "name": "Open a card dispute"},
+    {"id": "disputes.status", "name": "Check a dispute"}
+  ]
+}
