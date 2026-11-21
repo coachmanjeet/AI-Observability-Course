@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="1.86in" viewBox="0 0 460 186">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="186" fill="#ffffff"/>
+<rect x="130" y="6" width="200" height="44" rx="6" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="230" y="24.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#000000">resolved in 7 days</text>
+<text x="230" y="41.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">89.3%, $0.336 each</text>
+<text x="4" y="30.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">business</text>
+<path d="M230,50 L120,74" fill="none" stroke="#000000" stroke-width="0.9"/>
+<rect x="64" y="74" width="112" height="40" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="120" y="90.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">refunded</text>
+<text x="120" y="106.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">549</text>
+<path d="M230,50 L248,74" fill="none" stroke="#000000" stroke-width="0.9"/>
+<rect x="192" y="74" width="112" height="40" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="248" y="90.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">came back</text>
+<text x="248" y="106.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">163</text>
+<path d="M230,50 L376,74" fill="none" stroke="#000000" stroke-width="0.9"/>
+<rect x="320" y="74" width="112" height="40" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="376" y="90.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">escalated</text>
+<text x="376" y="106.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">137</text>
+<text x="4" y="98.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">behavior</text>
+<path d="M120,114 L120,138" fill="none" stroke="#000000" stroke-width="0.9"/>
+<rect x="64" y="138" width="112" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="120" y="154.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">model cost</text>
+<text x="120" y="170.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">$0.015 a conv</text>
+<path d="M248,114 L248,138" fill="none" stroke="#000000" stroke-width="0.9"/>
+<rect x="192" y="138" width="112" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="248" y="154.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">timeouts</text>
+<text x="248" y="170.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">26 came back</text>
+<path d="M376,114 L376,138" fill="none" stroke="#000000" stroke-width="0.9"/>
+<rect x="320" y="138" width="112" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="376" y="154.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">people</text>
+<text x="376" y="170.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">$5.80 a contact</text>
+<text x="4" y="162.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">technical</text>
+</svg>
