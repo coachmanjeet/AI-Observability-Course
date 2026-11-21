@@ -1,0 +1,23 @@
+# What each agent's credentials allowed at the last review.
+speedy:
+  - orders:read:any
+  - orders:read:own
+  - refunds:create:any
+  - refunds:create:max_50
+  - customers:read:any
+  - customers:write:any
+  - payments:read
+coder:
+  - repo:write:platform
+  - repo:admin:platform
+tally:
+  - inventory:read
+  - inventory:write
+  - warehouse:admin
+pick:
+  - catalog:read
+  - orders:read:aggregate
+  - pricing:write
+promo:
+  - customers:read:optin
+  - email:send

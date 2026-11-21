@@ -1,0 +1,7 @@
+# The scopes each task needs, and no more.
+speedy:
+  order_status: [orders:read:own]
+  refund_damaged: [orders:read:own, refunds:create:max_50]
+  address_change: [customers:write:own]
+coder:
+  open_pr: [repo:write:platform]

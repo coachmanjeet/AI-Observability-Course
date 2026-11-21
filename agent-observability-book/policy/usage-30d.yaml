@@ -1,0 +1,15 @@
+# Calls per scope, Jan 23 to Feb 21, 2027, from receipts.
+speedy:
+  orders:read:own: 1912
+  refunds:create:max_50: 311
+coder:
+  repo:write:platform: 148
+tally:
+  inventory:read: 4020
+  inventory:write: 655
+pick:
+  catalog:read: 2210
+  orders:read:aggregate: 96
+promo:
+  customers:read:optin: 41
+  email:send: 38

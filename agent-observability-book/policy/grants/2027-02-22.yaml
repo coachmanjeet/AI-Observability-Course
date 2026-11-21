@@ -1,0 +1,25 @@
+# What each agent's credentials allow today.
+speedy:
+  - orders:read:any
+  - orders:read:own
+  - refunds:create:any
+  - refunds:create:max_50
+  - customers:read:any
+  - customers:write:any
+  - payments:read
+coder:
+  - repo:write:platform
+  - repo:admin:platform
+  - ci:secrets:read          # added Feb 9 for a release fix
+tally:
+  - inventory:read
+  - inventory:write
+  - warehouse:admin
+pick:
+  - catalog:read
+  - orders:read:aggregate
+  - pricing:write
+promo:
+  - customers:read:optin
+  - customers:read:phone     # role marketing-analyst, Feb 18
+  - email:send
