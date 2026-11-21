@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="2.14in" viewBox="0 0 460 214">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="214" fill="#ffffff"/>
+<rect x="4" y="8" width="180" height="196" rx="4" fill="none" stroke="#000000" stroke-width="1.2" stroke-dasharray="6 3.5"/>
+<text x="10" y="22.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" font-style="italic" fill="#000000">pronto-support 1.5.0</text>
+<rect x="16" y="36" width="156" height="28" rx="0" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="24" y="55.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">instructions.md</text>
+<rect x="16" y="72" width="156" height="28" rx="0" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="24" y="91.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">skills/spoiled-food.md</text>
+<rect x="16" y="108" width="156" height="28" rx="0" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="24" y="127.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">refund policy, 2026-11-16</text>
+<rect x="16" y="144" width="156" height="28" rx="0" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="24" y="163.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">order and photo records</text>
+<text x="94" y="196.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">digests + signature</text>
+<path d="M186,106 L226,106" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<polygon points="258,76 288,106 258,136 228,106" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="258" y="110.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#000000">gate</text>
+<text x="258" y="154.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">consistency,</text>
+<text x="258" y="168.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">golden cases</text>
+<path d="M290,106 L316,106" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="320" y="24" width="136" height="30" rx="5" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="328" y="44.0" font-family="'DejaVu Sans Mono', monospace" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">1.4.0</text>
+<text x="450" y="44.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="end" fill="#000000">live</text>
+<rect x="320" y="66" width="136" height="30" rx="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="328" y="86.0" font-family="'DejaVu Sans Mono', monospace" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">1.5.0-rc1</text>
+<text x="450" y="86.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="end" fill="#4d4d4d">blocked</text>
+<rect x="320" y="108" width="136" height="30" rx="5" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="328" y="128.0" font-family="'DejaVu Sans Mono', monospace" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">1.5.0</text>
+<text x="450" y="128.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="end" fill="#000000">live</text>
+<rect x="320" y="150" width="136" height="30" rx="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="328" y="170.0" font-family="'DejaVu Sans Mono', monospace" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">1.4.0</text>
+<text x="450" y="170.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="end" fill="#4d4d4d">rollback</text>
+</svg>

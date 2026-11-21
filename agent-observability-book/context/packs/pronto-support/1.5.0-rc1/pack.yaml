@@ -1,0 +1,7 @@
+id: pronto-support
+version: 1.5.0-rc1
+owner: team:customer-support
+agent: agent://pronto/speedy
+files: [instructions.md, skills/spoiled-food.md]
+policy: {id: "policy:refunds", version: "2026-11-16"}
+knowledge: ["order:*", "photo:*"]
