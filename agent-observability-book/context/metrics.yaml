@@ -1,0 +1,17 @@
+# Pronto's governed metrics (Chapter 10). One owner per metric.
+# A change to the definition is a new version, never an edit.
+substitution_acceptance_rate:
+  version: 3
+  owner: team:merchandising
+  effective: "2026-11-30"
+  description: >-
+    Share of offered substitutions the customer accepted,
+    counting each offer once, on delivered orders only.
+  grain: one row per offered substitution
+  numerator: sum(case when s.accepted then 1 else 0 end)
+  denominator: count(*)
+  from: substitutions s join orders o using (order_id)
+  where: o.status = 'delivered'
+  time: o.placed_at
+  dimensions:
+    pair: s.original || ' -> ' || s.substitute
