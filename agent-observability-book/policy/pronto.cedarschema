@@ -11,6 +11,11 @@ namespace Pronto {
       on_behalf_of: String,
       scopes: Set<String>,
       freeze: Bool,
+      approval?: {
+        role: String,
+        resource: Order,
+        amount: __cedar::decimal,
+      },
     },
   };
 }

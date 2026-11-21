@@ -1,0 +1,6 @@
+# Autonomy tiers for refunds.create (Book 1's autonomy ladder).
+# The first row whose limit covers the amount applies.
+- {up_to: "10.00", tier: act_autonomously}
+- {up_to: "50.00", tier: act_with_sampled_review, sample_pct: 5}
+- {up_to: "500.00", tier: act_with_approval}
+- {up_to: null, tier: suggest_only}

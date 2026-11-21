@@ -27,18 +27,19 @@ SATURDAY = "2026-11-14T02:07:12Z"
 
 AGENTS = {"agent://pronto/speedy": "approved",
           "agent://unregistered/night-owl": "shadow"}
-ORDERS = {"ord_5521": "cust_7f3a91", "ord_5530": "cust_2b8c04"}
+ORDERS = {"ord_5521": "cust_7f3a91", "ord_5530": "cust_2b8c04",
+          "ord_5602": "cust_7f3a91", "ord_5640": "cust_9d41e0"}
 AGENT_OF = {e["spiffe_id"]: e["agent"] for e in wl.ENTRIES}
 AGENT_OF[f"{wl.SPIFFE}/ns/support/agent/speedy"] = \
     "agent://pronto/speedy"
 
 
-def policy_set(path=POLICY):
+def policy_set(path=POLICY, version="3"):
     """Text, ids in order, and the receipt's policy_set."""
     text = path.read_text()
     digest = hashlib.sha256(text.encode()).hexdigest()
     ids = re.findall(r'@id\("([^"]+)"\)', text)
-    ref = {"id": "pronto-refunds", "version": "3",
+    ref = {"id": "pronto-refunds", "version": version,
            "digest": f"sha256:{digest}"}
     return text, ids, ref
 
@@ -62,9 +63,10 @@ def request_from(call, claims):
                         "on_behalf_of": claims["sub"]}}
 
 
-def decide(req, scopes, freeze=False, at=SATURDAY):
+def decide(req, scopes, freeze=False, at=SATURDAY,
+           policies=(POLICY, "3"), approval=None):
     """One Cedar decision, as the receipt's under_which_rule."""
-    text, ids, ref = policy_set()
+    text, ids, ref = policy_set(*policies)
     order = req["resource"].split(":", 1)[1]
     ents = [{"uid": {"type": "Pronto::Agent",
                      "id": req["subject"]},
@@ -80,6 +82,8 @@ def decide(req, scopes, freeze=False, at=SATURDAY):
            "currency": c["currency"],
            "on_behalf_of": c["on_behalf_of"],
            "scopes": list(scopes), "freeze": freeze}
+    if approval:
+        ctx["approval"] = approval
     r = cedarpy.is_authorized(
         {"principal": f'Pronto::Agent::"{req["subject"]}"',
          "action": f'Pronto::Action::"{req["action"]}"',
@@ -89,7 +93,7 @@ def decide(req, scopes, freeze=False, at=SATURDAY):
         raise RuntimeError(r.diagnostics.errors)
     allow = r.decision == cedarpy.Decision.Allow
     why = [ids[int(p.removeprefix("policy"))]
-           for p in r.diagnostics.reasons]
+           for p in r.diagnostics.reasons] or ["default-deny"]
     return {"decision": "allow" if allow else "deny",
             "engine": "cedar", "policy_set": ref,
             "determining_policies": why,
@@ -169,8 +173,7 @@ def demo():
 
 def show(d):
     why = d["determining_policies"]
-    return f"{d['decision']:<6}" + \
-        (why[0] if why else "no permit")
+    return f"{d['decision']:<6}{why[0]}"
 
 
 def main(argv=None):

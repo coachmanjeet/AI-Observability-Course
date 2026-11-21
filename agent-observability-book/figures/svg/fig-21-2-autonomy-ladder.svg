@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="2.04in" viewBox="0 0 460 204">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="204" fill="#ffffff"/>
+<rect x="70" y="20" width="234" height="36" rx="4" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="78" y="35.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="#000000">suggest only</text>
+<text x="78" y="50.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">over $500: a person acts</text>
+<rect x="48" y="64" width="256" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="56" y="79.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="#000000">act with approval</text>
+<text x="56" y="94.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">$50 to $500: a lead approves first</text>
+<rect x="26" y="108" width="278" height="36" rx="4" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="34" y="123.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="#000000">sampled review</text>
+<text x="34" y="138.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">$10 to $50: 5% checked after</text>
+<rect x="4" y="152" width="300" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="12" y="167.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="#000000">act autonomously</text>
+<text x="12" y="182.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">up to $10: watched in aggregate</text>
+<text x="330" y="20.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">if something</text>
+<text x="330" y="34.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">goes wrong</text>
+<rect x="330" y="50" width="100" height="24" rx="12" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="380" y="66.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">monitor</text>
+<path d="M380,74 L380,84" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="330" y="84" width="100" height="24" rx="12" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="380" y="100.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">restrict</text>
+<path d="M380,108 L380,118" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="330" y="118" width="100" height="24" rx="12" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="380" y="134.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">pause</text>
+<path d="M380,142 L380,152" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
+<rect x="330" y="152" width="100" height="24" rx="12" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="380" y="168.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">revoke</text>
+</svg>
