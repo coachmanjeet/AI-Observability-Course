@@ -1,0 +1,31 @@
+# Pronto's planning model for the control plane (Chapter 3).
+# Every number is an assumption to replace with your own.
+loaded_cost_per_fte: 250000     # USD a year, salary + overhead
+infra_per_agent_year: 1800  # gateway, store, telemetry share
+estates:
+  pronto:                       # 7 agents, one platform team
+    agents: 7
+    build_months: 6
+    build:                      # FTE while building
+      gateway and identity: 1.0
+      receipts and telemetry: 1.0
+      registry and tower: 0.5
+      security partner: 0.5
+    run:                        # FTE once it runs
+      platform engineering: 1.0
+      tower PM: 0.25
+      security partner: 0.25
+  large:                        # 70 agents across many teams
+    agents: 70
+    build_months: 9
+    build:
+      gateway and identity: 2.0
+      receipts and telemetry: 2.0
+      registry and tower: 1.5
+      security partner: 1.0
+      GRC partner: 0.5
+    run:
+      platform engineering: 3.0
+      tower PM: 1.0
+      security partner: 1.0
+      GRC partner: 0.5
