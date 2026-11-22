@@ -15,13 +15,13 @@ def rows():
 def test_every_requirement_has_a_check(rows):
     req = yaml.safe_load((HERE / "crosswalk.yaml").read_text())
     assert all(r["check"] in CHECKS for r in req)
-    assert len(rows) == len(req) == 14
+    assert len(rows) == len(req) == 16
 
 
 def test_counts(rows):
     s = [r["status"] for r in rows]
     assert (s.count("met"), s.count("partial"),
-            s.count("gap")) == (11, 2, 1)
+            s.count("gap")) == (13, 2, 1)
 
 
 def test_the_gap_is_the_impact_assessment(rows):
@@ -39,7 +39,8 @@ def test_one_check_serves_several_frameworks(rows):
     for r in rows:
         by.setdefault(r["check"], set()).add(r["fw"])
     assert by["receipts"] == {"EU AI Act", "ISO 42001"}
-    assert by["monitoring"] == {"ISO 42001", "NIST AI RMF"}
+    assert by["monitoring"] == {"ISO 42001", "NIST AI RMF",
+                                "SOC 2"}
 
 
 def test_tampered_receipt_fails_the_log_check(tmp_path):

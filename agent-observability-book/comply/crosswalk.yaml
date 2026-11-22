@@ -55,3 +55,11 @@
   id: "MG-4.1"
   need: post-deployment monitoring
   check: monitoring
+- fw: SOC 2
+  id: "CC6.1"
+  need: logical access
+  check: access
+- fw: SOC 2
+  id: "CC7.2"
+  need: monitor for anomalies
+  check: monitoring

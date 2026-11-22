@@ -10,7 +10,7 @@ from figures.chapter02 import receipt_strip
 from figures.notation import FILL, MID, PALE, box, svg, text
 from comply.evidence import pack
 
-FWS = ["EU AI Act", "ISO 42001", "NIST AI RMF"]
+FWS = ["EU AI Act", "ISO 42001", "NIST AI RMF", "SOC 2"]
 NAMES = {
     "receipts": "receipts + chain",
     "denies": "deny records",
@@ -23,6 +23,7 @@ NAMES = {
     "third_party": "partner receipts",
     "inventory": "registry",
     "deactivate": "pause, revoke",
+    "access": "identity, tokens",
 }
 
 
@@ -30,7 +31,7 @@ def matrix():
     """Figure 31.2. Rows: evidence. Columns: frameworks."""
     rows = pack()
     checks = list(dict.fromkeys(r["check"] for r in rows))
-    x0, y0, cw, rh = 150, 34, 96, 22
+    x0, y0, cw, rh = 128, 34, 83, 22
     body = [
         text(
             x0 + i * cw + cw / 2,
@@ -60,9 +61,9 @@ def matrix():
             kind = "3P" if st == "gap" else None
             body.append(
                 box(
-                    x0 + i * cw + 8,
+                    x0 + i * cw + 3,
                     y + 3,
-                    cw - 16,
+                    cw - 6,
                     rh - 6,
                     fill=fill,
                     r=3,

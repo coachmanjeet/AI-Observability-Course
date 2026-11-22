@@ -114,10 +114,23 @@ def deactivate():
     return ("met" if ok else "gap"), "pause, revoke tested"
 
 
+def access():
+    from identity import delegation as dg
+    from identity import workload as wl
+    svid, _ = wl.attest(wl.SPEEDY, dg.AS)
+    token, _ = dg.exchange(dg.login("cust_7f3a91"), svid,
+                           dg.ASK)
+    session = dg.login("cust_7f3a91")
+    passthrough = dg.check(session, "orders:read:own")
+    ok = token and passthrough == "wrong audience"
+    return ("met" if ok else "gap"), \
+        "own identity, 5-min tokens"
+
+
 CHECKS = {f.__name__: f for f in
           (receipts, denies, oversight, retention, disclosure,
            impact, monitoring, provenance, third_party,
-           inventory, deactivate)}
+           inventory, deactivate, access)}
 
 
 def pack():
