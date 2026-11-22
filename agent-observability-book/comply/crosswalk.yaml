@@ -1,0 +1,57 @@
+# Requirement -> the evidence check that shows it.
+- fw: EU AI Act
+  id: "Art 12(1)"
+  need: automatic event logs
+  check: receipts
+- fw: EU AI Act
+  id: "Art 12(2)"
+  need: risk and monitoring events
+  check: denies
+- fw: EU AI Act
+  id: "Art 14"
+  need: human oversight
+  check: oversight
+- fw: EU AI Act
+  id: "Art 19, 26(6)"
+  need: keep logs 6 months
+  check: retention
+- fw: EU AI Act
+  id: "Art 50(1)"
+  need: say it's an AI
+  check: disclosure
+- fw: ISO 42001
+  id: "A.5.2"
+  need: impact assessment
+  check: impact
+- fw: ISO 42001
+  id: "A.6.2.6"
+  need: operation and monitoring
+  check: monitoring
+- fw: ISO 42001
+  id: "A.6.2.8"
+  need: event logs
+  check: receipts
+- fw: ISO 42001
+  id: "A.7.5"
+  need: data provenance
+  check: provenance
+- fw: ISO 42001
+  id: "A.10.3"
+  need: suppliers
+  check: third_party
+- fw: NIST AI RMF
+  id: "GV-1.6"
+  need: AI inventory
+  check: inventory
+- fw: NIST AI RMF
+  id: "GV-6.1"
+  need: third-party risk
+  check: third_party
+- fw: NIST AI RMF
+  id: "MG-2.4"
+  need: deactivate a system
+  check: deactivate
+- fw: NIST AI RMF
+  id: "MG-4.1"
+  need: post-deployment monitoring
+  check: monitoring
