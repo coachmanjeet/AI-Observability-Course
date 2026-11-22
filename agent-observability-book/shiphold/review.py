@@ -374,6 +374,7 @@ def gates(rec):
             f"model-a retires in {days}d",
         )
     )
+    out = out[:1] + sorted(out[1:], key=lambda g: g[1])
     return out, [r["agent"] for r in rows if r["answered"] < 99]
 
 
