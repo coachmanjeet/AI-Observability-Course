@@ -1,0 +1,23 @@
+# Pronto Gov as deployed for the readiness review,
+# Nov 8, 2027 (Chapter 33). One entry per component that
+# stores, processes or moves the program's data.
+- {name: agent runtime, region: us-gov-west-1, fips: true,
+   updates: signed-import}
+- {name: model endpoint, region: us-gov-west-1, fips: true,
+   model: model-a, updates: managed}
+- {name: fallback model, region: us-gov-east-1, fips: true,
+   model: model-c, updates: managed}
+- {name: orders MCP server, region: us-gov-west-1, fips: true,
+   updates: signed-import}
+- {name: context pack registry, region: us-west-2,
+   fips: false, updates: online}
+- {name: trace export, region: us-east-1, fips: false,
+   updates: online}
+- {name: eval judge, region: us-west-2, fips: false,
+   model: commercial, updates: online}
+- {name: receipt store, region: us-gov-west-1, fips: true,
+   updates: signed-import}
+- {name: receipt signing key, region: us-gov-west-1,
+   fips: true, alg: EdDSA, updates: managed}
+- {name: support console, region: us-gov-west-1, fips: true,
+   staff: us-persons, updates: signed-import}

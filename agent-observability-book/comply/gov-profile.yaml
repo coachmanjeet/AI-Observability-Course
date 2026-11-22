@@ -1,0 +1,30 @@
+# Pronto Gov configuration profile (Chapter 33).
+# What the authorization boundary allows. Every component
+# in a deployment is checked against it.
+boundary: pronto-gov
+certification: FedRAMP Class C (Moderate)
+regions: [us-gov-west-1, us-gov-east-1]
+fips_required: true
+egress: deny
+air_gapped: false
+staff: us-persons
+# models authorized for use inside the boundary
+models:
+  model-a: {status: authorized, retires: 2028-03-01}
+  model-b: {status: authorized}
+  model-c: {status: in-progress}
+# FIPS 186-5 signature algorithms for receipts
+algorithms: [ES256, EdDSA, PS256]
+# continuous monitoring checks; automated or attested
+monitoring:
+  - {check: receipts in boundary regions, automated: true}
+  - {check: models on authorized list, automated: true}
+  - {check: receipt signatures valid, automated: true}
+  - {check: hash chain unbroken, automated: true}
+  - {check: egress denied by default, automated: true}
+  - {check: FIPS endpoints only, automated: true}
+  - {check: grants match usage, automated: true}
+  - {check: vulnerability scan, automated: true}
+  - {check: config drift, automated: true}
+  - {check: support staff are US persons, automated: false}
+  - {check: incident response exercise, automated: false}
