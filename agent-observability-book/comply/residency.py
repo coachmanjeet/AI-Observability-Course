@@ -1,4 +1,4 @@
-"""Data residency for agents and their records (Chapter 32).
+"""Residency and localization for agents (Chapter 32).
 
 Usage: python -m comply.residency [OUT_DIR]
 
@@ -20,6 +20,25 @@ RESTRICTED = {"personal", "metadata"}
 TENANTS = {"tenant:pronto": "US", "tenant:fresca": "EU"}
 MODELS = {"US": ["us-west-2", "us-east-1"],
           "EU": ["eu-west-1", "eu-central-1"]}
+
+
+# one agent version, localized by profile, not by fork
+AGENT = "agent://pronto/speedy@2.3.1"
+LOCALES = {
+    "tenant:pronto": {"locale": "en-US", "currency": "USD",
+                      "refund_limit": "50.00",
+                      "pack": "pronto-support@1.4.0",
+                      "memory": "us-west-2"},
+    "tenant:fresca": {"locale": "en-IE", "currency": "EUR",
+                      "refund_limit": "45.00",
+                      "pack": "pronto-support-ie@1.0.0",
+                      "memory": "eu-west-1"},
+}
+
+
+def localize(tenant):
+    """The profile an agent runs with for this tenant."""
+    return {"agent": AGENT, **LOCALES[tenant]}
 
 
 def allowed(tenant, region, data):
@@ -78,6 +97,12 @@ def main(argv=None):
     print(f"a residency-blind failover would pick {blind}")
     us_model, _ = conversation("tenant:pronto")
     w = where("tenant:fresca", model, "eu-west-1")
+    print("localized, same agent " + AGENT.split("@")[1] + ":")
+    for t in ("tenant:pronto", "tenant:fresca"):
+        L = localize(t)
+        print(f"  {t[7:]:<7}{L['locale']:<7}{L['currency']} "
+              f"{L['refund_limit']:<7}{L['pack']:<24}"
+              f"{L['memory']}")
     print("receipt where:")
     for k, v in w.items():
         print(f"  {k:<22}{v}")

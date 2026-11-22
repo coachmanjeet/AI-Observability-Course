@@ -40,3 +40,12 @@ def test_where_matches_chapter_2():
                         "02-speedy-refund-40.json"))["where"]
     model = pick_model("tenant:pronto")
     assert where("tenant:pronto", model, "us-west-2") == ex
+
+
+def test_localized_without_forking():
+    from comply.residency import localize
+    us, ie = localize("tenant:pronto"), localize("tenant:fresca")
+    assert us["agent"] == ie["agent"]
+    assert (us["currency"], ie["currency"]) == ("USD", "EUR")
+    assert us["pack"] != ie["pack"]
+    assert allowed("tenant:fresca", ie["memory"], "personal")
