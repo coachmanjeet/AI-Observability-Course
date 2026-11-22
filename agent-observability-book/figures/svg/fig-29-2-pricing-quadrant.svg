@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4.6in" height="2.4in" viewBox="0 0 460 240">
+<defs><marker id="call" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="trace" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#000000" stroke-width="1.3"/></marker></defs>
+<rect width="460" height="240" fill="#ffffff"/>
+<rect x="40" y="12" width="400" height="200" rx="0" fill="none" stroke="#000000" stroke-width="1.4"/>
+<path d="M240.0,12 L240.0,212" fill="none" stroke="#000000" stroke-width="1.4" stroke-dasharray="3 4"/>
+<path d="M40,112.0 L440,112.0" fill="none" stroke="#000000" stroke-width="1.4" stroke-dasharray="3 4"/>
+<text x="240.0" y="230.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#4d4d4d">predictable for the buyer →</text>
+<text x="16" y="112.0" font-family="Inter, sans-serif" font-size="11.5" fill="#4d4d4d" text-anchor="middle" transform="rotate(-90 16 112.0)">tracks value →</text>
+<rect x="394.0" y="174.0" width="12" height="12" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="390.0" y="184.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="end" fill="#000000">per seat</text>
+<rect x="314.0" y="134.0" width="12" height="12" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="330.0" y="144.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">credits</text>
+<rect x="218.0" y="146.0" width="12" height="12" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="234.0" y="156.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">per action</text>
+<rect x="154.0" y="190.0" width="12" height="12" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="170.0" y="200.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">per conversation</text>
+<rect x="122.0" y="34.0" width="12" height="12" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="138.0" y="44.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">per outcome</text>
+<rect x="290.0" y="58.0" width="12" height="12" rx="6" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="306.0" y="68.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">base + outcome</text>
+</svg>
