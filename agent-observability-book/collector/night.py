@@ -120,7 +120,7 @@ def night(n=1000, seed=2026):
     ids = otlp.FixedIds([f"{rng.getrandbits(128):032x}"
                          for _ in range(n + 1)], seed=seed)
     tracer, exporter = otlp.tracer(ids)
-    world = World()
+    world = World(refund_seq=7001)
     spans = GenAISpans(tracer, world.clock, decisions=True)
     saved = os.environ.get(CAPTURE)
     try:
