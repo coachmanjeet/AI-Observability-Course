@@ -31,4 +31,5 @@ jobs:
           curl -sSL -o otelcol.tgz "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v${V}/otelcol-contrib_${V}_linux_amd64.tar.gz"
           tar xzf otelcol.tgz otelcol-contrib
           ./otelcol-contrib validate --config collector/pronto-collector.yaml
+      - run: make shiphold                # Chapter 34: the review, every push
       - run: git diff --exit-code receipts/examples traces   # outputs are current
