@@ -5,9 +5,9 @@ Usage: python -m shiphold.review [OUT_DIR]
 Three parts. First, assemble the full receipt for Saturday's
 $40 refund from the outputs the chapters' labs wrote, tag each
 field with the chapter that produced it, seal it and sign it.
-Second, run the launch review: twelve gates, each a live check
-against a chapter's lab. Third, turn every condition and hold
-into a dated 90-day plan with an owner.
+Second, run the launch review: thirteen gates, each a live
+check against a chapter's lab. Third, turn every condition and
+hold into a dated 90-day plan with an owner.
 
 Run after the other labs (make all), so build/ is filled.
 """
@@ -207,7 +207,7 @@ def show_receipt(rec, tags):
 
 
 def gates(rec):
-    """Twelve gates: (name, chapter, status, detail)."""
+    """Thirteen gates: (name, chapter, status, detail)."""
     # imported here so the receipt prints even if a lab moved
     from comply import evidence, govcloud, residency
     from orchestration import tower as tw
@@ -266,6 +266,18 @@ def gates(rec):
             19,
             "pass" if passed == total else "hold",
             f"{passed} of {total}",
+        )
+    )
+    from policy.boundary import run as only_path
+    path = {label: outcome for label, outcome, _ in only_path()}
+    alone = path["direct, Speedy's own token"] == "reject" and \
+        path["engine down, refund $40"] == "deny"
+    out.append(
+        (
+            "only path",
+            19,
+            "pass" if alone else "hold",
+            "direct calls rejected",
         )
     )
     rows, _ = redteam.attacks()
@@ -471,9 +483,9 @@ def main(argv=None):
         (out / "tags.json").write_text(
             json.dumps(tags, indent=2) + "\n"
         )
+        seal = {"integrity": rec["integrity"]}
         (out / "integrity.json").write_text(
-            json.dumps({"integrity": rec["integrity"]}, indent=2)
-            + "\n"
+            json.dumps(seal, indent=2) + "\n"
         )
 
 

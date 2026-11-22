@@ -42,7 +42,7 @@ def test_signature_verifies():
 def test_review_holds_only_low_receipt_agents():
     rec, _, _ = assemble()
     results, held = gates(rec)
-    assert len(results) == 12
+    assert len(results) == 13
     assert held == ["Ledger", "Promo"]
     holds = [r[0] for r in results if r[2] == "hold"]
     assert holds == ["receipts answer 7"]
