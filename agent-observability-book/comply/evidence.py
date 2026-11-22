@@ -47,6 +47,18 @@ def denies():
         f"{len(records)} deny records"
 
 
+def risk_events():
+    """Art 12(2): risk, post-market and deployer monitoring."""
+    flagged, _ = denies()
+    path = EXAMPLES / "03-outcome-refund-40.json"
+    outcome = json.loads(path.read_text())
+    watched, _ = monitoring()
+    ok = flagged == watched == "met" and \
+        outcome["record_type"] == "outcome"
+    return ("met" if ok else "gap"), \
+        "denies, outcomes, canary"
+
+
 def oversight():
     from policy.oversight import respond, tier_for
     ok = tier_for("85.00")["tier"] == "act_with_approval" and \
@@ -128,7 +140,8 @@ def access():
 
 
 CHECKS = {f.__name__: f for f in
-          (receipts, denies, oversight, retention, disclosure,
+          (receipts, risk_events, oversight, retention,
+           disclosure,
            impact, monitoring, provenance, third_party,
            inventory, deactivate, access)}
 

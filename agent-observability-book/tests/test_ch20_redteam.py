@@ -40,3 +40,10 @@ def test_every_blocked_gateway_call_has_a_deny_record():
                and r["did_what"]["effect"]["status"] == "blocked"
                for r in records)
     assert sum(r["count"] for r in records) == 29
+
+
+def test_breaker_lets_three_through_and_one_refund_lands():
+    from policy.redteam import LOOP, attacks
+    attacks()
+    attacks()
+    assert LOOP == {"issued": 1, "already": 2, "blocked": 22}

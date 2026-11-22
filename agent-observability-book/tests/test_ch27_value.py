@@ -61,3 +61,19 @@ def test_receipt_outcome_starts_pending():
     assert ex["did_what"]["outcome"]["status"] == "pending"
     assert ex["did_what"]["outcome"]["metric"] == \
         "resolved_without_escalation_within_7d"
+
+
+def test_comebacks_add_up_by_cause():
+    from collections import Counter
+    from metering.traffic import month
+    from metering.value import START, by_conversation, outcomes
+    spans, convs = month("tenant:pronto", START, 28)
+    per = by_conversation(spans)
+    back = [r for r in outcomes(convs, per)
+            if r["why"] == "came back"]
+    last = Counter(per[r["conversation_id"]]["tools"][-1]
+                   for r in back if not r["timeout"])
+    assert len(back) == 163
+    assert sum(r["timeout"] for r in back) == 26
+    assert last == {"orders.get": 83, "photos.verify": 41,
+                    "refunds.create": 13}

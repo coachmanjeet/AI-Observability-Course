@@ -5,8 +5,8 @@
   check: receipts
 - fw: EU AI Act
   id: "Art 12(2)"
-  need: risk and monitoring events
-  check: denies
+  need: logs fit for risk, post-market, deployer monitoring
+  check: risk_events
 - fw: EU AI Act
   id: "Art 14"
   need: human oversight

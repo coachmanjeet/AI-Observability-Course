@@ -13,7 +13,7 @@ from comply.evidence import pack
 FWS = ["EU AI Act", "ISO 42001", "NIST AI RMF", "SOC 2"]
 NAMES = {
     "receipts": "receipts + chain",
-    "denies": "deny records",
+    "risk_events": "risk events",
     "oversight": "tiers, approvals",
     "retention": "retention",
     "disclosure": "AI disclosure",

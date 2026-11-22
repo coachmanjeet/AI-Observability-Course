@@ -81,15 +81,20 @@ def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     good, bad, out = simulate()
     print("Pricing simulator, Feb 2027, three pilot tenants")
-    print(f"{'model':<17}{'hilltop':>8}{'corner':>8}"
-          f"{'bayside':>8}{'margin':>7}{'$/res':>7}{'bad':>6}")
+    print(f"{'usage':<16}{'hilltop':>10}{'corner':>10}"
+          f"{'bayside':>10}")
+    for k in ("conversations", "actions", "resolved", "seats"):
+        print(f"{k:<16}" + "".join(f"{good[t][k]:>10,}"
+                                   for t in PILOTS))
+    print(f"{'bill':<16}{'hilltop':>10}{'corner':>10}"
+          f"{'bayside':>10}{'margin':>7}{'$/res':>6}{'bad':>5}")
     for name, r in out.items():
         b = r["bills"]
-        print(f"{name:<17}"
-              + "".join(f"{'$' + format(b[t], ',.0f'):>8}"
+        print(f"{name:<16}"
+              + "".join(f"{'$' + format(b[t], ',.2f'):>10}"
                         for t in PILOTS)
-              + f"{r['margin']:>7.0%}{r['per_resolved']:>7.2f}"
-              + f"{r['bad_month']:>+6.0%}")
+              + f"{r['margin']:>7.0%}{r['per_resolved']:>6.2f}"
+              + f"{r['bad_month']:>+5.0%}")
     res = sum(g["resolved"] for g in good.values())
     worse = sum(b["resolved"] for b in bad.values())
     print(f"bad month: timeouts 8%, resolved {res:,} "

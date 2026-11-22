@@ -22,8 +22,11 @@ from context.memory import MemoryStore
 from identity import delegation as dg
 from identity import workload as wl
 from policy import gateway as gw
+from pronto.tools import AlreadyRefunded, refunds_create
+from pronto.world import World
 
 AT = "2027-03-01T10:00:00Z"
+LOOP = {"issued": 0, "already": 0, "blocked": 0}
 
 
 def digest(obj):
@@ -151,10 +154,23 @@ def attacks():
         deny("ASI07", "unknown", "a2a.handoff", "agent:speedy",
              "gateway", why))
 
+    # the calls the breaker lets through still reach the refund
+    # service, which refunds an order once
     breaker, denied = Breaker(), 0
+    world = World(refund_seq=8001)
+    LOOP.update(issued=0, already=0)
     for _ in range(25):
         if not breaker.allow(("refunds.create", "ord_5521")):
             denied += 1
+            continue
+        try:
+            refunds_create(world, {"order_id": "ord_5521",
+                                   "amount": "40.00",
+                                   "currency": "USD"})
+            LOOP["issued"] += 1
+        except AlreadyRefunded:
+            LOOP["already"] += 1
+    LOOP["blocked"] = denied
     add("ASI08", "retry loop, 25 refunds", denied == 22,
         "circuit breaker",
         deny("ASI08", SPEEDY, "refunds.create",
@@ -211,6 +227,9 @@ def main(argv=None):
           f"false blocks {len(ok) - sum(ok)} of {len(ok)}")
     print(f"deny records: {len(records)} "
           f"(for {calls} blocked calls)")
+    print(f"retry loop: {LOOP['issued']} refund issued, "
+          f"{LOOP['already']} already refunded, "
+          f"{LOOP['blocked']} blocked")
     if argv:
         out = pathlib.Path(argv[0])
         out.mkdir(parents=True, exist_ok=True)
