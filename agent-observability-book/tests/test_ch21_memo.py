@@ -23,8 +23,26 @@ def test_break_even_covers_total_spend():
 
 
 def test_both_arms_share_one_customer_outcome():
-    assert M["customer"] == M["first"] - 163
+    a = M["arm"]
+    assert a["confirmed"] == M["customer"] < M["first"] - 163
     assert M["customer"] > M["resolved"]      # escalations count
+    assert a["mature"] + a["pending"] == a["contacts"] == M["first"]
+
+
+def test_an_arm_counts_pending_out_and_unknown_in():
+    rows = ([{"customer": "resolved"}] * 90
+            + [{"customer": "not resolved"}] * 5
+            + [{"customer": "unknown"}] * 3
+            + [{"customer": "pending"}] * 2)
+    a = memo.arm(rows)
+    assert (a["mature"], a["pending"], a["unknown"]) == (98, 2, 3)
+    assert a["rate"] == 90 / 98
+
+
+def test_the_gate_waits_for_the_last_june_decline():
+    from datetime import date, timedelta
+    last = date(2027, 6, 30) + timedelta(days=30)
+    assert date(2027, 8, 2) > last > date(2027, 7, 19)
 
 
 def test_gate_has_three_answers():
@@ -40,7 +58,7 @@ def test_one_month_at_ten_percent_cannot_settle_two_points():
     assert b < float(memo.TOLERANCE) * 100
 
 
-def test_fully_loaded_cost_includes_every_line():
+def test_cost_per_confirmed_resolution_includes_every_line():
     people = memo.HUMAN_PER_CONTACT * 137
-    assert M["loaded"] == (M["total"] + people) / M["resolved"]
-    assert round(M["loaded"], 2) == memo.D("2.24")
+    assert M["loaded"] == (M["total"] + people) / M["customer"]
+    assert round(M["loaded"], 2) == memo.D("2.13")

@@ -10,17 +10,17 @@ from figures.notation import (FILL, MID, PALE, box, boundary, line,
                               svg, text)
 
 TOP = ("2,800 first contacts = 2,500 + 163 + 137",
-       "$0.336 per resolved, model + escalation")
-MID_ROW = [("resolved", "2,500, 89.3%"), ("came back", "163"),
-           ("escalated", "137")]
-LOW_ROW = [("refunds", "549; 13 came back"),
-           ("timeouts", "26 came back"),
-           ("model, people", "$0.015; $5.80")]
+       "2,628 confirmed customer resolutions")
+MID_ROW = [("resolved by Speedy", "2,500, 89.3%"),
+           ("came back", "163"),
+           ("escalated", "137; 128 confirmed")]
+LOW_ROW = [("refunds 549", "536 resolved, 13 came back"),
+           ("timeouts 32", "26 came back, 6 resolved")]
 
 
 def driver_tree():
-    """Figure 21.1. One outcome split three ways, and the drivers
-    that cut across the split."""
+    """Figure 21.1. One cohort split three ways that add up, and two
+    drivers that cut across the split."""
     body = [box(80, 6, 300, 44, fill=FILL, r=6),
             text(230, 24, TOP[0], size=12, weight=700,
                  anchor="middle"),
@@ -35,14 +35,14 @@ def driver_tree():
                  text(x + 62, 106, b, size=11.5,
                       anchor="middle")]
     body.append(text(4, 98, "behavior", size=11.5, fill=MID))
-    body.append(boundary(56, 126, 400, 84,
-                         "drivers that cut across all three"))
+    body.append(boundary(66, 126, 390, 84,
+                         "drivers that overlap the groups"))
     for i, (a, b) in enumerate(LOW_ROW):
-        x = 62 + i * 132
-        body += [box(x, 148, 124, 40, r=6),
-                 text(x + 62, 164, a, size=12, weight=600,
+        x = 72 + i * 190
+        body += [box(x, 148, 182, 40, r=6),
+                 text(x + 91, 164, a, size=12, weight=600,
                       anchor="middle"),
-                 text(x + 62, 180, b, size=11.5,
+                 text(x + 91, 180, b, size=11.5,
                       anchor="middle")]
     body.append(text(4, 172, "technical", size=11.5, fill=MID))
     return svg(216, body)

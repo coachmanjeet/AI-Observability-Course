@@ -3,11 +3,11 @@
 <rect width="460" height="216" fill="#ffffff"/>
 <rect x="80" y="6" width="300" height="44" rx="6" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
 <text x="230" y="24.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#000000">2,800 first contacts = 2,500 + 163 + 137</text>
-<text x="230" y="41.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">$0.336 per resolved, model + escalation</text>
+<text x="230" y="41.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">2,628 confirmed customer resolutions</text>
 <text x="4" y="30.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">business</text>
 <path d="M230,50 L124,74" fill="none" stroke="#000000" stroke-width="0.9"/>
 <rect x="62" y="74" width="124" height="40" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
-<text x="124" y="90.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">resolved</text>
+<text x="124" y="90.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">resolved by Speedy</text>
 <text x="124" y="106.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">2,500, 89.3%</text>
 <path d="M230,50 L256,74" fill="none" stroke="#000000" stroke-width="0.9"/>
 <rect x="194" y="74" width="124" height="40" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
@@ -16,18 +16,15 @@
 <path d="M230,50 L388,74" fill="none" stroke="#000000" stroke-width="0.9"/>
 <rect x="326" y="74" width="124" height="40" rx="6" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
 <text x="388" y="90.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">escalated</text>
-<text x="388" y="106.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">137</text>
+<text x="388" y="106.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">137; 128 confirmed</text>
 <text x="4" y="98.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">behavior</text>
-<rect x="56" y="126" width="400" height="84" rx="4" fill="none" stroke="#000000" stroke-width="1.2" stroke-dasharray="6 3.5"/>
-<text x="62" y="140.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" font-style="italic" fill="#000000">drivers that cut across all three</text>
-<rect x="62" y="148" width="124" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
-<text x="124" y="164.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">refunds</text>
-<text x="124" y="180.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">549; 13 came back</text>
-<rect x="194" y="148" width="124" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
-<text x="256" y="164.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">timeouts</text>
-<text x="256" y="180.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">26 came back</text>
-<rect x="326" y="148" width="124" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
-<text x="388" y="164.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">model, people</text>
-<text x="388" y="180.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">$0.015; $5.80</text>
+<rect x="66" y="126" width="390" height="84" rx="4" fill="none" stroke="#000000" stroke-width="1.2" stroke-dasharray="6 3.5"/>
+<text x="72" y="140.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" font-style="italic" fill="#000000">drivers that overlap the groups</text>
+<rect x="72" y="148" width="182" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="163" y="164.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">refunds 549</text>
+<text x="163" y="180.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">536 resolved, 13 came back</text>
+<rect x="262" y="148" width="182" height="40" rx="6" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+<text x="353" y="164.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#000000">timeouts 32</text>
+<text x="353" y="180.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">26 came back, 6 resolved</text>
 <text x="4" y="172.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">technical</text>
 </svg>
