@@ -135,7 +135,7 @@ def main(argv=None):
     print(f"all-in per resolved      ${t['all_in']:.3f}")
     print(f"refunds paid             ${t['paid']:,.2f} on "
           f"{t['refunds']} refunds")
-    print(f"same contacts by people  ${t['human']:,.2f}")
+    print(f"scenario: all by people  ${t['human']:,.2f}")
     if argv:
         out = pathlib.Path(argv[0])
         out.mkdir(parents=True, exist_ok=True)
