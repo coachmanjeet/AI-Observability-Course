@@ -1,7 +1,8 @@
 """Chapter 18: least privilege and authorization drift."""
 import json
 
-from policy.privilege import RISKY, covers, review, task_scopes
+from policy.privilege import (RISKY, covers, load, review,
+                              task_scopes)
 
 
 def test_scope_hierarchy():
@@ -47,3 +48,12 @@ def test_refund_scopes_match_chapter_2():
                         "02-speedy-refund-40.json"))
     assert task_scopes("speedy", "refund_damaged") == \
         ex["for_whom"]["scopes"]
+
+
+def test_carried_scopes_do_not_count_as_used():
+    # Promo's tokens carry the phone scope on every call, but no
+    # call needed it, so the review still lists it as unused.
+    rep = review()
+    assert "customers:read:phone" in rep["promo"]["unused"]
+    carried = load("carried-30d.yaml")
+    assert carried["promo"]["customers:read:phone"]["used"] == 0

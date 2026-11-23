@@ -4,7 +4,9 @@ Usage: python -m policy.privilege [OUT_DIR]
 
 Compares three things for each agent: what its credentials allow
 (grants), what it used in the last 30 days (from receipts), and
-what its tasks need. The difference is the permission diff:
+what its tasks need. Used means the gateway checked the scope to
+allow a call, not that the call's token carried it. The
+difference is the permission diff:
 unused grants to remove, risky ones first, drift since the last
 review, and a token per task sized to that task alone.
 """
@@ -97,6 +99,12 @@ def show(rep):
     for a, r in rep.items():
         for s in r["drift"]:
             lines.append(f"  {a:<7} + {s}")
+    lines.append("Carried in tokens versus used by calls")
+    for a, scopes in load("carried-30d.yaml").items():
+        for s, n in scopes.items():
+            c, u = n["carried"], n["used"]
+            lines.append(f"  {a:<7} {s:<22} carried "
+                         f"{c:>3}  used {u:>3}")
     sp = rep["speedy"]
     lines.append("Speedy, proposed grants")
     lines.append("  keep    " + ", ".join(sp["keep"]))

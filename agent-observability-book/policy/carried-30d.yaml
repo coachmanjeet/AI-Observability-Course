@@ -1,0 +1,8 @@
+# Calls per scope, Jan 23 to Feb 21, 2027, from receipts,
+# counted two ways. carried: the call's token held the scope
+# (for_whom.scopes). used: the gateway checked the scope to
+# allow the call. Only `used` counts as use.
+speedy:
+  refunds:create:max_50: {carried: 664, used: 311}
+promo:
+  customers:read:phone: {carried: 79, used: 0}
