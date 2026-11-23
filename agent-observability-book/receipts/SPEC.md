@@ -39,9 +39,9 @@ Model calls and plain reads of non-sensitive data don't get receipts; the trace 
 
 | Question | Section | Key fields | Filled in by (chapter) |
 | --- | --- | --- | --- |
-| Who acted? | `who` | `agent_id`, `agent_version`, `kind` (first-party, third-party, shadow), `owner`, `registry_ref`, `workload_id` | 4, 15, 16 |
+| Who acted? | `who` | `agent_id`, `agent_version`, `kind` (first-party, third-party, shadow), `owner`, `registry_ref`, `workload_id`, `identity` (verified or claimed) | 4, 15, 16 |
 | For whom? | `for_whom` | `principal_id`, `tenant_id`, `scopes`, `delegation_chain`, `token_ref` | 17, 18 |
-| Knowing what? | `knowing_what` | `model`, `context_pack`, `sources` (with version, authority, sensitivity), `memory_reads` | 6, 9, 11, 12, 13 |
+| Knowing what? | `knowing_what` | `model`, `context_pack`, `sources` (with version, authority, sensitivity, origin, trust), `memory_reads` | 6, 9, 11, 12, 13 |
 | Under which rule? | `under_which_rule` | `decision`, `policy_set`, `determining_policies`, `enforcement_point`, `autonomy_tier`, `approvals`, `request` | 19, 21 |
 | Doing what? | `did_what` | `action`, `effect`, `outcome` | 4, 5, 8, 27 |
 | At what cost? | `at_what_cost` | `tokens`, `model_cost`, `billable` meters | 7, 28 |
@@ -64,7 +64,7 @@ A receipt can be useful before it is complete. Each level requires the sections 
 | R1 | Traced | `who`, `did_what`, `evidence`, `consequence` | Which agent did what, and where the trace is |
 | R2 | Identified | `for_whom` | On whose behalf, with which scopes |
 | R3 | Bounded | `knowing_what`, `under_which_rule` | What it knew, and which rule allowed it |
-| R4 | Accountable | `at_what_cost`, `where`, `integrity` | All seven questions, tamper-evident |
+| R4 | Accountable | `at_what_cost`, `where`, `integrity`; `who.identity` and each source's `origin` and `trust` | All seven questions, tamper-evident, with the actor's verification and each source's origin stated |
 
 An estate reaches maturity level 5 (Accountable) in Chapter 3's model when every consequential action produces an R4 receipt.
 
@@ -73,6 +73,8 @@ An estate reaches maturity level 5 (Accountable) in Chapter 3's model when every
 The schema (`agent-receipt.schema.json`) is the full reference. These are the semantics that matter most.
 
 - **`who.kind: shadow`** marks an agent caught at a gateway but missing from the registry. `owner: "unknown"` is itself a finding.
+- **`who.identity`** is `verified` only when the enforcement point attested the workload itself and wrote `workload_id`; the schema rejects `verified` without it. Everything else is `claimed`: a name from a hostname, a partner's session or a registry lookup with no credential behind it. Required at R4 (Chapter 16).
+- **`knowing_what.sources[].origin`** says who wrote the content: `pronto`, `customer`, `partner` or `public`. It is not the same as `authority`, which says who vouches for the record. **`trust`** says how the agent may use it: `authoritative` records decide, `evidence` is weighed, `data` never instructs. Both are required on every source at R4, so a receipt alone shows when an agent read content from outside the company (Chapter 9).
 - **`for_whom.delegation_chain`** has one entry per hop. It is built from OAuth 2.0 token exchange (RFC 8693) actor claims, and scopes should narrow at each hop.
 - **`for_whom.token_ref`** is a digest of the token's ID, never the token.
 - **`knowing_what.sources[].version`** is an ETag, commit, or effective date. It must let a reviewer fetch exactly what the agent read.

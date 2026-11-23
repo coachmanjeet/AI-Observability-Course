@@ -24,6 +24,7 @@ SPEEDY = {
     "owner": "team:customer-support",
     "registry_ref": "registry://pronto/agents/speedy@2.3.1",
     "workload_id": "spiffe://pronto.example/ns/support/agent/speedy",
+    "identity": "verified",
     "runtime": "pronto-support-runtime",
 }
 FOR_CUSTOMER = {
@@ -102,11 +103,14 @@ refund = {
         "context_pack": CONTEXT_PACK,
         "sources": [
             {"id": "order:ord_5521", "uri": "orders://ord_5521", "version": "etag-9f2c",
-             "retrieved_at": "2026-11-14T02:06:41Z", "authority": "system:orders", "sensitivity": "confidential"},
+             "retrieved_at": "2026-11-14T02:06:41Z", "authority": "system:orders", "sensitivity": "confidential",
+             "origin": "pronto", "trust": "authoritative"},
             {"id": "policy:refunds", "uri": "kb://pronto/policies/refunds", "version": "2026-10-01",
-             "retrieved_at": "2026-11-14T02:06:45Z", "authority": "team:finance", "sensitivity": "internal"},
+             "retrieved_at": "2026-11-14T02:06:45Z", "authority": "team:finance", "sensitivity": "internal",
+             "origin": "pronto", "trust": "authoritative"},
             {"id": "photo:photo_7c1", "uri": "photos://photo_7c1", "version": "etag-41c7",
-             "retrieved_at": "2026-11-14T02:06:52Z", "authority": "system:photos", "sensitivity": "confidential"},
+             "retrieved_at": "2026-11-14T02:06:52Z", "authority": "system:photos", "sensitivity": "confidential",
+             "origin": "customer", "trust": "evidence"},
         ],
         "memory_reads": [{"store_id": "mem://pronto/support/cust_7f3a91", "record_count": 2}],
     },
@@ -167,7 +171,7 @@ night_owl = {
     "conformance": "R1",
     "consequence": {"side_effect": "financial", "reason": "Issued a refund through the payments API"},
     "who": {"agent_id": "agent://unregistered/night-owl", "agent_name": "Night Owl", "agent_version": "unknown",
-            "kind": "shadow", "owner": "unknown", "runtime": "analyst-laptop"},
+            "kind": "shadow", "owner": "unknown", "identity": "claimed", "runtime": "analyst-laptop"},
     "did_what": {
         "action": {"operation": "execute_tool", "tool": "payments.refund", "via": "api", "target": "order:ord_5530",
                    "arguments_digest": digest({"order_id": "ord_5530", "amount": "85.00", "currency": "USD"})},

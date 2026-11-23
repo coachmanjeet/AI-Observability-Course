@@ -113,8 +113,10 @@ def main(argv=None):
         claims = jwt.decode(token, options={"verify_signature": False})
         (out / "speedy-svid-claims.json").write_text(
             json.dumps(claims, indent=2) + "\n")
+        # attested here, so the receipt says verified (Appendix A)
+        who = {"workload_id": claims["sub"], "identity": "verified"}
         (out / "who-workload.json").write_text(json.dumps(
-            {"who": {"workload_id": claims["sub"]}}, indent=2) + "\n")
+            {"who": who}, indent=2) + "\n")
 
 
 if __name__ == "__main__":

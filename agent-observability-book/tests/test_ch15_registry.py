@@ -48,10 +48,12 @@ def test_third_party_records_come_from_their_own_cards():
     assert "disputes.open" in ledger["capabilities"]
 
 
-def test_who_matches_chapter_2_except_workload_id():
+def test_who_matches_chapter_2_except_attestation():
+    # workload_id and identity come from attestation (Ch 16)
     reg = build()
     who = reg.who("agent://pronto/speedy", "pronto-support-runtime")
     ex = json.loads(open("receipts/examples/"
                          "02-speedy-refund-40.json").read())["who"]
     ex.pop("workload_id")
+    ex.pop("identity")
     assert who == ex

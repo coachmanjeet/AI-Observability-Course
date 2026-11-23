@@ -15,6 +15,7 @@
     "owner": "team:customer-support",
     "registry_ref": "registry://pronto/agents/speedy@2.3.1",
     "workload_id": "spiffe://pronto.example/ns/support/agent/speedy",
+    "identity": "verified",
     "runtime": "pronto-support-runtime"
   },
   "for_whom": {
@@ -134,6 +135,6 @@
   "integrity": {
     "canonicalization": "JCS-RFC8785",
     "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-    "hash": "sha256:ef2e907965fd7dad1d65db137392eef9160aa4a75a4ccef39dfd74de19a051f1"
+    "hash": "sha256:b4b477a85e20290866114a6f48006d2f4412b92a9fbf6ef1d1b508dfd9e0e9cd"
   }
 }

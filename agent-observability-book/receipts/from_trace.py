@@ -96,7 +96,8 @@ def knowing(s, by_id):
                         "version": r["pronto.source.version"],
                         "retrieved_at": iso(read["end"]),
                         **{k: entry[k] for k in ("authority",
-                                                 "sensitivity")
+                                                 "sensitivity",
+                                                 "origin", "trust")
                            if k in entry}})
     return {"model": model, "sources": sources}
 

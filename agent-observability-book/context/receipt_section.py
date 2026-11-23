@@ -3,7 +3,8 @@
 Chapter 9: knowing_what.sources for Speedy's $40 refund. The trace
 (Chapter 6) says which records the deciding model call saw and in
 which version; the catalog (Chapter 9) adds where each lives, who
-vouches for it and how sensitive it is.
+vouches for it, how sensitive it is, who wrote it and how far the
+agent may rely on it.
 """
 import pathlib
 from datetime import datetime, timezone
@@ -14,6 +15,8 @@ from telemetry import otlp
 
 TRACES = pathlib.Path(__file__).parent.parent / "traces"
 REFUND_TRACE = "4bf92f3577b34da6a3ce929d0e0e4736"
+# Chapter 9's rule: Pronto's records decide, customers' are weighed
+TRUST = {"pronto": "authoritative", "customer": "evidence"}
 
 
 def iso(ns):
@@ -35,7 +38,9 @@ def sources(spans, action):
                     "version": version,
                     "retrieved_at": iso(read["end"]),
                     "authority": entry["authority"],
-                    "sensitivity": entry["sensitivity"]})
+                    "sensitivity": entry["sensitivity"],
+                    "origin": entry["origin"],
+                    "trust": TRUST.get(entry["origin"], "data")})
     return out
 
 

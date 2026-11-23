@@ -99,8 +99,34 @@
         },
         "runtime": {
           "type": "string"
+        },
+        "identity": {
+          "enum": [
+            "verified",
+            "claimed"
+          ],
+          "description": "verified only when the enforcement point attested the workload and wrote workload_id; anything else is claimed"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "identity": {
+                "const": "verified"
+              }
+            },
+            "required": [
+              "identity"
+            ]
+          },
+          "then": {
+            "required": [
+              "workload_id"
+            ]
+          }
+        }
+      ]
     },
     "for_whom": {
       "type": "object",
@@ -254,6 +280,23 @@
                   "confidential",
                   "restricted"
                 ]
+              },
+              "origin": {
+                "enum": [
+                  "pronto",
+                  "customer",
+                  "partner",
+                  "public"
+                ],
+                "description": "who wrote the content, as opposed to who vouches for it (authority)"
+              },
+              "trust": {
+                "enum": [
+                  "authoritative",
+                  "evidence",
+                  "data"
+                ],
+                "description": "how the agent may use it: authoritative records decide, evidence is weighed, data never instructs"
               }
             }
           }
@@ -709,6 +752,39 @@
           "where",
           "integrity"
         ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "conformance": {
+            "const": "R4"
+          }
+        },
+        "required": [
+          "conformance"
+        ]
+      },
+      "then": {
+        "properties": {
+          "who": {
+            "required": [
+              "identity"
+            ]
+          },
+          "knowing_what": {
+            "properties": {
+              "sources": {
+                "items": {
+                  "required": [
+                    "origin",
+                    "trust"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     }
   ],

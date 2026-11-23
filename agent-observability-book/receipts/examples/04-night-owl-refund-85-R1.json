@@ -13,6 +13,7 @@
     "agent_version": "unknown",
     "kind": "shadow",
     "owner": "unknown",
+    "identity": "claimed",
     "runtime": "analyst-laptop"
   },
   "did_what": {

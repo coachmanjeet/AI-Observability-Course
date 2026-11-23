@@ -458,6 +458,7 @@ ALWAYS = [
     (0, "enforce mode: 10% canary", "team:platform"),
     (14, "enforce mode: all shipped agents", "team:platform"),
     (30, "first monthly evidence pack", "team:governance"),
+    (74, "Receipt v0.2: decide candidates", "team:governance"),
     (90, "re-review: Ship or Hold", "team:governance"),
 ]
 

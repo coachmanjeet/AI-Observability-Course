@@ -15,6 +15,7 @@
     "owner": "team:customer-support",
     "registry_ref": "registry://pronto/agents/speedy@2.3.1",
     "workload_id": "spiffe://pronto.example/ns/support/agent/speedy",
+    "identity": "verified",
     "runtime": "pronto-support-runtime"
   },
   "for_whom": {
@@ -55,7 +56,9 @@
         "version": "etag-9f2c",
         "retrieved_at": "2026-11-14T02:06:41Z",
         "authority": "system:orders",
-        "sensitivity": "confidential"
+        "sensitivity": "confidential",
+        "origin": "pronto",
+        "trust": "authoritative"
       },
       {
         "id": "policy:refunds",
@@ -63,7 +66,9 @@
         "version": "2026-10-01",
         "retrieved_at": "2026-11-14T02:06:45Z",
         "authority": "team:finance",
-        "sensitivity": "internal"
+        "sensitivity": "internal",
+        "origin": "pronto",
+        "trust": "authoritative"
       },
       {
         "id": "photo:photo_7c1",
@@ -71,7 +76,9 @@
         "version": "etag-41c7",
         "retrieved_at": "2026-11-14T02:06:52Z",
         "authority": "system:photos",
-        "sensitivity": "confidential"
+        "sensitivity": "confidential",
+        "origin": "customer",
+        "trust": "evidence"
       }
     ],
     "memory_reads": [
@@ -167,7 +174,7 @@
   },
   "integrity": {
     "canonicalization": "JCS-RFC8785",
-    "prev_hash": "sha256:ef2e907965fd7dad1d65db137392eef9160aa4a75a4ccef39dfd74de19a051f1",
-    "hash": "sha256:f862495f8b62e5d92ba39a523601caa0d8af3a02e61330ec2413c3c07c6ab6c3"
+    "prev_hash": "sha256:b4b477a85e20290866114a6f48006d2f4412b92a9fbf6ef1d1b508dfd9e0e9cd",
+    "hash": "sha256:260193de24b1cf86ed010077b19768c3623c19cc510011213cbbd7a6522e6f44"
   }
 }

@@ -23,7 +23,7 @@
   ],
   "integrity": {
     "canonicalization": "JCS-RFC8785",
-    "prev_hash": "sha256:f862495f8b62e5d92ba39a523601caa0d8af3a02e61330ec2413c3c07c6ab6c3",
-    "hash": "sha256:8d221a86608cb0ac96c3e1a83ee412b8c04388edb2ec4c9042d0302dafa8394c"
+    "prev_hash": "sha256:260193de24b1cf86ed010077b19768c3623c19cc510011213cbbd7a6522e6f44",
+    "hash": "sha256:0319018c99222bb29b842afe14c8ce39f289ec8c3ed3f380257d12f28d2758d1"
   }
 }
