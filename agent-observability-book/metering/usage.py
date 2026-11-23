@@ -108,7 +108,7 @@ def main(argv=None):
     print("Usage events, Feb 2027: "
           "resolved_conversation at $0.40")
     print(f"{'tenant':<16}{'firsts':>7}{'dupes':>7}"
-          f"{'billed':>8}{'credit':>8}{'late':>6}"
+          f"{'gross':>8}{'credit':>8}{'late':>6}"
           f"{'amount':>10}")
     for t, r in res.items():
         inv = r["invoice"]
@@ -118,6 +118,7 @@ def main(argv=None):
               f"{'$' + format(inv['amount'], ',.2f'):>10}")
     print("late = resolved after Feb 28 close; "
           "on March invoice")
+    print("amount = (gross - credit) x price per resolution")
     if argv:
         out = pathlib.Path(argv[0])
         out.mkdir(parents=True, exist_ok=True)

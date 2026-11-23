@@ -13,6 +13,7 @@ import pathlib
 import yaml
 
 HERE = pathlib.Path(__file__).parent
+YEARS = 3          # the horizon a funding request is judged on
 
 
 def load():
@@ -30,7 +31,11 @@ def cost(estate, m):
             "build_months": estate["build_months"],
             "build_fte": build_fte, "build": build,
             "run_fte": run_fte, "infra": infra, "run": run,
-            "per_agent": run / estate["agents"]}
+            "per_agent": run / estate["agents"],
+            # a CFO's view: build once, run for YEARS
+            "three_year": build + YEARS * run,
+            "per_agent_year": (build + YEARS * run)
+            / (YEARS * estate["agents"])}
 
 
 def main():
@@ -46,7 +51,9 @@ def main():
             ("run_fte", "run team, FTE", "{:,.2f}"),
             ("infra", "infrastructure a year", "${:,.0f}"),
             ("run", "run cost a year", "${:,.0f}"),
-            ("per_agent", "run cost per agent", "${:,.0f}")):
+            ("per_agent", "run cost per agent", "${:,.0f}"),
+            ("three_year", "three years, all in", "${:,.0f}"),
+            ("per_agent_year", "  per agent a year", "${:,.0f}")):
         print(f"{label:<24}{fmt.format(a[key]):>12}"
               f"{fmt.format(b[key]):>12}")
 

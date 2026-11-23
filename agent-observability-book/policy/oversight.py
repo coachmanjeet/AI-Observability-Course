@@ -141,8 +141,8 @@ def demo():
             else ""
         rows.append(f"  ${amt:<8}{t['tier']}{pct}")
     n = sum(sampled(f"rcpt_speedy_{i:04d}", 5)
-            for i in range(311))
-    rows.append(f"Sampled review: {n} of Speedy's 311 refunds")
+            for i in range(588))
+    rows.append(f"Sampled review: {n} of Speedy's 588 refunds")
     claims = {"amount": "85.00", "photo": True,
               "refunds_30d": 0}
     ok, why = approve("ord_5602", "85.00", claims, "emp_2210")

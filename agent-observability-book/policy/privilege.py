@@ -104,7 +104,7 @@ def show(rep):
         for s, n in scopes.items():
             c, u = n["carried"], n["used"]
             lines.append(f"  {a:<7} {s:<22} carried "
-                         f"{c:>3}  used {u:>3}")
+                         f"{c:>5,}  used {u:>3}")
     sp = rep["speedy"]
     lines.append("Speedy, proposed grants")
     lines.append("  keep    " + ", ".join(sp["keep"]))

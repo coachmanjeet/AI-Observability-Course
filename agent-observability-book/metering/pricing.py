@@ -95,6 +95,8 @@ def main(argv=None):
                         for t in PILOTS)
               + f"{r['margin']:>7.0%}{r['per_resolved']:>6.2f}"
               + f"{r['bad_month']:>+5.0%}")
+    print("margin: gross, on cost to serve; "
+          "$/res: revenue per resolution")
     res = sum(g["resolved"] for g in good.values())
     worse = sum(b["resolved"] for b in bad.values())
     print(f"bad month: timeouts 8%, resolved {res:,} "
