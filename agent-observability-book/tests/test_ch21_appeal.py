@@ -36,3 +36,13 @@ def test_refund_paid_on_a_bound_approval():
     entry = R["ledger"][0]
     assert entry["basis"] == "approval"
     assert entry["amount"] == R["amount"]
+
+
+def test_every_silent_decline_is_reviewed_once():
+    from metering import appeal
+    r = appeal.run()
+    rv = r["review"]
+    assert sum(len(v) for v in rv.values()) == len(r["quiet"])
+    assert appeal.CASE in {c["conversation_id"]
+                           for c in rv["overturned"]}
+    assert rv["unknown"], "an honest review keeps its unknowns"

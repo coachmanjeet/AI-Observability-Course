@@ -59,3 +59,30 @@ def test_billable_shape_matches_chapter_2():
     assert b["status"] == "pending_outcome" and \
         b["quantity"] == 0
     assert b["idempotency_key"].endswith(":resolved")
+
+
+def test_february_stays_on_v1_and_reproduces():
+    from metering import usage
+    res = usage.run()
+    hill = res["tenant:hilltop"]
+    assert {e["metric"].split()[-1] for e in hill["kept"]} == {"v1"}
+    assert str(hill["invoice"]["amount"]) == "298.80"
+
+
+def test_a_reviewed_decline_still_waits_thirty_days():
+    from metering import usage
+    cid, d, review, _ = usage.DECLINES[0]
+    o = usage.decline(d, review)
+    assert o["status"] == "achieved"
+    assert (o["decided"] - d).days == 30 and o["invoice"] == "June"
+    assert o["evidence"][0][1] == review
+
+
+def test_an_appeal_on_day_29_is_never_billed():
+    from metering import usage
+    cid, d, _, appeal = usage.DECLINES[1]
+    o = usage.decline(d, None, appeal)
+    assert (appeal - d).days == 29
+    assert o["status"] == "reversed" and o["invoice"] is None
+    late = usage.decline(d, None, d + usage.timedelta(days=31))
+    assert late["status"] == "achieved"     # credited later instead

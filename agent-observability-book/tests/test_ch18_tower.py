@@ -37,7 +37,7 @@ def test_gaps_name_owners_work():
 def test_night_owl_is_retired_not_hidden():
     fleet = load(HERE / "fleet-2027-03-29.json")
     names = [r["name"] for r in fleet["retired"]]
-    assert names == ["Night Owl", "Tally"]
+    assert names == ["Night Owl", "IDE Assistant", "Tally"]
     assert "Night Owl" not in [a["name"]
                                for a in fleet["agents"]]
 

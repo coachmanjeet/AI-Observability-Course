@@ -54,7 +54,26 @@ def test_a_quiet_canary_with_too_little_evidence_extends():
 
 
 def test_expand_needs_evidence_and_mature_outcomes():
-    assert fo.decide(3, 500, False, False) == "extend"
-    assert fo.decide(7, 150, False, False) == "extend"
-    assert fo.decide(7, 500, False, False) == "expand"
+    ok = (0.003, -0.014, 0.019)
+    assert fo.decide(3, 500, False, False, outcome=ok) == "extend"
+    assert fo.decide(7, 150, False, False, outcome=ok) == "extend"
+    assert fo.decide(7, 500, False, False) == "extend"
+    assert fo.decide(7, 500, False, False, outcome=ok) == "expand"
     assert fo.decide(1, 10, False, True) == "roll back"
+
+
+def test_no_difference_is_not_a_reason_to_expand():
+    # a quiet test with a wide interval extends; a clear drop
+    # beyond the tolerance rolls back even without an alert
+    wide = (-0.012, -0.040, 0.016)
+    worse = (-0.050, -0.070, -0.030)
+    assert fo.decide(10, 360, False, False, outcome=wide) == "extend"
+    assert fo.decide(14, 840, False, False, outcome=worse) == \
+        "roll back"
+
+
+def test_three_filled_cases_reach_three_decisions():
+    notes = [c[-1] for c in fo.filled()]
+    assert notes == ["extend", "expand"]
+    _, _, drift, table = fo.watch()
+    assert table[-1][5] == "roll back"

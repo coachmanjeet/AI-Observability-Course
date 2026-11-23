@@ -103,3 +103,14 @@ def test_collector_config_matches_the_lab():
     assert names == ["errors", "actions", "slow", "baseline"]
     pipes = config["service"]["pipelines"]
     assert "tail_sampling" not in pipes["traces/receipts"]["processors"]
+
+
+def test_stored_traces_overstate_incidents_and_understate_cost(
+        stages):
+    from collector.run import night_cost
+    _, redacted, kept, _, _ = stages
+    trouble = p.incidents(redacted)
+    all_rate = len(trouble) / len(p.traces(redacted))
+    stored_rate = len(trouble) / len(p.traces(kept))
+    assert stored_rate > 2 * all_rate
+    assert night_cost(kept) < night_cost(redacted)

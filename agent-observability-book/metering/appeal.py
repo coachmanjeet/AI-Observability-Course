@@ -13,7 +13,9 @@ without editing any of them: a refund paid on a bound approval,
 an outcome record that supersedes the first one, a credit under
 the same idempotency key, and a new eval case. Then it counts
 how many of February's silent declines the metric called a
-success, which is the PM's reason to change the metric.
+success, which is the PM's reason to change the metric, and
+reviews every one of them against the delivery scans: confirmed,
+overturned, or unknown because there is no scan to check.
 """
 
 from datetime import datetime, timedelta, timezone
@@ -24,7 +26,7 @@ from metering.traffic import (
     first_time,
     month,
 )
-from metering.value import by_conversation, outcomes
+from metering.value import by_conversation, outcomes, unit
 from policy import gateway as gw
 from pronto.payments import Payments, token
 from receipts.tools import GENESIS, record_hash, seal
@@ -37,6 +39,34 @@ CLOSE = datetime(2027, 2, 28, 23, 59, tzinfo=timezone.utc)
 APPEAL = datetime(2027, 3, 8, 10, 2, tzinfo=timezone.utc)
 UPHELD = APPEAL + timedelta(minutes=38)
 WINDOW = MONDAY_POLICY["photo_window_hours"]
+REVIEWED = "Mar 12"
+NO_SCAN, LATE, HOURS_LATE = 0.10, 0.30, (2, 4, 9)
+
+
+def delivery(order_id):
+    """Hours the van was late, from the delivery scan, or None when
+    the order has no scan. Seeded by order, so it repeats."""
+    if unit(f"scan:{order_id}") < NO_SCAN:
+        return None
+    if unit(f"late:{order_id}") >= LATE:
+        return 0
+    return HOURS_LATE[int(unit(f"lateh:{order_id}")
+                          * len(HOURS_LATE))]
+
+
+def review(quiet):
+    """Every silent decline, checked against the actual delivery."""
+    out = {"confirmed": [], "overturned": [], "unknown": []}
+    for c in quiet:
+        late = LATE_H if c["conversation_id"] == CASE \
+            else delivery(c["order_id"])
+        if late is None:
+            out["unknown"].append(c)
+        elif c["hours"] - late <= WINDOW:
+            out["overturned"].append(c)
+        else:
+            out["confirmed"].append(c)
+    return out
 
 
 def ts(t):
@@ -162,6 +192,7 @@ def run():
         "amount": amount,
         "paid": (status, pid),
         "ledger": pay.ledger,
+        "review": review(quiet),
     }
 
 
@@ -200,7 +231,15 @@ def show(r):
         + "; nothing edited",
         f"silent declines billed in February: "
         f"{len(r['billed_feb'])} of {n_q}",
+        f"{REVIEWED}: all {n_q} silent declines against the scans",
     ]
+    for key, why in [("confirmed",
+                      f"outside {WINDOW} h of actual delivery"),
+                     ("overturned", "inside it, once the van's "
+                      "delay counts"),
+                     ("unknown", "no delivery scan to check")]:
+        lines.append(f"  {key:<11} {why:<40}"
+                     f"{len(r['review'][key]):>3}")
     return lines
 
 

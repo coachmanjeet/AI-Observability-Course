@@ -92,16 +92,53 @@ def retire(version, receipts):
 
 MIN_N, ALPHA = 200, 0.01
 OUTCOME_DAYS = 7     # a refund's outcome is known after 7 days
+TOLERANCE = 0.02     # largest outcome drop we accept
 
 
-def decide(day, n, alert, harm, min_n=MIN_N):
-    """Roll back, extend at 10%, or expand. A date alone is
-    never a reason to expand: it is a time to look again."""
+def diff_interval(k_new, n_new, k_old, n_old, z=1.96):
+    """New minus old, with a 95% interval, as fractions."""
+    p1, p2 = k_new / n_new, k_old / n_old
+    se = math.sqrt(p1 * (1 - p1) / n_new + p2 * (1 - p2) / n_old)
+    d = p1 - p2
+    return d, d - z * se, d + z * se
+
+
+def decide(day, n, alert, harm, min_n=MIN_N, outcome=None,
+           tol=TOLERANCE):
+    """Roll back, extend at 10%, or expand.
+
+    An alert is a reason to stop. It is never a reason to go on:
+    "no significant difference" only says the test saw nothing.
+    Expanding needs a mature customer outcome, the same measure for
+    both versions, whose interval rules out a drop larger than the
+    tolerance. A date alone is a time to look again."""
     if harm or alert:
         return "roll back"
-    if n < min_n or day < OUTCOME_DAYS:
+    if n < min_n or day < OUTCOME_DAYS or outcome is None:
         return "extend"
-    return "expand"
+    _, low, high = outcome
+    if high < -tol:
+        return "roll back"
+    return "expand" if low >= -tol else "extend"
+
+
+# Three filled release decisions (Table 19.2): mature customer
+# outcomes, resolved within 7 days by whoever handled the issue,
+# counted from outcome records for conversations old enough to have
+# one. (version, day, new resolved, new n, old resolved, old n)
+CASES = [("2.4.1", 10, 334, 360, 3046, 3240),
+         ("2.4.1", 14, 792, 840, 7106, 7560)]
+
+
+def filled(cases=CASES, tol=TOLERANCE):
+    """The two 2.4.1 reviews, decided by the same rule."""
+    out = []
+    for version, day, k1, n1, k2, n2 in cases:
+        iv = diff_interval(k1, n1, k2, n2)
+        out.append((version, day, n1, k1 / n1, k2 / n2, iv,
+                    decide(day, n1, False, False, outcome=iv,
+                           tol=tol)))
+    return out
 
 
 def watch(days=3, min_n=MIN_N):
@@ -141,6 +178,15 @@ def main(argv=None):
     ret = retire(NEW, rows)
     print(f"Retire {NEW}: {ret['state']}, "
           f"{ret['receipts_kept']} receipts still resolve")
+    r = drift["refund rate"]
+    print(f"Three decisions; customer outcome may drop at most "
+          f"{100 * TOLERANCE:.0f} pts")
+    print(f"  {NEW} day {len(table)}  refunds {r['new']:.0%} vs "
+          f"{r['old']:.0%}, p {r['p']:.1e}  roll back")
+    for version, day, n, a, b, (d, lo, hi), note in filled():
+        print(f"  {version} day {day:<2} n {n:>3}  {a:.1%} vs "
+              f"{b:.1%}  {100 * d:+.1f} [{100 * lo:+.1f}, "
+              f"{100 * hi:+.1f}]  {note}")
     if argv:
         out = pathlib.Path(argv[0])
         out.mkdir(parents=True, exist_ok=True)

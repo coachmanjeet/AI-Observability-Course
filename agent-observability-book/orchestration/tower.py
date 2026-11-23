@@ -84,9 +84,9 @@ def main(argv=None):
     print("Gaps routed to owners")
     for agent, gap in gaps(rows):
         print(f"  {agent:<7} {gap}")
-    gone = ", ".join(f"{r['name']} ({r['retired_on']})"
-                     for r in fleet["retired"])
-    print(f"Retired: {gone}")
+    print("Retired, records kept")
+    for r in fleet["retired"]:
+        print(f"  {r['name']:<15}{r['retired_on']}")
     print(f"Estate: L{now['estate']}, set by "
           f"{', '.join(now['weakest'])}; on Nov 14: "
           f"L{then['estate']}, set by "

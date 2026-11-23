@@ -21,7 +21,7 @@ def test_nine_agents_among_twelve_actors():
 
 def test_two_new_shadow_agents_are_found():
     new = [a for a in result()["agents"] if not a["known"]]
-    assert sorted(a["name"] for a in new) == ["Ide Assistant",
+    assert sorted(a["name"] for a in new) == ["IDE Assistant",
                                               "Tally"]
     assert all(a["kind"] == "shadow" for a in new)
 

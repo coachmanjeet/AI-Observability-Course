@@ -10,6 +10,8 @@ import json
 import pathlib
 import sys
 
+ACRONYMS = {"ide", "mcp", "api"}
+
 HERE = pathlib.Path(__file__).parent
 INVENTORY = HERE.parent / "maturity" / "fleet.json"
 SOURCES = ["cloud", "gateway", "api", "idp", "endpoint", "egress",
@@ -97,9 +99,10 @@ def correlate(evidence, inventory):
         name = by_slug.get(slug(a["key"].split(":")[-1]))
         known = next((x for x in inventory["agents"]
                       if x["agent_id"] == a["agent_id"]), name)
-        a["name"] = known["name"] if known else (
-            a["key"].split(":")[-1].split("@")[0]
-            .replace("-", " ").title())
+        a["name"] = known["name"] if known else " ".join(
+            w.upper() if w in ACRONYMS else w.title()
+            for w in a["key"].split(":")[-1].split("@")[0]
+            .split("-"))
     hosts = {r["from"]: r["calls"] for r in evidence["egress"]}
     for a in actors.values():
         for h in a["hosts"]:

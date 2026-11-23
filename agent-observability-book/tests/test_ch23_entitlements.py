@@ -48,3 +48,14 @@ def test_billing_account_matches_chapter_2():
     assert billing_account("tenant:pronto")["at_what_cost"] == \
         {"billing_account":
          ex["at_what_cost"]["billing_account"]}
+
+
+def test_the_cap_cuts_a_charge_to_the_headroom():
+    from decimal import Decimal as D
+    from metering.entitlements import cap_charge, cap_example
+    assert cap_charge(D("249.90"), D("0.25"), D("250")) == \
+        (D("0.10"), D("0.15"))
+    assert cap_charge(D("250"), D("0.25"), D("250")) == \
+        (D("0"), D("0.25"))
+    cap, jul, aug = cap_example()
+    assert aug == (D("0.25"), D("0"))    # next month's own cap

@@ -100,6 +100,15 @@ def main(argv=None):
               for n in (sizes[0], sizes[2])]
     per_trace = [Decimal(len(p.traces(s))) / 1000 * TRACES_PER_1K
                  for s in (received, kept)]
+    total = len(p.traces(redacted))
+    stored = len(trouble & tail)
+    print("\nStored traces against all traffic")
+    print(f"  incidents, stored traces  {stored:>4} of "
+          f"{len(tail):>5,}  {100 * stored / len(tail):>5.1f}%")
+    print(f"  incidents, all traffic    {len(trouble):>4} of "
+          f"{total:>5,}  {100 * len(trouble) / total:>5.1f}%")
+    print(f"  model cost, stored traces   ${night_cost(kept):.2f}")
+    print(f"  model cost, usage records   ${night_cost(redacted):.2f}")
     print(f"\nModel calls for the night: ${night_cost(received):.2f}")
     print(f"Traces at ${TRACES_PER_GB}/GB:      ${per_gb[0]:.4f} "
           f"received, ${per_gb[1]:.4f} kept")

@@ -38,9 +38,33 @@ def test_cost_per_conversation_matches_the_receipt():
     assert abs(float(t["per_conv"]) - one) < 0.002
 
 
-def test_all_in_cost_counts_people():
+def test_model_plus_escalation_cost_counts_people():
     _, _, _, t = run()
-    assert t["all_in"] > 10 * t["per_resolved"]
+    assert t["model_people"] > 10 * t["per_resolved"]
+
+
+def test_trace_retention_changes_the_sample_not_the_totals():
+    from metering.value import retention
+    spans, convs = month("tenant:pronto", START, 28)
+    per = by_conversation(spans)
+    rows = outcomes(convs, per)
+    t = tree(convs, per, rows)
+    r = retention(spans, convs, rows, keep=0.30)
+    assert r["stored"] < 0.35 * r["all"]
+    assert r["traces_cost"] * 10 < 4 * r["usage_cost"]
+    assert r["usage_cost"] == t["cost"]
+    assert r["model_people"] == t["model_people"]
+    full = retention(spans, convs, rows, keep=1.0)
+    assert full["traces_cost"] == full["usage_cost"] == t["cost"]
+
+
+def test_redelivered_usage_records_count_once():
+    from metering.value import dedupe, usage_records
+    spans, _ = month("tenant:pronto", START, 28)
+    raw = usage_records(spans)
+    once = dedupe(raw)
+    assert len(raw) > len(once)
+    assert len(once) == len(usage_records(spans, redelivered=0))
 
 
 def test_outcome_record_matches_example_3():

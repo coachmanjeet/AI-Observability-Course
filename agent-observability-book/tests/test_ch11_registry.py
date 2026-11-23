@@ -57,3 +57,17 @@ def test_who_matches_chapter_2_except_attestation():
     ex.pop("workload_id")
     ex.pop("identity")
     assert who == ex
+
+
+def test_a_credit_moves_route_to_high_and_needs_a_review():
+    from registry.registry import Registry
+    assert tier(["write"]) == "medium"
+    assert tier(["write", "financial"]) == "high"
+    reg = Registry()
+    reg.put({"id": "agent://pronto/route", "name": "Route",
+             "version": "0.10.0", "owner": "team:logistics",
+             "kind": "first_party", "state": "in_review",
+             "risk_tier": tier(["write", "financial"])})
+    with pytest.raises(ValueError, match="security_review"):
+        reg.move("agent://pronto/route", "approved", "platform lead",
+                 "credit added", "2027-02-15")

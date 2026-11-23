@@ -146,7 +146,13 @@
     {
       "name": "Night Owl",
       "agent_id": "agent://unregistered/night-owl",
-      "retired_on": "2027-01-29"
+      "retired_on": "2027-02-08"
+    },
+    {
+      "name": "IDE Assistant",
+      "agent_id": "agent://unregistered/ide-assistant",
+      "retired_on": "2027-02-08",
+      "reason": "unclaimed draft; pg-prod removed from the laptop"
     },
     {
       "name": "Tally",

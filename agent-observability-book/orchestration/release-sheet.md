@@ -2,19 +2,22 @@
 
 Fill this in before the canary starts. Update the day rows at
 each review. A date is a time to look at the evidence, never a
-reason to expand on its own.
+reason to expand on its own, and neither is a test that found
+no difference.
 
 | | Agent and version |
 | --- | --- |
 | **Change** | What changed: prompt, pack, model, tools, policy |
 | **Assignment** | Share of traffic, how it's assigned, which tenants |
 | **Exposure cap** | The most traffic and the highest-risk actions allowed |
-| **Measures** | Rates compared on receipts, and the outcome window |
-| **Evidence bar** | Minimum sample, test and threshold, outcome maturity |
+| **Decision measure** | One customer outcome, measured the same way for both versions, and its window |
+| **Monitors** | Rates compared on receipts, with their alert threshold and minimum sample |
+| **Tolerance** | The largest drop in the decision measure you accept, and who agreed it |
 | **Serious-harm stop** | The event that rolls back at once, at any sample |
-| **Roll back if** | |
-| **Extend if** | Too little evidence, or outcomes still maturing |
-| **Expand if** | All of the above met; next exposure step |
+| **Roll back if** | A monitor alerts, or the outcome's whole interval is below the tolerance |
+| **Extend if** | Too little evidence, outcomes still maturing, or the interval too wide. Next review date |
+| **Expand if** | The interval's low end clears the tolerance and no stop fired; next exposure step |
+| **After expanding** | Late measures (such as 30-day reversals) that can still roll back |
 | **Owners** | Release, rollback, eval follow-up |
 | **Day 1** | |
 | **Day 2** | |

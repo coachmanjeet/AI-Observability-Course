@@ -10,6 +10,12 @@ because under outcome pricing a runaway loop costs Pronto, not
 the tenant: thresholds alert at 50% and 80%, and at 100% a
 budget kill switch pauses new conversations for that tenant
 only.
+
+The monthly cap is applied when an invoice is rated, against that
+invoice: a charge that would cross it is cut to the headroom and
+the rest is waived on the line, never carried forward. A late
+outcome is billed on the invoice where it lands, against that
+month's cap, and a later credit returns only what was charged.
 """
 import json
 import pathlib
@@ -85,6 +91,24 @@ def runaway():
     return rt, results, other
 
 
+PER_OUTCOME = D("0.25")          # base plus outcome, from July
+
+
+def cap_charge(billed, amount, cap):
+    """(charged, waived) for one charge on an invoice that has
+    already billed `billed` against `cap`."""
+    room = max(cap - billed, D("0"))
+    charged = min(amount, room)
+    return charged, amount - charged
+
+
+def cap_example():
+    cap = PLANS[TENANTS["tenant:corner"]]["cap"]
+    july = cap_charge(D("249.90"), PER_OUTCOME, cap)
+    august = cap_charge(D("112.25"), PER_OUTCOME, cap)
+    return cap, july, august
+
+
 def billing_account(tenant):
     return {"at_what_cost": {"billing_account": tenant}}
 
@@ -119,6 +143,16 @@ def main(argv=None):
     print(f"  without it: quota gone at 14:{left // 60:02d}, "
           "Bayside's customers")
     print("  shut out for the rest of May")
+    cap, jul, aug = cap_example()
+    print(f"Cap: corner, ${cap:.2f} an invoice, base fee included")
+    print("  Jul 29  outcome $0.25, July invoice at $249.90")
+    print(f"          charge ${jul[0]:.2f}, waive ${jul[1]:.2f} "
+          "on the line")
+    print("  Jul 30  conversation; resolves Aug 06, after close")
+    print(f"          August invoice and cap: charge "
+          f"${aug[0]:.2f}")
+    print(f"  Aug 10  Jul 29 outcome reversed: credit "
+          f"${jul[0]:.2f}, August")
     if argv:
         out = pathlib.Path(argv[0])
         out.mkdir(parents=True, exist_ok=True)

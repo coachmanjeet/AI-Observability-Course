@@ -20,7 +20,8 @@ from policy import gateway as gw
 
 HERE = pathlib.Path(__file__).parent
 V4 = (HERE / "pronto-refunds-v4.cedar", "4")
-NOW = "2027-03-08T15:12:40Z"
+NOW = "2027-03-09T14:05:00Z"
+EXPIRES = "2027-03-09T14:20:00Z"    # 15 minutes
 
 # facts from the order and payments systems, not from the agent
 FACTS = {
@@ -58,14 +59,16 @@ def disagreements(order, claims):
     return out
 
 
-def approve(order, amount, claims, approver):
-    """An approval bound to one order and amount, or not."""
+def approve(order, amount, claims, approver, approval_id="apr_01"):
+    """An approval bound to one order and amount, or not. v0.1 has
+    no fields for the binding, so the method string carries it."""
     bad = disagreements(order, claims)
     if bad:
         return None, f"rejected: {len(bad)} claims disagree"
     record = {"approver": approver, "decided_at": NOW,
               "decision": "approved",
-              "method": "approval-service, facts view"}
+              "method": f"{approval_id} {order} ${amount} "
+                        f"until {EXPIRES[11:16]}Z"}
     ctx = {"role": "support_lead",
            "resource": {"__entity": {"type": "Pronto::Order",
                                      "id": order}},
@@ -145,7 +148,7 @@ def demo():
     rows.append(f"Sampled review: {n} of Speedy's 588 refunds")
     claims = {"amount": "85.00", "photo": True,
               "refunds_30d": 0}
-    ok, why = approve("ord_5602", "85.00", claims, "emp_2210")
+    ok, why = approve("ord_5602", "85.00", claims, "user:lead-ana")
     d = refund_with("ord_5602", "85.00", ok)
     rows += ["$85 refund, ord_5602",
              "  facts match Speedy's summary",
@@ -157,7 +160,8 @@ def demo():
         rows.append(f"{label:<27}{e['decision']}  "
                     f"{e['determining_policies'][0]}")
     lie = {"amount": "400.00", "photo": True, "refunds_30d": 0}
-    _, why = approve("ord_5640", "400.00", lie, "emp_2210")
+    _, why = approve("ord_5640", "400.00", lie, "user:lead-ana",
+                     "apr_02")
     rows += ["ASI09: $400 refund, ord_5640",
              "  Speedy says: $400, photo, no past refunds",
              "  facts: $62.00 order, no photo, 3 refunds",
