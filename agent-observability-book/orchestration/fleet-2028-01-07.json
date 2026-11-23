@@ -1,0 +1,158 @@
+{
+  "estate": "Pronto",
+  "as_of": "2028-01-07",
+  "window": "7d",
+  "agents": [
+    {
+      "name": "Speedy",
+      "agent_id": "agent://pronto/speedy",
+      "kind": "1P",
+      "serves": "consumers",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:customer-support",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 1388,
+      "r4_receipts_7d": 1388,
+      "note": "Speedy 2.3.1; refunds through the only-path gateway",
+      "tower": {
+        "R3": 0,
+        "R1": 0,
+        "denies": 6,
+        "cost": "20.95",
+        "achieved": 0.92
+      }
+    },
+    {
+      "name": "Pick",
+      "agent_id": "agent://pronto/pick",
+      "kind": "1P",
+      "serves": "business",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:fulfillment",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 9710,
+      "r4_receipts_7d": 9516,
+      "note": "Nightly batch path still writes R1; fix due Feb 7",
+      "tower": {
+        "R3": 0,
+        "R1": 194,
+        "denies": 38,
+        "cost": "63.10",
+        "achieved": 0.97
+      }
+    },
+    {
+      "name": "Route",
+      "agent_id": "agent://pronto/route",
+      "kind": "1P",
+      "serves": "business",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:logistics",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 2240,
+      "r4_receipts_7d": 2240,
+      "note": "Durable workflows; phone bridge v2 carries trace context",
+      "tower": {
+        "R3": 0,
+        "R1": 0,
+        "denies": 4,
+        "cost": "42.10",
+        "achieved": 0.95
+      }
+    },
+    {
+      "name": "Coder",
+      "agent_id": "agent://pronto/coder",
+      "kind": "1P",
+      "serves": "business",
+      "found_by": "registry",
+      "registered": true,
+      "owner": "team:platform",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 412,
+      "r4_receipts_7d": 412,
+      "note": "Own workload identity; personal token revoked",
+      "tower": {
+        "R3": 0,
+        "R1": 0,
+        "denies": 6,
+        "cost": "23.40",
+        "achieved": 0.89
+      }
+    },
+    {
+      "name": "Ledger",
+      "agent_id": "agent://payco/ledger",
+      "kind": "3P",
+      "serves": "business",
+      "found_by": "vendor-register",
+      "registered": true,
+      "owner": "team:finance",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": true,
+      "actions_7d": 326,
+      "r4_receipts_7d": 0,
+      "note": "PayCo sends R3 receipts; cost and region weren't in the June renewal",
+      "tower": {
+        "R3": 326,
+        "R1": 0,
+        "denies": 2,
+        "cost": null,
+        "achieved": 0.81
+      }
+    },
+    {
+      "name": "Promo",
+      "agent_id": "agent://campaignly/promo",
+      "kind": "3P",
+      "serves": "business",
+      "found_by": "vendor-register",
+      "registered": true,
+      "owner": "team:marketing",
+      "identity": "own",
+      "access": "scoped",
+      "policy": "outside_model",
+      "traced": false,
+      "actions_7d": 2110,
+      "r4_receipts_7d": 0,
+      "note": "Scope cut to campaign reads and drafts in July; vendor still sends no traces",
+      "tower": {
+        "R3": 0,
+        "R1": 2110,
+        "denies": 11,
+        "cost": null,
+        "achieved": null
+      }
+    }
+  ],
+  "retired": [
+    {
+      "name": "Night Owl",
+      "agent_id": "agent://unregistered/night-owl",
+      "retired_on": "2027-01-29"
+    },
+    {
+      "name": "Tally",
+      "agent_id": "agent://pronto/tally",
+      "retired_on": "2027-03-22",
+      "reason": "stock reconciliation moved into the inventory service's nightly job"
+    }
+  ]
+}

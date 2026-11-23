@@ -1,0 +1,26 @@
+# Accepted exceptions for the Ship or Hold review (Chapter 34).
+# An exception covers one gap, for a named scope, until a date.
+# Expired exceptions stay in the file: they are the history.
+- id: EX-1
+  gate: R4 coverage
+  agent: Pick
+  scope: Pick's batch path in observe mode
+  accepted_by: CTO
+  owner: team:fulfillment
+  granted: 2028-01-10
+  expires: 2028-02-07
+- id: EX-2
+  gate: evidence pack
+  scope: A.5.2 impact assessment missing
+  accepted_by: CTO
+  owner: team:governance
+  granted: 2027-08-30
+  expires: 2027-12-31
+- id: EX-2
+  gate: evidence pack
+  scope: A.5.2 impact assessment missing
+  accepted_by: CTO
+  owner: team:governance
+  granted: 2028-01-10
+  expires: 2028-02-24
+  note: renewed after it lapsed on Dec 31

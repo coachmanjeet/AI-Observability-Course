@@ -5,7 +5,7 @@ Usage: python -m shiphold.review [OUT_DIR]
 Three parts. First, assemble the full receipt for Saturday's
 $40 refund from the outputs the chapters' labs wrote, tag each
 field with the chapter that produced it, seal it and sign it.
-Second, run the launch review: thirteen gates, each a live
+Second, run the launch review: fourteen gates, each a live
 check against a chapter's lab. Third, turn every condition and
 hold into a dated 90-day plan with an owner.
 
@@ -29,6 +29,21 @@ TARGET = (
     ROOT / "receipts" / "examples" / "02-speedy-refund-40.json"
 )
 REVIEW = datetime.date(2028, 1, 10)
+SNAPSHOT = "fleet-2028-01-07.json"
+FRESH_DAYS = 7          # evidence older than this can't decide
+BAR = 99.0              # R4 coverage, exact, to enforce
+FLEET = ("Speedy", "Pick", "Route", "Coder", "Ledger", "Promo")
+
+
+def exceptions(at=None):
+    """Exceptions in force at the review, by gate and agent."""
+    import yaml
+    at = at or REVIEW
+    rows = yaml.safe_load((ROOT / "shiphold" /
+                           "exceptions.yaml").read_text())
+    live = [e for e in rows
+            if e["granted"] <= at < e["expires"]]
+    return rows, {(e["gate"], e.get("agent")): e for e in live}
 
 # chapter, lab output, where the fragment goes
 OVERLAYS = [
@@ -207,7 +222,7 @@ def show_receipt(rec, tags):
 
 
 def gates(rec):
-    """Thirteen gates: (name, chapter, status, detail)."""
+    """Fourteen gates: (name, chapter, status, detail)."""
     # imported here so the receipt prints even if a lab moved
     from comply import evidence, govcloud, residency
     from orchestration import tower as tw
@@ -239,15 +254,26 @@ def gates(rec):
             "verified",
         )
     )
-    fleet = tw.load(tw.HERE / "fleet-2027-03-29.json")
+    fleet = tw.load(tw.HERE / SNAPSHOT)
+    as_of = datetime.date.fromisoformat(fleet["as_of"])
+    age = (REVIEW - as_of).days
+    out.append(
+        (
+            "fleet snapshot",
+            24,
+            "pass" if age <= FRESH_DAYS else "hold",
+            f"week to {as_of:%b %d}, {age} days old",
+        )
+    )
     agents = fleet["agents"]
     owned = all(a["registered"] and a["owner"] for a in agents)
+    gone = len(fleet["retired"])
     out.append(
         (
             "registered, owned",
             15,
             "pass" if owned else "hold",
-            f"{len(agents)} agents",
+            f"{len(agents)} agents, {gone} retired",
         )
     )
     own_id = all(a["identity"] == "own" for a in agents)
@@ -328,27 +354,36 @@ def gates(rec):
     rows, _, _ = tw.tower(
         fleet, tw.load(ROOT / "maturity" / "fleet.json")
     )
-    low = [
-        f"{r['agent']} {r['answered']}%"
-        for r in rows
-        if r["answered"] < 99
-    ]
+    _, live = exceptions()
+    short = [r for r in rows if r["r4_share"] < BAR]
+    held = [r["agent"] for r in short
+            if ("R4 coverage", r["agent"]) not in live]
+    covered = [live[("R4 coverage", r["agent"])]["id"]
+               for r in short if r["agent"] not in held]
+    detail = ", ".join(held) + " 0%" if held else "all agents"
+    if covered:
+        detail += "; Pick " + ", ".join(covered)
     out.append(
         (
-            "receipts answer 7",
+            "R4 coverage",
             24,
-            "hold" if low else "pass",
-            ", ".join(low) or "all agents",
+            "hold" if held else "pass",
+            detail,
         )
     )
     pack = evidence.pack()
     gaps = [r["id"] for r in pack if r["status"] == "gap"]
+    ex = live.get(("evidence pack", None))
+    status = ("pass" if not gaps
+              else "excepted" if ex else "hold")
     out.append(
         (
             "evidence pack",
             31,
-            "condition" if gaps else "pass",
-            f"gap: {', '.join(gaps)}" if gaps else "met",
+            status,
+            (f"{', '.join(gaps)}, {ex['id']} to "
+             f"{ex['expires']:%b %d}") if ex else
+            (f"gap: {', '.join(gaps)}" if gaps else "met"),
         )
     )
     model = residency.pick_model(
@@ -387,11 +422,16 @@ def gates(rec):
         )
     )
     out = out[:1] + sorted(out[1:], key=lambda g: g[1])
-    return out, [r["agent"] for r in rows if r["answered"] < 99]
+    return out, held
 
 
 PLAN = {
-    "receipts answer 7": [
+    "R4 coverage": [
+        (
+            28,
+            "Pick: batch path through the gateway",
+            "team:fulfillment",
+        ),
         (
             30,
             "Ledger: R4 receipts from server spans",
@@ -446,22 +486,11 @@ def main(argv=None):
     print(f"{'gate':<22}{'ch':>3}  {'result':<10}detail")
     for name, ch, status, detail in results:
         print(f"{name:<22}{ch:>3}  {status:<10}{detail}")
-    shipped = [
-        a
-        for a in (
-            "Speedy",
-            "Pick",
-            "Route",
-            "Coder",
-            "Ledger",
-            "Promo",
-        )
-        if a not in held
-    ]
+    shipped = [a for a in FLEET if a not in held]
     blocking = [
         r
         for r in results
-        if r[2] == "hold" and r[0] != "receipts answer 7"
+        if r[2] == "hold" and r[0] != "R4 coverage"
     ]
     verdict = "HOLD" if blocking else "SHIP"
     print(
@@ -470,6 +499,18 @@ def main(argv=None):
     )
     if held:
         print(f"         HOLD {', '.join(held)} (observe only)")
+    rows, live = exceptions()
+    print("Exceptions: scope, end date, accepted by")
+    for e in rows:
+        if e in live.values():
+            print(f"  {e['id']}  {e['scope']:<37}"
+                  f"to {e['expires']:%b %d}  "
+                  f"{e['accepted_by']}")
+    for e in rows:
+        if e not in live.values():
+            print(f"  {e['id']}  granted {e['granted']:%b %d}, "
+                  f"lapsed {e['expires']:%b %d}; renewed "
+                  f"{REVIEW:%b %d}")
     print("90-day plan:")
     for day, what, owner in plan(results):
         due = REVIEW + datetime.timedelta(days=day)

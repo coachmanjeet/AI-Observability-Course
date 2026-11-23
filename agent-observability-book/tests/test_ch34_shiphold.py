@@ -42,10 +42,10 @@ def test_signature_verifies():
 def test_review_holds_only_low_receipt_agents():
     rec, _, _ = assemble()
     results, held = gates(rec)
-    assert len(results) == 13
+    assert len(results) == 14
     assert held == ["Ledger", "Promo"]
     holds = [r[0] for r in results if r[2] == "hold"]
-    assert holds == ["receipts answer 7"]
+    assert holds == ["R4 coverage"]
 
 
 def test_every_finding_gets_a_dated_owner():
@@ -56,3 +56,23 @@ def test_every_finding_gets_a_dated_owner():
     assert all(owner.startswith("team:")
                for _, _, owner in items)
     assert any("A.5.2" in what for _, what, _ in items)
+
+
+def test_rounding_cannot_ship_pick_without_an_exception():
+    from shiphold.review import exceptions
+    rows, live = exceptions()
+    assert ("R4 coverage", "Pick") in live
+    rec, _, _ = assemble()
+    results, held = gates(rec)
+    assert "Pick" not in held
+    status = {r[0]: r[2] for r in results}
+    assert status["evidence pack"] == "excepted"
+    assert status["fleet snapshot"] == "pass"
+
+
+def test_a_lapsed_exception_is_kept_as_history():
+    import datetime
+    from shiphold.review import exceptions
+    rows, live = exceptions(datetime.date(2028, 1, 9))
+    assert ("evidence pack", None) not in live
+    assert [e["id"] for e in rows].count("EX-2") == 2

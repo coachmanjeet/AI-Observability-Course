@@ -36,7 +36,8 @@ def test_gaps_name_owners_work():
 
 def test_night_owl_is_retired_not_hidden():
     fleet = load(HERE / "fleet-2027-03-29.json")
-    assert [r["name"] for r in fleet["retired"]] == ["Night Owl"]
+    names = [r["name"] for r in fleet["retired"]]
+    assert names == ["Night Owl", "Tally"]
     assert "Night Owl" not in [a["name"]
                                for a in fleet["agents"]]
 
@@ -45,3 +46,11 @@ def test_every_agent_has_an_owner():
     fleet = load(HERE / "fleet-2027-03-29.json")
     assert all(a["owner"].startswith("team:")
                for a in fleet["agents"])
+
+
+def test_exact_coverage_is_not_rounded():
+    rows, _, _ = run()
+    by = {r["agent"]: r for r in rows}
+    assert by["Pick"]["answered"] == 99
+    assert by["Pick"]["answered_exact"] == 98.57
+    assert by["Pick"]["r4_share"] == 98.0

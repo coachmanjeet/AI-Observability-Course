@@ -46,3 +46,15 @@ def test_every_receipt_names_its_version():
     ex = json.load(open("receipts/examples/"
                         "02-speedy-refund-40.json"))
     assert ex["who"]["agent_version"] == fo.OLD
+
+
+def test_a_quiet_canary_with_too_little_evidence_extends():
+    _, _, _, table = fo.watch(min_n=400)
+    assert [d[5] for d in table] == ["extend"] * 3
+
+
+def test_expand_needs_evidence_and_mature_outcomes():
+    assert fo.decide(3, 500, False, False) == "extend"
+    assert fo.decide(7, 150, False, False) == "extend"
+    assert fo.decide(7, 500, False, False) == "expand"
+    assert fo.decide(1, 10, False, True) == "roll back"

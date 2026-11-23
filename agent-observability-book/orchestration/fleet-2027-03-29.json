@@ -147,6 +147,12 @@
       "name": "Night Owl",
       "agent_id": "agent://unregistered/night-owl",
       "retired_on": "2027-01-29"
+    },
+    {
+      "name": "Tally",
+      "agent_id": "agent://pronto/tally",
+      "retired_on": "2027-03-22",
+      "reason": "stock reconciliation moved into the inventory service's nightly job"
     }
   ]
 }

@@ -31,7 +31,7 @@ def conversations(seed=7, n=1200, canary=0.10):
             RATES[v]["refund"]
         out.append({"receipt_id": f"rcpt_{seed}_{i:04d}",
                     "who": {"agent_version": v},
-                    "refund": refund,
+                    "refund": refund, "over_50": over,
                     "decision": "deny" if over else "allow"})
     return out
 
@@ -91,19 +91,34 @@ def retire(version, receipts):
 
 
 MIN_N, ALPHA = 200, 0.01
+OUTCOME_DAYS = 7     # a refund's outcome is known after 7 days
 
 
-def watch(days=3):
-    """Compare versions daily; alert on enough evidence."""
+def decide(day, n, alert, harm, min_n=MIN_N):
+    """Roll back, extend at 10%, or expand. A date alone is
+    never a reason to expand: it is a time to look again."""
+    if harm or alert:
+        return "roll back"
+    if n < min_n or day < OUTCOME_DAYS:
+        return "extend"
+    return "expand"
+
+
+def watch(days=3, min_n=MIN_N):
+    """Compare versions daily; decide on enough evidence."""
     rows, table = [], []
     for day in range(1, days + 1):
         rows += conversations(seed=day)
         by, drift = compare(rows)
         n = len(by[NEW])
-        ready = n >= MIN_N
+        ready = n >= min_n
         alert = ready and any(d["p"] < ALPHA
                               for d in drift.values())
-        table.append((day, n, drift, ready, alert))
+        # serious harm: a refund over $50 paid without approval
+        harm = any(r["over_50"] and r["decision"] == "allow"
+                   for r in by[NEW])
+        table.append((day, n, drift, ready, alert,
+                      decide(day, n, alert, harm, min_n)))
         if alert:
             return rows, by, drift, table
     return rows, by, drift, table
@@ -113,11 +128,10 @@ def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     rows, by, drift, table = watch()
     print(f"Speedy canary from Apr 5, 2027: {NEW} on 10%")
-    print("day  canary n  refunds old/new  denies old/new")
-    for day, n, d, ready, alert in table:
+    print("day  canary n  refunds old/new  "
+          "denies old/new  next")
+    for day, n, d, ready, alert, note in table:
         r, x = d["refund rate"], d["deny rate"]
-        note = ("ALERT" if alert else
-                "wait" if not ready else "ok")
         print(f"{day:>3}{n:>10}  {r['old']:>6.1%} "
               f"{r['new']:>6.1%}   {x['old']:>5.1%} "
               f"{x['new']:>5.1%}  {note}")
