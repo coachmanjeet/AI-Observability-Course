@@ -1,4 +1,4 @@
-"""Gov Cloud configuration profile check (Chapter 33).
+"""Gov Cloud configuration profile check (Chapter 25).
 
 Usage: python -m comply.govcloud [OUT_DIR] [--air-gapped]
 

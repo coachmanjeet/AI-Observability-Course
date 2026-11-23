@@ -1,4 +1,4 @@
-"""Chapter 15 figures: a registry record's lifecycle.
+"""Chapter 11 figures: a registry record's lifecycle.
 
 Usage: python -m figures.chapter15 OUT_DIR
 """

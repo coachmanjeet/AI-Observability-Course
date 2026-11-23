@@ -1,5 +1,5 @@
-.PHONY: durable
-LABS += durable
+.PHONY: entitlements
+LABS += entitlements
 
-durable:         ## Chapter 23: durable workflow with voice and vision
-	python -m orchestration.durable build/durable
+entitlements:    ## Chapter 23: plans, quotas, budget kill switch
+	python -m metering.entitlements build/entitlements

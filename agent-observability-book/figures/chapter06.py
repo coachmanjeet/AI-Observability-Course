@@ -1,4 +1,4 @@
-"""Chapter 6 figures: one action traced back to the versioned records
+"""Chapter 5 figures: one action traced back to the versioned records
 it rested on, and decisions placed against the policy version in view.
 
 Usage: python -m figures.chapter06 OUT_DIR

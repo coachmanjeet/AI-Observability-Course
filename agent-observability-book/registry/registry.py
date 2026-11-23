@@ -1,9 +1,9 @@
-"""One registry for every agent and MCP server (Chapter 15).
+"""One registry for every agent and MCP server (Chapter 11).
 
 Usage: python -m registry.registry OUT_DIR
 
 Builds Pronto's registry from three inputs: the inventory, the
-drafts discovery found (Chapter 14), and what third parties publish
+drafts discovery found (Chapter 11), and what third parties publish
 about themselves (an A2A agent card, an MCP server record). Each
 record gets an owner, a version, capabilities and a risk tier, and
 moves through a lifecycle only by recorded decisions.

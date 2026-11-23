@@ -1,4 +1,4 @@
-"""Decision traces as a graph (Chapter 6).
+"""Decision traces as a graph (Chapter 5).
 
 Usage: python -m decisions.graph TRACE.json why [FILTER]
        python -m decisions.graph TRACE.json used SOURCE[@VERSION]

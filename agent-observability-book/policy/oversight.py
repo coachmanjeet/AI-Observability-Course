@@ -1,4 +1,4 @@
-"""Human oversight that scales (Chapter 21).
+"""Human oversight that scales (Chapter 16).
 
 Usage: python -m policy.oversight [OUT_DIR]
 

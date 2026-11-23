@@ -1,4 +1,4 @@
-"""One task, four orchestration topologies (Chapter 22).
+"""One task, four orchestration topologies (Chapter 17).
 
 The task is Saturday's conversation: refund the spoiled
 strawberries, confirm by text, then deal with the double card

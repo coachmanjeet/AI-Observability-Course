@@ -1,4 +1,4 @@
-"""Chapter 14: find every agent, MCP server and API from evidence.
+"""Chapter 11: find every agent, MCP server and API from evidence.
 
 Seven sources, one JSON file each in registry/evidence/. The scanner
 joins them on three keys (agent ID, credential and host), decides

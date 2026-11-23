@@ -101,7 +101,7 @@ TOOLS = {
     "cases.escalate": Tool(cases_escalate, "order_id", "write",
                            "Opens a case for a person to review",
                            latency_s=0.62),
-    # Remote only: reached through world.routes (Chapter 5)
+    # Remote only: reached through world.routes (Chapter 4)
     "notify.queue": Tool(None, "customer_id", "external_communication",
                          "Queues a message to the customer"),
     "disputes.open": Tool(None, "order_id", "external_communication",
@@ -120,7 +120,7 @@ def run_tool(world, call):
     so the model can explain them to the customer."""
     tool, route = TOOLS[call.name], world.routes.get(call.name)
     try:
-        if route:                    # over MCP, A2A or a queue (Ch 5)
+        if route:                    # over MCP, A2A or a queue (Ch 4)
             return route(call.arguments)
         world.clock.advance(tool.latency_s)
         return tool.run(world, call.arguments)

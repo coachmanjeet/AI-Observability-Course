@@ -1,5 +1,5 @@
-.PHONY: memory
-LABS += memory
+.PHONY: identity
+LABS += identity
 
-memory:          ## Chapter 12: scoped, expiring, erasable memory
-	python -m context.memory build/memory
+identity:        ## Chapter 12: attest, issue and verify agent identity
+	python -m identity.workload build/identity

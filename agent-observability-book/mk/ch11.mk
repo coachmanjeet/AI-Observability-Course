@@ -1,8 +1,5 @@
-.PHONY: packs packs-tamper
-LABS += packs packs-tamper
+.PHONY: discover
+LABS += discover
 
-packs:           ## Chapter 11: build, sign, gate and release packs
-	python -m context.packs release build/packs
-
-packs-tamper:    ## Chapter 11: edit a built pack and verify it
-	python -m context.packs tamper build/packs
+discover:        ## Chapter 11: find every agent from seven sources
+	python -m registry.discover registry/evidence build/discover

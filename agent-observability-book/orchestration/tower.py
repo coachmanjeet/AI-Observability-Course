@@ -1,4 +1,4 @@
-"""The AI control tower's weekly view of the fleet (Chapter 24).
+"""The AI control tower's weekly view of the fleet (Chapter 18).
 
 Usage: python -m orchestration.tower [OUT_DIR]
 

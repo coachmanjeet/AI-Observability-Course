@@ -1,4 +1,4 @@
-"""Break-glass and in-flight revocation (Chapter 21).
+"""Break-glass and in-flight revocation (Chapter 16).
 
 Usage: python -m policy.breakglass
 

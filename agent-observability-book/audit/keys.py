@@ -1,4 +1,4 @@
-"""The receipt writer's signing key (Chapter 8).
+"""The receipt writer's signing key (Chapter 7).
 
 A lab key from a fixed seed, so every output in the book repeats. In
 production the private key lives in a KMS or HSM that only the

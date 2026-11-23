@@ -1,5 +1,5 @@
 """Who authorized each refund, and what the payment checked
-(Chapter 21).
+(Chapter 16).
 
 Usage: python -m policy.authority
 

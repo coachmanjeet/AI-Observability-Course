@@ -1,4 +1,4 @@
-# Pronto's Collector pipeline (Chapter 7), for otelcol-contrib.
+# Pronto's Collector pipeline (Chapter 6), for otelcol-contrib.
 # The same stages as collector/processors.py: redact, then fork. One
 # pipeline keeps every redacted span for the receipt builder; the
 # other tail-samples what goes to the trace backend.

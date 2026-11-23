@@ -1,9 +1,9 @@
-"""Pronto's source catalog, as much of it as Chapter 6 needs.
+"""Pronto's source catalog, as much of it as Chapter 5 needs.
 
 A trace says which record an agent read and which version it was.
 The catalog says where that record lives, who is its authority, how
 sensitive it is, who wrote it (origin) and how far an agent may
-rely on it (trust). Chapter 9 builds the full catalog.
+rely on it (trust). Chapter 8 builds the full catalog.
 """
 CATALOG = {
     "policy": {"uri": "kb://pronto/policies/{name}",

@@ -1,4 +1,4 @@
-"""A pricing simulator on pilot traffic (Chapter 29).
+"""A pricing simulator on pilot traffic (Chapter 22).
 
 Usage: python -m metering.pricing [OUT_DIR]
 

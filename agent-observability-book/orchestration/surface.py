@@ -1,4 +1,4 @@
-"""Pronto's agent-facing MCP surface (Chapter 26).
+"""Pronto's agent-facing MCP surface (Chapter 20).
 
 Usage: python -m orchestration.surface [OUT_DIR]
 

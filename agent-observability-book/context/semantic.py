@@ -1,4 +1,4 @@
-"""Governed metrics over Pronto's tables (Chapter 10).
+"""Governed metrics over Pronto's tables (Chapter 8).
 
 Usage: python -m context.semantic [OUT_DIR]
 

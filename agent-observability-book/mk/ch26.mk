@@ -1,5 +1,9 @@
-.PHONY: surface
-LABS += surface
+.PHONY: shiphold
+LABS += shiphold
 
-surface:         ## Chapter 26: agent-facing MCP surface for outsiders
-	python -m orchestration.surface build/surface
+SHIPHOLD_INPUTS = packs memory registry identity delegation \
+  privilege policy oversight topologies fleetops value \
+  entitlements residency
+
+shiphold: $(SHIPHOLD_INPUTS)  ## Chapter 26: Ship or Hold
+	python -m shiphold.review build/shiphold

@@ -1,5 +1,5 @@
-.PHONY: redteam
-LABS += redteam
+.PHONY: surface
+LABS += surface
 
-redteam:         ## Chapter 20: OWASP Agentic Top 10 red team
-	python -m policy.redteam build/redteam
+surface:         ## Chapter 20: agent-facing MCP surface for outsiders
+	python -m orchestration.surface build/surface

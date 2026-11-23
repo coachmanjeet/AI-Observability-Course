@@ -1,5 +1,5 @@
-.PHONY: identity
-LABS += identity
+.PHONY: oversight
+LABS += oversight
 
-identity:        ## Chapter 16: attest, issue and verify agent identity
-	python -m identity.workload build/identity
+oversight:       ## Chapter 16: tiers, approvals, graduated response
+	python -m policy.oversight build/oversight

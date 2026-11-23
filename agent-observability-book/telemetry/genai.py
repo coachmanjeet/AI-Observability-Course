@@ -42,18 +42,18 @@ def _message(m):
         {"type": "tool_call_response", "response": m["result"]}]}
 
 
-DECIDED_BY = {"pronto.link": "decided_by"}      # Chapter 6
+DECIDED_BY = {"pronto.link": "decided_by"}      # Chapter 5
 IN_CONTEXT = {"pronto.link": "in_context"}
 
 
 class GenAISpans:
     def __init__(self, tracer, clock, decisions=False):
         self.tracer, self.clock = tracer, clock
-        self.decisions = decisions               # Chapter 6
+        self.decisions = decisions               # Chapter 5
         self.context, self.asked = [], None
 
     def _edges(self, op):
-        """Chapter 6: a model call links to each tool result in
+        """Chapter 5: a model call links to each tool result in
         its context. A tool call links to the one that asked."""
         if not self.decisions:
             return ()
@@ -131,7 +131,7 @@ class GenAISpans:
             "gen_ai.usage.output_tokens": reply.output_tokens,
             "gen_ai.usage.cache_read.input_tokens":
                 reply.cache_read_tokens})
-        if capture_content():                    # opt-in, Chapter 7
+        if capture_content():                    # opt-in, Chapter 6
             span.set_attributes({
                 "gen_ai.system_instructions": json.dumps(
                     [{"type": "text", "content": reply.system}]),
@@ -159,7 +159,7 @@ class GenAISpans:
                     "pronto.effect.currency":
                         amount["currency"]})
         source = result.get("source")
-        if source:                               # Chapter 6
+        if source:                               # Chapter 5
             span.set_attributes({
                 "gen_ai.data_source.id": source["id"],
                 "pronto.source.version": source["version"]})

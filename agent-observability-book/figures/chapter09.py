@@ -1,4 +1,4 @@
-"""Chapter 9 figures: the receipt strip, and Tuesday's seven
+"""Chapter 8 figures: the receipt strip, and Tuesday's seven
 candidates through the catalog's five checks, drawn from the lab.
 
 Usage: python -m figures.chapter09 OUT_DIR

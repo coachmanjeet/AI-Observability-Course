@@ -1,4 +1,4 @@
-"""Chapter 16 figures: identity by attestation.
+"""Chapter 12 figures: identity by attestation.
 
 Usage: python -m figures.chapter16 OUT_DIR
 """

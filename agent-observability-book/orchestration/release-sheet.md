@@ -1,4 +1,4 @@
-# Release sheet (Chapter 25)
+# Release sheet (Chapter 19)
 
 Fill this in before the canary starts. Update the day rows at
 each review. A date is a time to look at the evidence, never a

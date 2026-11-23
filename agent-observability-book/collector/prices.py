@@ -1,4 +1,4 @@
-"""Prices behind every cost in the book (Chapter 7).
+"""Prices behind every cost in the book (Chapter 6).
 
 Model prices are USD per million tokens. pronto-mock-1 is the lab's
 stand-in model, priced like a mid-tier hosted model; put your

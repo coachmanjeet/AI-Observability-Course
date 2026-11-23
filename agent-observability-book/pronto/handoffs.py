@@ -1,4 +1,4 @@
-"""Saturday's conversation across three boundaries (Chapter 5).
+"""Saturday's conversation across three boundaries (Chapter 4).
 
 Usage: python -m pronto.handoffs OUT_DIR [--drop-context]
 

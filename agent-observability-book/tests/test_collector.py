@@ -1,4 +1,4 @@
-"""Chapter 7: capture, redaction, tail sampling and cost."""
+"""Chapter 6: capture, redaction, tail sampling and cost."""
 import json
 import pathlib
 

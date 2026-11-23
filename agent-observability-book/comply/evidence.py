@@ -1,4 +1,4 @@
-"""Build an evidence pack from receipts and controls (Ch 31).
+"""Build an evidence pack from receipts and controls (Ch 24).
 
 Usage: python -m comply.evidence [OUT_DIR]
 

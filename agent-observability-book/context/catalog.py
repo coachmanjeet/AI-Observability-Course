@@ -1,10 +1,10 @@
-"""Pronto's context catalog (Chapter 9).
+"""Pronto's context catalog (Chapter 8).
 
 Every kind of record an agent may read is registered here:
 where it lives, who vouches for it, where its content came
 from, how sensitive it is, and which topics it may speak for.
 The catalog also keeps each record's versions, with the time
-each took effect and a digest of its content. Chapter 6's
+each took effect and a digest of its content. Chapter 5's
 pronto/sources.py held the first three columns of this table.
 """
 

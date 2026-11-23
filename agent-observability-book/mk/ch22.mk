@@ -1,5 +1,5 @@
-.PHONY: topologies
-LABS += topologies
+.PHONY: usage
+LABS += usage
 
-topologies:      ## Chapter 22: one task, four topologies, scored
-	python -m orchestration.score build/orchestration
+usage:           ## Chapter 22: usage events, idempotent, per tenant
+	python -m metering.usage build/usage

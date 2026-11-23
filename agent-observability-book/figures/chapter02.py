@@ -8,11 +8,11 @@ import sys
 from figures.notation import (FILL, MID, PALE, WIDTH, agent, arrow, box,
                               gate, line, receipt, store, svg, text, tool)
 
-QUESTIONS = [("Who\nacted?", "4, 15, 16"), ("For\nwhom?", "17, 18"),
-             ("Knowing\nwhat?", "6, 9,\n11–13"),
-             ("Under\nwhich\nrule?", "19, 21"),
-             ("Doing\nwhat?", "4, 5,\n8, 27"), ("At what\ncost?", "7, 28"),
-             ("Where?", "32")]
+QUESTIONS = [("Who\nacted?", "4, 11, 12"), ("For\nwhom?", "12, 13"),
+             ("Knowing\nwhat?", "5, 8,\n9, 10"),
+             ("Under\nwhich\nrule?", "14, 16"),
+             ("Doing\nwhat?", "4, 7,\n21"), ("At what\ncost?", "6, 22"),
+             ("Where?", "25")]
 
 
 def receipt_strip(highlight=()):
@@ -42,21 +42,21 @@ def receipt_strip(highlight=()):
 
 ROWS = [  # receipt key, sample value, supplying system, shape, chapters
     ("who", "Speedy 2.3.1, first party", "Registry and runtime",
-     "store", "4, 15, 16"),
+     "store", "4, 11, 12"),
     ("for_whom", "cust_7f3a91, two scopes", "Identity provider",
-     "box", "17, 18"),
+     "box", "12, 13"),
     ("knowing_what", "pack 1.4.0, three sources", "Context packs, sources",
-     "store", "6, 9, 11–13"),
+     "store", "5, 8, 9, 10"),
     ("under_which_rule", "allow, sampled review", "Policy gateway",
-     "gate", "19, 21"),
+     "gate", "14, 16"),
     ("did_what", "refund $40, outcome pending", "Tools, systems of record",
-     "tool", "4, 5, 8, 27"),
-    ("at_what_cost", "$0.0142, one meter", "Meter", "box", "7, 28"),
+     "tool", "4, 7, 21"),
+    ("at_what_cost", "$0.0142, one meter", "Meter", "box", "6, 22"),
     ("where", "aws us-west-2, data in US", "Cloud resource attributes",
-     "box", "32"),
+     "box", "25"),
     ("evidence", "trace 4bf92f35…", "Trace pipeline (OTel)", "box",
-     "4, 5"),
-    ("integrity", "prev_hash, hash", "Receipt store", "store", "8"),
+     "4"),
+    ("integrity", "prev_hash, hash", "Receipt store", "store", "7"),
 ]
 
 

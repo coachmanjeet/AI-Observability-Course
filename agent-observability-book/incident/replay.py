@@ -84,7 +84,7 @@ def main():
     print()
     target = EXAMPLES / "02-speedy-refund-40.json"
     full = json.loads(target.read_text(encoding="utf-8"))
-    print(f"By Chapter 34: rf_9931's receipt answers "
+    print(f"By Chapter 26: rf_9931's receipt answers "
           f"{7 - len(unanswered(full))} of 7 "
           f"({full['conformance']}, chained)")
 

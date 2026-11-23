@@ -32,19 +32,19 @@ def all_receipted(a):
 LADDER = [
     (2, [(lambda a: a["registered"],
           "register it and name an owner, or shut it off"
-          " (Ch 14, 15)"),
+          " (Ch 11)"),
          (has_owner,
-          "name an owner team that answers for it (Ch 15)")]),
+          "name an owner team that answers for it (Ch 11)")]),
     (3, [(lambda a: a["identity"] == "own",
           "give it its own identity; it runs on a {identity}"
-          " credential (Ch 16)"),
+          " credential (Ch 12)"),
          (lambda a: a["access"] == "scoped",
-          "scope its access to what its job needs (Ch 18)")]),
+          "scope its access to what its job needs (Ch 13)")]),
     (4, [(lambda a: a["policy"] == "outside_model",
           "enforce its rules outside the model; today they"
-          " live {rules} (Ch 19)"),
+          " live {rules} (Ch 14)"),
          (lambda a: a["traced"],
-          "trace every action, end to end (Ch 4, 5)")]),
+          "trace every action, end to end (Ch 4)")]),
     (5, [(all_receipted,
           "emit an R4 receipt for every consequential action;"
           " {r4_receipts_7d:,} of {actions_7d:,} have one"
@@ -69,7 +69,7 @@ def score(agent):
                 where = WHERE_RULES.get(agent["policy"], "")
                 next_step = step.format(rules=where, **agent)
                 return level - 1, next_step
-    return 5, "keep it there; review receipts at launch (Ch 34)"
+    return 5, "keep it there; review receipts at launch (Ch 26)"
 
 
 def assess(fleet):
@@ -83,7 +83,7 @@ def assess(fleet):
 
 
 def wrap(text):
-    """Wrap at 64 columns, keeping "(Ch 14, 15)" in one piece."""
+    """Wrap at 64 columns, keeping "(Ch 11)" in one piece."""
     head, _, ref = text.rpartition(" (")
     if ref:
         text = head + " (" + ref.replace(" ", "\u00a0")

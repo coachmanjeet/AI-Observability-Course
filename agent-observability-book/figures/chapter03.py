@@ -64,7 +64,7 @@ def discover_govern_observe(here=None):
 def reference_architecture():
     """Figure 3.3. Data plane, control plane, enforcement points."""
     body = [box(4, 6, 452, 60, width=2.0),
-            text(14, 25, "AI Control Tower (Ch 24)", size=12.5, weight=700)]
+            text(14, 25, "AI Control Tower (Ch 18)", size=12.5, weight=700)]
     for i, item in enumerate(["Fleet inventory", "Receipt explorer",
                               "Budgets", "Kill switch"]):
         body += [box(14 + i * 110, 34, 102, 24),
@@ -75,11 +75,11 @@ def reference_architecture():
              box(4, 90, 452, 122),
              text(14, 108, "Control plane: decides and records",
                   size=12.5, weight=700)]
-    planes = [("store", "Registry\nCh 15"), ("box", "Identity\nCh 16, 17"),
-              ("box", "Policy admin\nCh 19, 21"),
-              ("store", "Context catalog\nCh 9–13"),
-              ("store", "Traces, receipts\nCh 4–8"),
-              ("box", "Metering\nCh 27–30")]
+    planes = [("store", "Registry\nCh 11"), ("box", "Identity\nCh 12"),
+              ("box", "Policy admin\nCh 14, 16"),
+              ("store", "Context catalog\nCh 8–10"),
+              ("store", "Traces, receipts\nCh 4–7"),
+              ("box", "Metering\nCh 21–23")]
     for i, (shape, label) in enumerate(planes):
         x, y = 14 + (i % 3) * 148, 116 + (i // 3) * 46
         if shape == "store":

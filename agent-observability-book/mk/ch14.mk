@@ -1,5 +1,5 @@
-.PHONY: discover
-LABS += discover
+.PHONY: policy
+LABS += policy
 
-discover:        ## Chapter 14: find every agent from seven sources
-	python -m registry.discover registry/evidence build/discover
+policy:          ## Chapter 14: Cedar policy at the MCP gateway
+	python -m policy.gateway build/policy

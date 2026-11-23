@@ -1,4 +1,4 @@
-"""A one-page funding memo for Speedy's next quarter (Ch 27).
+"""A one-page funding memo for Speedy's next quarter (Ch 21).
 
 Usage: python -m metering.memo
 

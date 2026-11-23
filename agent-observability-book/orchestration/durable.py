@@ -1,4 +1,4 @@
-"""A durable, multi-modal workflow for Route (Chapter 23).
+"""A durable, multi-modal workflow for Route (Chapter 17).
 
 Usage: python -m orchestration.durable [OUT_DIR]
 

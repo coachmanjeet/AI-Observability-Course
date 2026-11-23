@@ -1,4 +1,4 @@
-"""An append-only, hash-chained, signed receipt store (Chapter 8).
+"""An append-only, hash-chained, signed receipt store (Chapter 7).
 
 One writer per tenant chain. Each record is sealed with the hash of
 the record before it, signed with a detached JWS (EdDSA over the

@@ -1,4 +1,4 @@
-"""Chapter 23 figures: one workflow across a night.
+"""Chapter 17 figures: one workflow across a night.
 
 Usage: python -m figures.chapter23 OUT_DIR
 """

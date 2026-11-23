@@ -47,7 +47,7 @@ Model calls and plain reads of non-sensitive data don't get receipts; the trace 
 | At what cost? | `at_what_cost` | `tokens`, `model_cost`, `billable` meters | 7, 28 |
 | Where? | `where` | `cloud_provider`, `region`, `environment`, `data_residency` | 32 |
 
-Two supporting sections complete the record. `evidence` holds the trace and span IDs, the conversation and MCP session IDs, and an optional `parent_receipt_id` for handoffs (Chapters 4–5). `integrity` holds the hash chain (Chapter 8).
+Two supporting sections complete the record. `evidence` holds the trace and span IDs, the conversation and MCP session IDs, and an optional `parent_receipt_id` for handoffs (Chapter 4). `integrity` holds the hash chain (Chapter 7).
 
 **"Doing what" has three parts,** matching the top three rungs of Book 1's Evidence Ladder:
 
@@ -73,8 +73,8 @@ An estate reaches maturity level 5 (Accountable) in Chapter 3's model when every
 The schema (`agent-receipt.schema.json`) is the full reference. These are the semantics that matter most.
 
 - **`who.kind: shadow`** marks an agent caught at a gateway but missing from the registry. `owner: "unknown"` is itself a finding.
-- **`who.identity`** is `verified` only when the enforcement point attested the workload itself and wrote `workload_id`; the schema rejects `verified` without it. Everything else is `claimed`: a name from a hostname, a partner's session or a registry lookup with no credential behind it. Required at R4 (Chapter 16).
-- **`knowing_what.sources[].origin`** says who wrote the content: `pronto`, `customer`, `partner` or `public`. It is not the same as `authority`, which says who vouches for the record. **`trust`** says how the agent may use it: `authoritative` records decide, `evidence` is weighed, `data` never instructs. Both are required on every source at R4, so a receipt alone shows when an agent read content from outside the company (Chapter 9).
+- **`who.identity`** is `verified` only when the enforcement point attested the workload itself and wrote `workload_id`; the schema rejects `verified` without it. Everything else is `claimed`: a name from a hostname, a partner's session or a registry lookup with no credential behind it. Required at R4 (Chapter 12).
+- **`knowing_what.sources[].origin`** says who wrote the content: `pronto`, `customer`, `partner` or `public`. It is not the same as `authority`, which says who vouches for the record. **`trust`** says how the agent may use it: `authoritative` records decide, `evidence` is weighed, `data` never instructs. Both are required on every source at R4, so a receipt alone shows when an agent read content from outside the company (Chapter 8).
 - **`for_whom.delegation_chain`** has one entry per hop. It is built from OAuth 2.0 token exchange (RFC 8693) actor claims, and scopes should narrow at each hop.
 - **`for_whom.token_ref`** is a digest of the token's ID, never the token.
 - **`knowing_what.sources[].version`** is an ETag, commit, or effective date. It must let a reviewer fetch exactly what the agent read.
@@ -82,11 +82,11 @@ The schema (`agent-receipt.schema.json`) is the full reference. These are the se
 - **`under_which_rule.autonomy_tier`** has four values in v0.1: `suggest_only`, `act_with_approval`, `act_with_sampled_review` and `act_autonomously`. They line up with Book 1's autonomy ladder for Speedy's refunds: refunds over $50 are `act_with_approval`, refunds under $50 with random spot checks are `act_with_sampled_review`, and refunds under $10 are `act_autonomously`. `suggest_only` is the rung below all three, where the agent drafts and a person acts.
 - **`did_what.outcome.status`** stays `pending` until an outcome record arrives. It is `not_applicable` for actions with no business outcome, such as a read.
 - **`at_what_cost.billable[]`** lists the meters this action may charge. Outcome-priced meters stay `pending_outcome` until the outcome record bills them. The `idempotency_key` prevents double billing.
-- **`knowing_what` from a trace** comes from decision links (Chapter 6): the tool span links to the model call that asked for it (`pronto.link: decided_by`), and that call links to each tool result in its context (`in_context`). An action decided on the customer's message alone has an empty `sources` list, which is an honest answer.
-- **`at_what_cost.model_cost`** is the cost of the model call that decided the action, as an exact decimal string. The rest of the turn's model calls are metering's concern (Chapter 28). Build receipts from redacted spans, before sampling, so no consequential action loses its receipt (Chapter 7).
+- **`knowing_what` from a trace** comes from decision links (Chapter 5): the tool span links to the model call that asked for it (`pronto.link: decided_by`), and that call links to each tool result in its context (`in_context`). An action decided on the customer's message alone has an empty `sources` list, which is an honest answer.
+- **`at_what_cost.model_cost`** is the cost of the model call that decided the action, as an exact decimal string. The rest of the turn's model calls are metering's concern (Chapter 22). Build receipts from redacted spans, before sampling, so no consequential action loses its receipt (Chapter 6).
 - **`where.data_residency`** is the jurisdiction where the data behind this action is stored. It isn't necessarily where the code ran.
-- **`did_what.action.via`** names the channel the action crossed: `direct`, `mcp`, `a2a`, `queue`, `api` or `cli`. A queued action's receipt is written when the agent queues it; `effect.status` stays `succeeded` with a `message:` reference, and the worker's span links back to it (Chapter 5).
-- **`evidence.parent_receipt_id`** links a receipt to the one that caused it. A handoff produces one receipt per acting agent: Speedy's `disputes.open` receipt, and a receipt for each consequential call the partner agent then makes on Pronto's systems, written from Pronto's MCP server span with `who.kind: third_party` (Chapter 5).
+- **`did_what.action.via`** names the channel the action crossed: `direct`, `mcp`, `a2a`, `queue`, `api` or `cli`. A queued action's receipt is written when the agent queues it; `effect.status` stays `succeeded` with a `message:` reference, and the worker's span links back to it (Chapter 4).
+- **`evidence.parent_receipt_id`** links a receipt to the one that caused it. A handoff produces one receipt per acting agent: Speedy's `disputes.open` receipt, and a receipt for each consequential call the partner agent then makes on Pronto's systems, written from Pronto's MCP server span with `who.kind: third_party` (Chapter 4).
 
 ## 7. OpenTelemetry mapping
 
@@ -100,7 +100,7 @@ Every `gen_ai.*` and `mcp.*` attribute is still at Development stability. The na
 | `for_whom.delegation_chain` | none | Receipt-native, from RFC 8693 actor claims |
 | `knowing_what.model.provider` | `gen_ai.provider.name` | Replaced `gen_ai.system` |
 | `knowing_what.model.request_model`, `response_model` | `gen_ai.request.model`, `gen_ai.response.model` | |
-| `knowing_what.sources[].id` | `gen_ai.data_source.id` | On the tool span that read the record, for the model call that decided the action (Chapter 6) |
+| `knowing_what.sources[].id` | `gen_ai.data_source.id` | On the tool span that read the record, for the model call that decided the action (Chapter 5) |
 | `knowing_what.sources[].version` | `pronto.source.version` | No convention yet; supplied by the system that holds the record |
 | `knowing_what.memory_reads[]` | `gen_ai.memory.store.id`, `gen_ai.memory.record.count` | |
 | `under_which_rule.*` | none | Receipt-native; the request uses the AuthZEN shape |
@@ -110,8 +110,8 @@ Every `gen_ai.*` and `mcp.*` attribute is still at Development stability. The na
 | `did_what.action.mcp_method` | `mcp.method.name` | |
 | Outcome record `evidence.evaluation` | `gen_ai.evaluation.name`, `gen_ai.evaluation.score.value`, `gen_ai.evaluation.score.label` | From the `gen_ai.evaluation.result` event |
 | `at_what_cost.tokens` | `gen_ai.usage.input_tokens`, `gen_ai.usage.output_tokens`, `gen_ai.usage.cache_read.input_tokens` | |
-| `at_what_cost.model_cost` | none | Receipt-native. The deciding model call's tokens times a dated price list; `input_tokens` already includes cached tokens, so only the uncached share is priced at the input rate (Chapter 7) |
-| `at_what_cost.billable` | none | Receipt-native (Chapter 28) |
+| `at_what_cost.model_cost` | none | Receipt-native. The deciding model call's tokens times a dated price list; `input_tokens` already includes cached tokens, so only the uncached share is priced at the input rate (Chapter 6) |
+| `at_what_cost.billable` | none | Receipt-native (Chapter 22) |
 | `where.cloud_provider`, `region`, `environment` | `cloud.provider`, `cloud.region`, `deployment.environment.name` (resource) | |
 | `where.data_residency` | none | Receipt-native |
 | `evidence.trace_id`, `span_id` | W3C trace context | MCP carries it in `params._meta` |
@@ -345,8 +345,8 @@ This contrast between Speedy's seven answers and Night Owl's two is Chapter 1's 
 1. **Autonomy tier names.** *Resolved Nov 18:* the four values stay, mapped to Book 1's autonomy ladder (Section 6).
 2. **Signatures.** Require Ed25519 at R4 so receipts drop into the IETF envelopes, or keep them optional?
 3. **Ledger scope.** One chain per tenant (v0.1), per agent, or per enforcement point? A single writer per chain is simplest to verify.
-4. **Handoffs.** *Resolved Nov 18:* one receipt per acting agent, linked by `parent_receipt_id`. The Chapter 5 lab produces five receipts for one two-turn conversation, and the partner's receipt points at Speedy's handoff receipt.
-5. **Volume under attack.** Denied actions always get receipts. Measure the volume during the Chapter 20 red-team lab before keeping that rule.
+4. **Handoffs.** *Resolved Nov 18:* one receipt per acting agent, linked by `parent_receipt_id`. The Chapter 4 lab produces five receipts for one two-turn conversation, and the partner's receipt points at Speedy's handoff receipt.
+5. **Volume under attack.** Denied actions always get receipts. Measure the volume during the Chapter 15 red-team lab before keeping that rule.
 6. **License.** Suggested: CC BY 4.0 for the spec text and Apache 2.0 for the code.
 7. **Engage, don't compete.** Contact the authors of the two IETF drafts before publishing v0.1 publicly, and offer the receipt as a content profile that their envelopes can carry.
 

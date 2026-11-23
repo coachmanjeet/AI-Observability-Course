@@ -1,4 +1,4 @@
-"""Chapter 29 figures: the pricing 2x2.
+"""Chapter 22 figures: the pricing 2x2.
 
 Usage: python -m figures.chapter29 OUT_DIR
 """

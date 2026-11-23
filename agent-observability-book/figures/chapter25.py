@@ -1,4 +1,4 @@
-"""Chapter 25 figures: the canary and the runbook.
+"""Chapter 19 figures: the canary and the runbook.
 
 Usage: python -m figures.chapter25 OUT_DIR
 """

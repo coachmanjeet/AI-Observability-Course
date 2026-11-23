@@ -1,4 +1,4 @@
-# Accepted exceptions for the Ship or Hold review (Chapter 34).
+# Accepted exceptions for the Ship or Hold review (Chapter 26).
 # An exception covers one gap, for a named scope, until a date.
 # Expired exceptions stay in the file: they are the history.
 - id: EX-1

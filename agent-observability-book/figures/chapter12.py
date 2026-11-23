@@ -1,4 +1,4 @@
-"""Chapter 12 figures: memory with boundaries.
+"""Chapter 9 figures: memory with boundaries.
 
 Usage: python -m figures.chapter12 OUT_DIR
 """

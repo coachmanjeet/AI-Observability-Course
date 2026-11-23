@@ -1,4 +1,4 @@
-# Pronto Gov configuration profile (Chapter 33).
+# Pronto Gov configuration profile (Chapter 25).
 # What the authorization boundary allows. Every component
 # in a deployment is checked against it.
 boundary: pronto-gov

@@ -1,5 +1,5 @@
-.PHONY: tower
-LABS += tower
+.PHONY: evidence
+LABS += evidence
 
-tower:           ## Chapter 24: control tower over 1P and 3P agents
-	python -m orchestration.tower build/tower
+evidence:        ## Chapter 24: evidence pack for EU AI Act, ISO, NIST
+	python -m comply.evidence build/comply

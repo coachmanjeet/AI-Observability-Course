@@ -1,4 +1,4 @@
-"""Context as a supply chain (Chapter 9).
+"""Context as a supply chain (Chapter 8).
 
 Usage: python -m context.supply retrieve OUT_DIR
        python -m context.supply audit TRACE.json
@@ -6,7 +6,7 @@ Usage: python -m context.supply retrieve OUT_DIR
 retrieve runs Tuesday, Dec 8's ticket: the retriever offers
 seven candidates for Speedy's context, and five checks decide
 which get in, each with a provenance stamp. audit replays the
-reads in a decision trace (Chapter 6) and checks each one as
+reads in a decision trace (Chapter 5) and checks each one as
 of the moment it was read.
 """
 

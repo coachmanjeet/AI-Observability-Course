@@ -1,5 +1,5 @@
-.PHONY: authority
-LABS += authority
+.PHONY: appeal
+LABS += appeal
 
-authority:       ## Chapter 21: who authorized each refund
-	python -m policy.authority
+appeal:          ## Chapter 21: one appealed refund, end to end
+	python -m metering.appeal

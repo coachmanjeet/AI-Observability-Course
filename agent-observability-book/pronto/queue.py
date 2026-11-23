@@ -1,5 +1,5 @@
 """An async hand-off: Speedy queues a confirmation that a worker
-sends minutes later (Chapter 5).
+sends minutes later (Chapter 4).
 
 The message carries trace context in its headers. The worker starts
 a new trace for its own work and links it to the span that queued

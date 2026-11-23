@@ -1,4 +1,4 @@
-"""Chapter 5 figures: one conversation across four services, continue
+"""Chapter 4 figures: one conversation across four services, continue
 or link, and receipts linked across a company boundary.
 
 Usage: python -m figures.chapter05 OUT_DIR

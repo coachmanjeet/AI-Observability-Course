@@ -1,4 +1,4 @@
-"""One appealed refund, from denial to the next release (Ch 27).
+"""One appealed refund, from denial to the next release (Ch 21).
 
 Usage: python -m metering.appeal
 

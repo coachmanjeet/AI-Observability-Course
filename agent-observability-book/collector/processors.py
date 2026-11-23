@@ -1,4 +1,4 @@
-"""The lab's Collector, in plain Python (Chapter 7).
+"""The lab's Collector, in plain Python (Chapter 6).
 
 Each function does what one OpenTelemetry Collector processor does,
 on spans in otlp.load()'s plain shape, so every stage can be measured

@@ -1,5 +1,5 @@
-.PHONY: recover
-LABS += recover
+.PHONY: semantics
+LABS += semantics
 
-recover:         ## Chapter 8: money moved, receipt didn't
-	python -m audit.recover
+semantics:       ## Chapter 8: raw SQL vs the governed metric
+	python -m context.semantic build/semantics

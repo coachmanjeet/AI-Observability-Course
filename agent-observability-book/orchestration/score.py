@@ -1,4 +1,4 @@
-"""Score topologies by their governance cost (Chapter 22).
+"""Score topologies by their governance cost (Chapter 17).
 
 Usage: python -m orchestration.score [OUT_DIR]
 

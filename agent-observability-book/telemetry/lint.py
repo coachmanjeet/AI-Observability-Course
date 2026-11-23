@@ -44,7 +44,7 @@ def check_span(s, by_id):
             yield "W", "remote parent is in another backend"
         else:
             yield "E", "parent span is missing from the trace"
-    if method:                                   # MCP (Chapter 5)
+    if method:                                   # MCP (Chapter 4)
         tool = a.get("gen_ai.tool.name")
         expected = f"{method} {tool}" if tool else method
         if s["name"] != expected:

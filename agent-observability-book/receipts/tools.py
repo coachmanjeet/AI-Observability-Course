@@ -1,6 +1,6 @@
 """Agent Receipt v0.1 helpers: canonical form, digests, chain.
 
-Used in Chapters 2 and 8. The canonical form follows JCS
+Used in Chapters 2 and 7. The canonical form follows JCS
 (RFC 8785) for the values receipts hold: keys sorted by UTF-16
 code units, as JCS requires, no whitespace, UTF-8. Python's
 sort_keys orders by code point instead, which differs for keys

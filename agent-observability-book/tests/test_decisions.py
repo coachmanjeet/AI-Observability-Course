@@ -1,4 +1,4 @@
-"""Chapter 6: decision links, versioned sources and the graph."""
+"""Chapter 5: decision links, versioned sources and the graph."""
 import json
 import pathlib
 

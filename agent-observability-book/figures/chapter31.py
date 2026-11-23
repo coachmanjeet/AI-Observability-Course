@@ -1,4 +1,4 @@
-"""Chapter 31 figures: one piece of evidence, many requirements.
+"""Chapter 24 figures: one piece of evidence, many requirements.
 
 Usage: python -m figures.chapter31 OUT_DIR
 """

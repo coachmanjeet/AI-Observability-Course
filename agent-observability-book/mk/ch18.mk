@@ -1,5 +1,5 @@
-.PHONY: privilege
-LABS += privilege
+.PHONY: tower
+LABS += tower
 
-privilege:       ## Chapter 18: permission diff, drift, task tokens
-	python -m policy.privilege build/privilege
+tower:           ## Chapter 18: control tower over 1P and 3P agents
+	python -m orchestration.tower build/tower

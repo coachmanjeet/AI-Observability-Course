@@ -1,4 +1,4 @@
-"""Ship or Hold for the control plane (Chapter 34).
+"""Ship or Hold for the control plane (Chapter 26).
 
 Usage: python -m shiphold.review [OUT_DIR]
 
@@ -47,18 +47,18 @@ def exceptions(at=None):
 
 # chapter, lab output, where the fragment goes
 OVERLAYS = [
-    (11, "packs/context-pack-1.4.0.json", "knowing_what"),
-    (12, "memory/memory-reads.json", "knowing_what"),
-    (15, "registry/who-speedy.json", None),
-    (16, "identity/who-workload.json", None),
-    (17, "delegation/for-whom.json", None),
-    (18, "privilege/for-whom-scopes.json", None),
-    (19, "policy/under-which-rule.json", None),
-    (21, "oversight/rule-40.json", None),
-    (22, "orchestration/via.json", None),
-    (27, "value/receipt-outcome.json", None),
-    (30, "entitlements/billing-account.json", None),
-    (32, "residency/where-pronto.json", None),
+    (9, "packs/context-pack-1.4.0.json", "knowing_what"),
+    (9, "memory/memory-reads.json", "knowing_what"),
+    (11, "registry/who-speedy.json", None),
+    (12, "identity/who-workload.json", None),
+    (12, "delegation/for-whom.json", None),
+    (13, "privilege/for-whom-scopes.json", None),
+    (14, "policy/under-which-rule.json", None),
+    (16, "oversight/rule-40.json", None),
+    (17, "orchestration/via.json", None),
+    (21, "value/receipt-outcome.json", None),
+    (23, "entitlements/billing-account.json", None),
+    (25, "residency/where-pronto.json", None),
 ]
 
 # where each field was introduced, for fields no lab rewrites
@@ -70,24 +70,24 @@ TAGS = {
     "consequence": 2,
     "who": 4,
     "who.kind": 3,
-    "for_whom": 17,
-    "knowing_what.model": 6,
-    "knowing_what.sources": 9,
-    "under_which_rule": 19,
+    "for_whom": 12,
+    "knowing_what.model": 5,
+    "knowing_what.sources": 8,
+    "under_which_rule": 14,
     "did_what.action": 4,
-    "did_what.action.via": 5,
-    "did_what.action.mcp_method": 5,
+    "did_what.action.via": 4,
+    "did_what.action.mcp_method": 4,
     "did_what.effect": 4,
-    "did_what.outcome": 27,
-    "at_what_cost.tokens": 7,
-    "at_what_cost.model_cost": 7,
-    "at_what_cost.billable": 28,
-    "at_what_cost.billing_account": 30,
-    "where": 32,
+    "did_what.outcome": 21,
+    "at_what_cost.tokens": 6,
+    "at_what_cost.model_cost": 6,
+    "at_what_cost.billable": 22,
+    "at_what_cost.billing_account": 23,
+    "where": 25,
     "evidence": 4,
-    "evidence.mcp_session_id": 5,
-    "evidence.conversation_id": 23,
-    "integrity": 8,
+    "evidence.mcp_session_id": 4,
+    "evidence.conversation_id": 17,
+    "integrity": 7,
 }
 
 QUESTIONS = [
@@ -148,7 +148,7 @@ def assemble():
         lab_key(), rec["integrity"]["hash"]
     )
     for p in ("integrity.hash", "integrity.signature"):
-        tags[p] = 8
+        tags[p] = 7
     real = sorted(
         p
         for p, v in leaves(rec)
@@ -234,7 +234,7 @@ def gates(rec):
     out.append(
         (
             "full receipt valid",
-            34,
+            26,
             "pass" if not errors and not missing else "hold",
             f"{7 - len(missing)} of 7 answered",
         )
@@ -249,7 +249,7 @@ def gates(rec):
     out.append(
         (
             "hash and signature",
-            8,
+            7,
             "pass" if ok else "hold",
             "verified",
         )
@@ -260,7 +260,7 @@ def gates(rec):
     out.append(
         (
             "fleet snapshot",
-            24,
+            18,
             "pass" if age <= FRESH_DAYS else "hold",
             f"week to {as_of:%b %d}, {age} days old",
         )
@@ -271,7 +271,7 @@ def gates(rec):
     out.append(
         (
             "registered, owned",
-            15,
+            11,
             "pass" if owned else "hold",
             f"{len(agents)} agents, {gone} retired",
         )
@@ -280,7 +280,7 @@ def gates(rec):
     out.append(
         (
             "own identity",
-            16,
+            12,
             "pass" if own_id else "hold",
             "all agents",
         )
@@ -289,7 +289,7 @@ def gates(rec):
     out.append(
         (
             "policy tests",
-            19,
+            14,
             "pass" if passed == total else "hold",
             f"{passed} of {total}",
         )
@@ -301,7 +301,7 @@ def gates(rec):
     out.append(
         (
             "only path",
-            19,
+            14,
             "pass" if alone else "hold",
             "direct calls rejected",
         )
@@ -326,7 +326,7 @@ def gates(rec):
     out.append(
         (
             "red team",
-            20,
+            15,
             "pass" if closed == len(rows) and fine else "hold",
             f"{closed} of {len(rows)} closed",
         )
@@ -335,7 +335,7 @@ def gates(rec):
     out.append(
         (
             "$85 needs approval",
-            21,
+            16,
             "pass" if tier == "act_with_approval" else "hold",
             tier,
         )
@@ -346,7 +346,7 @@ def gates(rec):
     out.append(
         (
             "retired versions",
-            25,
+            19,
             "pass" if retired["receipts_kept"] else "hold",
             f"{retired['receipts_kept']} receipts resolve",
         )
@@ -366,7 +366,7 @@ def gates(rec):
     out.append(
         (
             "R4 coverage",
-            24,
+            18,
             "hold" if held else "pass",
             detail,
         )
@@ -379,7 +379,7 @@ def gates(rec):
     out.append(
         (
             "evidence pack",
-            31,
+            24,
             status,
             (f"{', '.join(gaps)}, {ex['id']} to "
              f"{ex['expires']:%b %d}") if ex else
@@ -392,7 +392,7 @@ def gates(rec):
     out.append(
         (
             "residency failover",
-            32,
+            25,
             (
                 "pass"
                 if residency.REGIONS[model] == "EU"
@@ -416,7 +416,7 @@ def gates(rec):
     out.append(
         (
             "gov boundary",
-            33,
+            25,
             status,
             f"model-a retires in {days}d",
         )

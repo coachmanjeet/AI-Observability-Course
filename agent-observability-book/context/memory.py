@@ -1,4 +1,4 @@
-"""Agent memory with boundaries (Chapter 12).
+"""Agent memory with boundaries (Chapter 9).
 
 Usage: python -m context.memory [OUT_DIR]
 
@@ -76,7 +76,7 @@ class MemoryStore:
 
 
 def demo(store):
-    """Speedy's memory from October to January, as in Chapter 12."""
+    """Speedy's memory from October to January, as in Chapter 9."""
     a, b = "cust_7f3a91", "cust_2c88e4"
     rows = [
         (a, "preference", "leave orders at the side door",

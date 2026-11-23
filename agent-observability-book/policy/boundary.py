@@ -1,4 +1,4 @@
-"""Make the gateway the only path (Chapter 19).
+"""Make the gateway the only path (Chapter 14).
 
 Usage: python -m policy.boundary
 

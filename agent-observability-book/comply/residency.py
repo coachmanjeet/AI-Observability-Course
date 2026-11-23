@@ -1,4 +1,4 @@
-"""Residency and localization for agents (Chapter 32).
+"""Residency and localization for agents (Chapter 25).
 
 Usage: python -m comply.residency [OUT_DIR]
 

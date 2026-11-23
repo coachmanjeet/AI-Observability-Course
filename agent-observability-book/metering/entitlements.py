@@ -1,4 +1,4 @@
-"""Provisioning, entitlements and FinOps (Chapter 30).
+"""Provisioning, entitlements and FinOps (Chapter 23).
 
 Usage: python -m metering.entitlements [OUT_DIR]
 

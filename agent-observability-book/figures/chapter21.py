@@ -1,4 +1,4 @@
-"""Chapter 21 figures: autonomy tiers and responses.
+"""Chapter 16 figures: autonomy tiers and responses.
 
 Usage: python -m figures.chapter21 OUT_DIR
 """

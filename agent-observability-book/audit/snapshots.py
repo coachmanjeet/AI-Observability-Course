@@ -1,4 +1,4 @@
-"""Versioned records, as the systems of record kept them (Ch 8).
+"""Versioned records, as the systems of record kept them (Ch 7).
 
 Pronto's order and photo services keep every version of a record by
 its ETag, and the policy knowledge base keeps every published

@@ -1,4 +1,4 @@
-"""Chapter 24 figures: what the control tower owns.
+"""Chapter 18 figures: what the control tower owns.
 
 Usage: python -m figures.chapter24 OUT_DIR
 """

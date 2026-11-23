@@ -1,4 +1,4 @@
-"""Context packs: build, sign, evaluate, release, roll back (Ch 11).
+"""Context packs: build, sign, evaluate, release, roll back (Ch 9).
 
 Usage: python -m context.packs release OUT_DIR
        python -m context.packs tamper OUT_DIR

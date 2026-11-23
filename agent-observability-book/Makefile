@@ -35,27 +35,27 @@ trace-receipts:  ## Chapter 4: build R1 receipts from the trace alone
 	python -m receipts.from_trace traces/speedy-refund-40.json \
 	  build/receipts-from-trace
 
-handoff:         ## Chapter 5: one conversation across MCP, A2A and a queue
+handoff:         ## Chapter 4: one conversation across MCP, A2A and a queue
 	python -m pronto.handoffs traces
 	python -m telemetry.lint traces/handoff-pronto.json
 	python -m receipts.from_trace traces/handoff-pronto.json \
 	  build/receipts-conversation --brief
 
-decisions:       ## Chapter 6: three turns, then why and which actions used what
+decisions:       ## Chapter 5: three turns, then why and which actions used what
 	python -m decisions.run traces
 	python -m decisions.graph traces/decisions.json why order:ord_5521
 	python -m decisions.graph traces/decisions.json used policy:refunds
 	python -m receipts.from_trace traces/decisions.json \
 	  build/receipts-decisions --brief
 
-collector:       ## Chapter 7: a night through redaction and tail sampling
+collector:       ## Chapter 6: a night through redaction and tail sampling
 	python -m collector.run build/collector
 
 figures:         ## print figures: SVG sources to 300 DPI grayscale PNG
 	sh figures/build.sh
 
-# Chapter 8 onward: one fragment per chapter in mk/ (see mk/README.md)
+# Chapter 7 onward: one fragment per chapter in mk/ (see mk/README.md)
 LABS :=
 -include mk/ch*.mk
 
-labs: $(LABS)    ## every lab from Chapter 8 on
+labs: $(LABS)    ## every lab from Chapter 7 on

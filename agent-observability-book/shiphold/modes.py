@@ -1,4 +1,4 @@
-"""Observe and enforce, side by side (Chapter 34).
+"""Observe and enforce, side by side (Chapter 26).
 
 Usage: python -m shiphold.modes
 
@@ -19,16 +19,16 @@ V4 = (gw.HERE / "pronto-refunds-v4.cedar", "4")
 ALWAYS = [
     (
         "registered identity, own token",
-        "15-16",
+        "11-12",
         "token service",
     ),
-    ("no path around the gateway", "19", "refund, payments"),
-    ("refund policy, approvals", "19, 21", "gateway"),
-    ("over $50 needs approval or grant", "21", "payments"),
-    ("token scopes sized per task", "17-18", "token exchange"),
-    ("loop breaker, egress, pinning", "20", "gateway"),
-    ("pause and kill switch", "21", "gateway"),
-    ("residency routing", "32", "model router"),
+    ("no path around the gateway", "14", "refund, payments"),
+    ("refund policy, approvals", "14, 16", "gateway"),
+    ("over $50 needs approval or grant", "16", "payments"),
+    ("token scopes sized per task", "12-13", "token exchange"),
+    ("loop breaker, egress, pinning", "15", "gateway"),
+    ("pause and kill switch", "16", "gateway"),
+    ("residency routing", "25", "model router"),
 ]
 
 # Scopes each agent's token carries today (Promo cut in July)

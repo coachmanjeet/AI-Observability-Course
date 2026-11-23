@@ -1,4 +1,4 @@
-"""A night of Speedy's traffic, for the Collector lab (Chapter 7).
+"""A night of Speedy's traffic, for the Collector lab (Chapter 6).
 
 Usage: python -m collector.night OUT.json [--conversations 1000]
 
@@ -38,7 +38,7 @@ SLOW_S = 45.0                       # one model call that hangs
 
 
 class SlowModel(MockModel):
-    """A model whose second call in the turn hangs (Chapter 7)."""
+    """A model whose second call in the turn hangs (Chapter 6)."""
 
     def complete(self, messages):
         if self.clock and self.turn == 1:

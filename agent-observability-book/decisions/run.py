@@ -1,4 +1,4 @@
-"""Three of Speedy's turns, traced with decision links (Chapter 6).
+"""Three of Speedy's turns, traced with decision links (Chapter 5).
 
 Usage: python -m decisions.run OUT_DIR
 

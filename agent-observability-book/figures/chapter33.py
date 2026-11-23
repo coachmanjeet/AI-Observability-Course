@@ -1,4 +1,4 @@
-"""Chapter 33 figures: inside the authorization boundary.
+"""Chapter 25 figures: inside the authorization boundary.
 
 Usage: python -m figures.chapter33 OUT_DIR
 """

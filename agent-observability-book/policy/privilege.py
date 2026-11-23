@@ -1,4 +1,4 @@
-"""Least privilege for agents (Chapter 18).
+"""Least privilege for agents (Chapter 13).
 
 Usage: python -m policy.privilege [OUT_DIR]
 

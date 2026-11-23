@@ -1,5 +1,5 @@
-.PHONY: fleetops
-LABS += fleetops
+.PHONY: residency
+LABS += residency
 
-fleetops:        ## Chapter 25: canary drift, incident drill, retire
-	python -m orchestration.fleetops build/fleetops
+residency:       ## Chapter 25: residency-aware routing and where
+	python -m comply.residency build/residency

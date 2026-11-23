@@ -2,7 +2,7 @@
 
 Usage: python -m audit.run [--attacks] OUT_DIR
 
-Used in Chapter 8. Reruns Chapter 7's night of 1,000 conversations,
+Used in Chapter 7. Reruns Chapter 6's night of 1,000 conversations,
 builds a receipt for every consequential action (before any trace
 sampling), appends them to a signed, hash-chained store with one
 writer, writes a checkpoint, and verifies the chain. --attacks then

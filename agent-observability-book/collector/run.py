@@ -1,4 +1,4 @@
-"""Saturday night through the Collector (Chapter 7).
+"""Saturday night through the Collector (Chapter 6).
 
 Usage: python -m collector.run OUT_DIR [--allow KEY ...]
 

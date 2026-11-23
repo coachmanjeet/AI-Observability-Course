@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 DEFAULT_POLICY = {"approval_above_cents": 5000,     # the $50 rule
                   "photo_window_hours": 24,          # perishables
                   "return_window_days": 30,          # non-perishables
-                  "source": {"id": "policy:refunds",  # Chapter 6
+                  "source": {"id": "policy:refunds",  # Chapter 5
                              "version": "2026-10-01"}}
 # Monday, Nov 16: finance shortens the photo window after Saturday
 MONDAY_POLICY = {"photo_window_hours": 12,
@@ -54,7 +54,7 @@ class World:
         self.policy = {**DEFAULT_POLICY, **(policy or {})}
         self.refund_seq = refund_seq
         self.clock = Clock()
-        self.routes = {}             # tool name -> remote call (Ch 5)
+        self.routes = {}             # tool name -> remote call (Ch 4)
         self.orders = {
             "ord_5521": {"customer_id": "cust_7f3a91", "status": "delivered",
                          "item": "strawberries, 2 lb", "perishable": True,
@@ -79,7 +79,7 @@ class World:
             "photo_8a2": {"order_id": "ord_5602", "shows_spoilage": True,
                           "hours_after_delivery": 6},
         }
-        # Chapter 6: every record says which version of itself it is
+        # Chapter 5: every record says which version of itself it is
         for kind, records in (("order", self.orders),
                               ("photo", self.photos)):
             for key, record in records.items():

@@ -156,7 +156,7 @@ KIND_NUMBERS = {name: number for number, name in KINDS.items()}
 
 def write_plain(spans, path):
     """Write spans in load()'s plain shape back out as OTLP JSON, so a
-    pipeline stage's output reads like any other export (Chapter 7)."""
+    pipeline stage's output reads like any other export (Chapter 6)."""
     groups = {}
     for s in spans:
         key = json.dumps(s["resource"], sort_keys=True)

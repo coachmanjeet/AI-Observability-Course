@@ -1,4 +1,4 @@
-"""Chapter 32 figures: what may cross the border.
+"""Chapter 25 figures: what may cross the border.
 
 Usage: python -m figures.chapter32 OUT_DIR
 """

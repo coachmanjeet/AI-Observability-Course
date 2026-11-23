@@ -1,4 +1,4 @@
-"""Chapter 30 figures: spend during the runaway.
+"""Chapter 23 figures: spend during the runaway.
 
 Usage: python -m figures.chapter30 OUT_DIR
 """

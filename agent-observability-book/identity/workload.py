@@ -1,4 +1,4 @@
-"""Workload identity for agents, the SPIFFE way (Chapter 16).
+"""Workload identity for agents, the SPIFFE way (Chapter 12).
 
 Usage: python -m identity.workload [OUT_DIR]
 

@@ -1,4 +1,4 @@
-"""Chapter 28 figures: from span to invoice line.
+"""Chapter 22 figures: from span to invoice line.
 
 Usage: python -m figures.chapter28 OUT_DIR
 """

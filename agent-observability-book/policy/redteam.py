@@ -1,4 +1,4 @@
-"""Red-team the fleet: OWASP's Agentic Top 10 (Chapter 20).
+"""Red-team the fleet: OWASP's Agentic Top 10 (Chapter 15).
 
 Usage: python -m policy.redteam [OUT_DIR]
 
@@ -178,7 +178,7 @@ def attacks():
              n=denied))
 
     add("ASI09", "persuade a lead to approve", False,
-        "none yet: Ch 21")
+        "none yet: Ch 16")
 
     owl = {"sub": "emp_4410",
            "agent": "agent://unregistered/night-owl"}

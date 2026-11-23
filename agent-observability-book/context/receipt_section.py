@@ -1,8 +1,8 @@
 """Part III's receipt sections, built from its labs.
 
-Chapter 9: knowing_what.sources for Speedy's $40 refund. The trace
-(Chapter 6) says which records the deciding model call saw and in
-which version; the catalog (Chapter 9) adds where each lives, who
+Chapter 8: knowing_what.sources for Speedy's $40 refund. The trace
+(Chapter 5) says which records the deciding model call saw and in
+which version; the catalog (Chapter 8) adds where each lives, who
 vouches for it, how sensitive it is, who wrote it and how far the
 agent may rely on it.
 """
@@ -15,7 +15,7 @@ from telemetry import otlp
 
 TRACES = pathlib.Path(__file__).parent.parent / "traces"
 REFUND_TRACE = "4bf92f3577b34da6a3ce929d0e0e4736"
-# Chapter 9's rule: Pronto's records decide, customers' are weighed
+# Chapter 8's rule: Pronto's records decide, customers' are weighed
 TRUST = {"pronto": "authoritative", "customer": "evidence"}
 
 

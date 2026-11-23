@@ -71,13 +71,13 @@ class MockModel:
             return self._call("lookup", ("orders.get",
                               {"order_id": task["order_id"]}))
         lookup = seen["orders.get"]["result"]
-        if lookup.get("error") == "NotFound":    # Chapter 7
+        if lookup.get("error") == "NotFound":    # Chapter 6
             return self._text("status", "I couldn't find that order. "
                               "Could you check the order number?")
         if "error" in lookup:
             return self._text("status", "I can't reach our order "
                               "system right now. Please try again soon.")
-        if task.get("intent") == "status":       # Chapter 7
+        if task.get("intent") == "status":       # Chapter 6
             return self._text("status", "Your order is "
                               f"{lookup['status']}.")
         if "photos.verify" not in seen:

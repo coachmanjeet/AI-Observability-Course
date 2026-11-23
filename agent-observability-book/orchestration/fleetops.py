@@ -2,7 +2,7 @@
 
 Usage: python -m orchestration.fleetops [OUT_DIR]
 
-Chapter 25. Speedy 2.4.0, approved after its security review,
+Chapter 19. Speedy 2.4.0, approved after its security review,
 takes 10% of conversations as a canary. The receipts of both
 versions are compared every hour; a significant drift opens an
 incident, and the runbook contains it, finds the cause in the

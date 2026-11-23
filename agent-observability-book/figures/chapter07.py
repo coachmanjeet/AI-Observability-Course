@@ -1,4 +1,4 @@
-"""Chapter 7 figures, drawn from the lab's own measurements: the
+"""Chapter 6 figures, drawn from the lab's own measurements: the
 pipeline with what each stage kept, and the incidents each kind of
 sampling kept.
 

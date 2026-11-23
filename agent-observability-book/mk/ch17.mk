@@ -1,5 +1,5 @@
-.PHONY: delegation
-LABS += delegation
+.PHONY: topologies
+LABS += topologies
 
-delegation:      ## Chapter 17: token exchange, consent, for_whom
-	python -m identity.delegation build/delegation
+topologies:      ## Chapter 17: one task, four topologies, scored
+	python -m orchestration.score build/orchestration

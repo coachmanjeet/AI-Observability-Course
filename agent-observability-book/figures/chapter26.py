@@ -1,4 +1,4 @@
-"""Chapter 26 figures: one surface, three kinds of caller.
+"""Chapter 20 figures: one surface, three kinds of caller.
 
 Usage: python -m figures.chapter26 OUT_DIR
 """

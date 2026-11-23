@@ -1,4 +1,4 @@
-# Pronto's governed metrics (Chapter 10). One owner per metric.
+# Pronto's governed metrics (Chapter 8). One owner per metric.
 # A change to the definition is a new version, never an edit.
 substitution_acceptance_rate:
   version: 3

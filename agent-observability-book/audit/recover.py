@@ -1,4 +1,4 @@
-"""When the money moved and the receipt didn't (Chapter 8).
+"""When the money moved and the receipt didn't (Chapter 7).
 
 Usage: python -m audit.recover
 

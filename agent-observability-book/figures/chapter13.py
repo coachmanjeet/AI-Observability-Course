@@ -1,4 +1,4 @@
-"""Chapter 13 figures: filter before context, not in it.
+"""Chapter 10 figures: filter before context, not in it.
 
 Usage: python -m figures.chapter13 OUT_DIR
 """

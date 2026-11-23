@@ -1,4 +1,4 @@
-"""Metering agent work from receipts and outcomes (Chapter 28).
+"""Metering agent work from receipts and outcomes (Chapter 22).
 
 Usage: python -m metering.usage [OUT_DIR]
 

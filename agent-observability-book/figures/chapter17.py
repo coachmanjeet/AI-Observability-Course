@@ -1,4 +1,4 @@
-"""Chapter 17 figures: delegation by token exchange.
+"""Chapter 12 figures: delegation by token exchange.
 
 Usage: python -m figures.chapter17 OUT_DIR
 """
@@ -18,7 +18,7 @@ def exchange():
             text(56, 82, "session", size=11.5),
             agent(4, 98, 92, 40, "Speedy"),
             box(4, 150, 92, 28, fill=PALE, r=4),
-            text(50, 168, "SVID (Ch 16)", size=11.5,
+            text(50, 168, "SVID (Ch 12)", size=11.5,
                  anchor="middle"),
             arrow([(96, 118), (144, 118)]),
             text(120, 110, "1", size=11.5, weight=700,

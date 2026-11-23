@@ -1,4 +1,4 @@
-"""Chapter 20 figures: where each attack is stopped.
+"""Chapter 15 figures: where each attack is stopped.
 
 Usage: python -m figures.chapter20 OUT_DIR
 """

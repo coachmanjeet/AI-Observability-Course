@@ -1,5 +1,5 @@
 # Pronto Gov as deployed for the readiness review,
-# Nov 8, 2027 (Chapter 33). One entry per component that
+# Nov 8, 2027 (Chapter 25). One entry per component that
 # stores, processes or moves the program's data.
 - {name: agent runtime, region: us-gov-west-1, fips: true,
    updates: signed-import}

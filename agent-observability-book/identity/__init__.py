@@ -1,1 +1,1 @@
-"""Part IV: agent identity (Chapter 16) and delegation (Chapter 17)."""
+"""Part IV: agent identity (Chapter 12) and delegation (Chapter 12)."""

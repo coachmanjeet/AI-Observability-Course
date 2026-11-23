@@ -1,4 +1,4 @@
-"""Chapter 18 figures: granted versus used.
+"""Chapter 13 figures: granted versus used.
 
 Usage: python -m figures.chapter18 OUT_DIR
 """

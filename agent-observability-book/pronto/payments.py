@@ -1,6 +1,6 @@
 """Pronto's payment service: the system of record for refunds.
 
-Used by Chapter 21 (who authorized a refund) and Chapter 8 (a
+Used by Chapter 16 (who authorized a refund) and Chapter 7 (a
 payment whose receipt never arrived). It trusts the gateway and
 nothing else, and it checks two things the gateway's decision
 alone can't guarantee by the time the call arrives:

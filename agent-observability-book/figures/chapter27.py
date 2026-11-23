@@ -1,4 +1,4 @@
-"""Chapter 27 figures: the driver tree.
+"""Chapter 21 figures: the driver tree.
 
 Usage: python -m figures.chapter27 OUT_DIR
 """

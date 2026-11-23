@@ -2,6 +2,6 @@
 receipts: 400            # covers 6-month minimums, plus a year
 outcome_records: 400
 usage_events: 2555       # seven years, with invoices
-traces_full: 30          # content-bearing spans (Chapter 7)
+traces_full: 30          # content-bearing spans (Chapter 6)
 traces_metadata: 400
 approvals: 400

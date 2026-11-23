@@ -1,1 +1,1 @@
-"""Part III, Ground: control what agents know (Ch 9 to 13)."""
+"""Part III, Ground: control what agents know (Ch 8 to 10)."""

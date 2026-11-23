@@ -1,5 +1,5 @@
-.PHONY: policy
-LABS += policy
+.PHONY: fleetops
+LABS += fleetops
 
-policy:          ## Chapter 19: Cedar policy at the MCP gateway
-	python -m policy.gateway build/policy
+fleetops:        ## Chapter 19: canary drift, incident drill, retire
+	python -m orchestration.fleetops build/fleetops

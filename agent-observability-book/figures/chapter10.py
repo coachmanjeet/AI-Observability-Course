@@ -1,4 +1,4 @@
-"""Chapter 10 figures: two paths from a question to a number.
+"""Chapter 8 figures: two paths from a question to a number.
 
 Usage: python -m figures.chapter10 OUT_DIR
 """

@@ -1,4 +1,4 @@
-"""W3C trace context across process boundaries (Chapter 5).
+"""W3C trace context across process boundaries (Chapter 4).
 
 inject() writes the current span's context into a carrier: MCP's
 params._meta, an A2A request's HTTP headers or a queue message's

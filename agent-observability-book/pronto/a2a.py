@@ -1,5 +1,5 @@
 """Speedy hands a card dispute to PayCo's Ledger agent over A2A
-(Chapter 5).
+(Chapter 4).
 
 The A2A request travels as HTTP headers and a JSON body, so trace
 context rides in the W3C traceparent header. PayCo is another

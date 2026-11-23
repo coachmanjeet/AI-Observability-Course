@@ -156,7 +156,7 @@ def instrumentation_paths():
              text(240, 106, "Collector", size=12, weight=700,
                   anchor="middle"),
              text(240, 122, "normalizes to", size=11.5, anchor="middle"),
-             text(240, 137, "gen_ai.* (Ch 7)", size=11.5, anchor="middle")]
+             text(240, 137, "gen_ai.* (Ch 6)", size=11.5, anchor="middle")]
     outs = [("store", "Any OTLP backend"), ("gate", "telemetry.lint"),
             ("receipt", "receipts.from_trace")]
     for i, (shape, label) in enumerate(outs):

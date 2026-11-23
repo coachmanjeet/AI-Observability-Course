@@ -8,7 +8,7 @@ The trace answers two of the seven questions: who acted, from the
 invoke_agent span above the tool call, and doing what, from the tool
 span. The inventory adds the agent's kind and owner. An agent missing
 from the inventory is a shadow agent. When the trace records decision
-links (Chapter 6), it answers a third: knowing what.
+links (Chapter 5), it answers a third: knowing what.
 """
 import argparse
 import contextlib
@@ -75,7 +75,7 @@ def linked(span, by_id, kind):
 
 
 def knowing(s, by_id):
-    """Chapter 6: the model call that asked for this tool call, and
+    """Chapter 5: the model call that asked for this tool call, and
     the versioned records that were in its context."""
     asked = linked(s, by_id, "decided_by")
     if not asked:
@@ -103,8 +103,8 @@ def knowing(s, by_id):
 
 
 def cost(s, by_id):
-    """Chapter 7: the cost of the model call that decided this action.
-    Meters (billable) are Chapter 28's, so the list starts empty."""
+    """Chapter 6: the cost of the model call that decided this action.
+    Meters (billable) are Chapter 22's, so the list starts empty."""
     asked = linked(s, by_id, "decided_by")
     if not asked:
         return None
@@ -198,7 +198,7 @@ def receipts(spans, inventory, with_cost=False):
 
 
 def caller(server_span, inventory):
-    """Who called, as the MCP session claims it (Chapter 16 makes this
+    """Who called, as the MCP session claims it (Chapter 12 makes this
     a verified identity instead of a claim)."""
     a = server_span["attributes"]
     known = inventory.get(a["pronto.mcp.client.agent_id"], {})
@@ -221,7 +221,7 @@ def main(argv=None):
     parser.add_argument("out", type=pathlib.Path)
     parser.add_argument("--inventory", default="maturity/fleet.json")
     parser.add_argument("--cost", action="store_true",
-                        help="Chapter 7: price each decision's model call")
+                        help="Chapter 6: price each decision's model call")
     parser.add_argument("--brief", action="store_true",
                         help="one line per receipt instead of the "
                         "validator's report")

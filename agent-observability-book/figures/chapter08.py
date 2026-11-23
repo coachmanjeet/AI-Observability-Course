@@ -1,4 +1,4 @@
-"""Chapter 8 figures: the signed chain, and the replay loop.
+"""Chapter 7 figures: the signed chain, and the replay loop.
 
 Usage: python -m figures.chapter08 OUT_DIR
 """

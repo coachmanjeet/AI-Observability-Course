@@ -1,4 +1,4 @@
-"""Chapter 22 figures: four ways to wire the same task.
+"""Chapter 17 figures: four ways to wire the same task.
 
 Usage: python -m figures.chapter22 OUT_DIR
 """

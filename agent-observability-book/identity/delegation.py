@@ -1,4 +1,4 @@
-"""Delegation and consent for agents (Chapter 17).
+"""Delegation and consent for agents (Chapter 12).
 
 Usage: python -m identity.delegation [OUT_DIR]
 
@@ -32,7 +32,7 @@ VIA = "rfc8693_token_exchange"
 SPEEDY = f"{wl.SPIFFE}/ns/support/agent/speedy"
 CODER = f"{wl.SPIFFE}/ns/platform/agent/coder"
 
-# what each agent may ever be delegated (registry, Chapter 15)
+# what each agent may ever be delegated (registry, Chapter 11)
 CAPABILITIES = {
     SPEEDY: {"orders:read:own", "refunds:create:max_50"},
     CODER: {"repo:write:platform"},

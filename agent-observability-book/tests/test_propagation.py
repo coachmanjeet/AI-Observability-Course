@@ -1,4 +1,4 @@
-"""Chapter 5: one conversation across MCP, A2A and a queue."""
+"""Chapter 4: one conversation across MCP, A2A and a queue."""
 import json
 import pathlib
 

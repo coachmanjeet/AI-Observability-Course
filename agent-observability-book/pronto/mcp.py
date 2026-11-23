@@ -1,4 +1,4 @@
-"""Pronto's tool servers, reached over MCP (Chapter 5).
+"""Pronto's tool servers, reached over MCP (Chapter 4).
 
 McpClient and McpServer speak MCP's JSON-RPC message format, passed
 as JSON text through an in-process transport so the lab runs offline.

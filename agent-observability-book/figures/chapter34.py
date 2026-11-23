@@ -1,4 +1,4 @@
-"""Chapter 34 figures: the full receipt and the 90-day plan.
+"""Chapter 26 figures: the full receipt and the 90-day plan.
 
 Usage: python -m figures.chapter34 OUT_DIR
 """

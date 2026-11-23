@@ -1,4 +1,4 @@
-"""Chapter 14 figures: seven sources, one inventory.
+"""Chapter 11 figures: seven sources, one inventory.
 
 Usage: python -m figures.chapter14 OUT_DIR
 """

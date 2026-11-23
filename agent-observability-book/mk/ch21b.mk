@@ -1,5 +1,5 @@
-.PHONY: breakglass
-LABS += breakglass
+.PHONY: memo
+LABS += memo
 
-breakglass:      ## Chapter 21: break-glass and revocation
-	python -m policy.breakglass
+memo:            ## Chapter 21: one-page funding memo
+	python -m metering.memo

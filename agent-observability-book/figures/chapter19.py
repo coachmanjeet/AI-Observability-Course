@@ -1,4 +1,4 @@
-"""Chapter 19 figures: policy at the action boundary.
+"""Chapter 14 figures: policy at the action boundary.
 
 Usage: python -m figures.chapter19 OUT_DIR
 """

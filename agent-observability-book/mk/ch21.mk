@@ -1,5 +1,5 @@
-.PHONY: oversight
-LABS += oversight
+.PHONY: value
+LABS += value
 
-oversight:       ## Chapter 21: tiers, approvals, graduated response
-	python -m policy.oversight build/oversight
+value:           ## Chapter 21: driver tree, cost per resolved, outcomes
+	python -m metering.value build/value

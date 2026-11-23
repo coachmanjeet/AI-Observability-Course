@@ -1,5 +1,5 @@
-.PHONY: registry
-LABS += registry
+.PHONY: redteam
+LABS += redteam
 
-registry:        ## Chapter 15: one registry, owners, tiers, lifecycle
-	python -m registry.registry build/registry
+redteam:         ## Chapter 15: OWASP Agentic Top 10 red team
+	python -m policy.redteam build/redteam

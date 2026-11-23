@@ -1,4 +1,4 @@
-"""Chapter 11 figures: a context pack and its release line.
+"""Chapter 9 figures: a context pack and its release line.
 
 Usage: python -m figures.chapter11 OUT_DIR
 """

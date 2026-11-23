@@ -1,4 +1,4 @@
-"""Policy at the action boundary (Chapter 19).
+"""Policy at the action boundary (Chapter 14).
 
 Usage: python -m policy.gateway [OUT_DIR]
 

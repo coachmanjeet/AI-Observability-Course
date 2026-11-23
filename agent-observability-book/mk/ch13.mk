@@ -1,5 +1,5 @@
-.PHONY: resources
-LABS += resources
+.PHONY: privilege
+LABS += privilege
 
-resources:       ## Chapter 13: MCP resources filtered per principal
-	python -m context.resources build/resources
+privilege:       ## Chapter 13: permission diff, drift, task tokens
+	python -m policy.privilege build/privilege

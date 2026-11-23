@@ -1,5 +1,5 @@
-.PHONY: semantics
-LABS += semantics
+.PHONY: resources
+LABS += resources
 
-semantics:       ## Chapter 10: raw SQL vs the governed metric
-	python -m context.semantic build/semantics
+resources:       ## Chapter 10: MCP resources filtered per principal
+	python -m context.resources build/resources

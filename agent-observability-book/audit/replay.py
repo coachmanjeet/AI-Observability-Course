@@ -1,9 +1,9 @@
-"""Replays a recorded decision from its trace (Chapter 8).
+"""Replays a recorded decision from its trace (Chapter 7).
 
 Usage: python -m audit.replay [--all]
 
 Starts from a receipt, as an auditor would: the receipt points at its
-trace, the trace's decision links (Chapter 6) name the records the
+trace, the trace's decision links (Chapter 5) name the records the
 model saw and their versions, and the snapshot store returns exactly
 those versions. The replay reruns Speedy on them, then changes one
 input at a time to see which ones change the action.

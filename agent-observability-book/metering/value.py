@@ -1,4 +1,4 @@
-"""From telemetry to business value (Chapter 27).
+"""From telemetry to business value (Chapter 21).
 
 Usage: python -m metering.value [OUT_DIR]
 

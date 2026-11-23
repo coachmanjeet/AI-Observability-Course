@@ -1,4 +1,4 @@
-"""Permission-aware context over MCP resources (Chapter 13).
+"""Permission-aware context over MCP resources (Chapter 10).
 
 Usage: python -m context.resources [OUT_DIR]
 
@@ -6,7 +6,7 @@ An MCP server exposes Pronto's orders and customers as resources.
 Every request carries who the agent is acting for. The server
 filters rows and fields for that principal before anything is
 returned, so what the agent may not see never enters its context.
-Chapter 17 replaces the principal claim with a delegated token.
+Chapter 12 replaces the principal claim with a delegated token.
 """
 import json
 import pathlib
