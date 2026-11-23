@@ -5,10 +5,15 @@ CHAIN := $(EXAMPLES)/01-speedy-order-lookup.json \
          $(EXAMPLES)/03-outcome-refund-40.json
 
 .PHONY: labs test receipt tamper maturity trace lint trace-receipts handoff \
-        decisions collector figures
+        decisions collector figures help
 
 test:            ## every chapter's tests
 	pytest -q
+
+help:            ## list every lab, by chapter
+	@grep -h '^[a-z0-9-]*:.*##' $(MAKEFILE_LIST) \
+	  | sed 's/:.*## /|/' | sort -t'|' -k2 -V \
+	  | awk -F'|' '{printf "  make %-15s %s\n", $$1, $$2}'
 
 receipt:         ## Chapter 2: build and validate the example receipts
 	python -m receipts.build_examples $(EXAMPLES)

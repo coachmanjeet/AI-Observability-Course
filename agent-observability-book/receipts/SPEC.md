@@ -125,7 +125,7 @@ This is also how outcome-based pricing stays honest. In the example, the `resolv
 
 ## 9. Integrity and transport
 
-- **Canonical form:** JCS (RFC 8785). Because v0.1 has no floats, the reference implementation's sorted-key, compact UTF-8 JSON matches JCS exactly.
+- **Canonical form:** JCS (RFC 8785): compact UTF-8 JSON with object keys sorted by their UTF-16 code units (RFC 8785, Section 3.2.3), which differs from sorting by code points once a key holds characters outside the Basic Multilingual Plane. v0.1 has no floats, so JCS's number rules never apply. The reference implementation's `jcs_order` sorts the JCS way, and `tests/test_jcs_order.py` checks it against the RFC's own ordering example.
 - **Hash:** SHA-256 over the canonical record, excluding `integrity.hash` and `integrity.signature`. The hash covers `prev_hash`, so every record commits to the whole chain before it.
 - **Chain:** `prev_hash` is the hash of the previous record in the same ledger. The first record uses `sha256:` followed by 64 zeros. v0.1 assumes one ledger per tenant.
 - **Signature:** optional in v0.1. Both IETF drafts above use Ed25519. Adopting it, so a receipt can be wrapped as a Sahu log line or a SCITT Signed Statement without conversion, is the leading candidate for v0.2.
@@ -133,7 +133,9 @@ This is also how outcome-based pricing stays honest. In the example, the `resolv
 
 ## 10. Privacy and retention
 
-A receipt never contains raw prompts, model outputs, tool arguments, credentials, names or email addresses. It holds digests and references instead, which has a useful consequence. Content a receipt points to can be erased under a right-to-erasure request **without breaking the chain**, because the chain covers digests, not content. Receipts follow the longest record-keeping rule that applies to the action. The content behind them follows its own, usually shorter, retention.
+A receipt never contains raw prompts, model outputs, tool arguments, credentials, names or email addresses. It holds digests and references instead, which has a useful consequence. Content a receipt points to can be erased under a right-to-erasure request **without breaking the chain**, because the chain covers digests, not content.
+
+Pseudonymous isn't anonymous. A `principal_id` that someone holding another table can link back to a customer is still personal data under the GDPR (Recital 26), so receipts are personal data wherever that link exists. Erasing the content and the link table leaves a receipt that proves an action happened without saying to whom; whether that's enough for a given request is a question for privacy counsel, not for this specification. Receipts follow the longest record-keeping rule that applies to the action. The content behind them follows its own, usually shorter, retention.
 
 ## 11. Worked example: Speedy's $40 refund at 2:07 a.m.
 

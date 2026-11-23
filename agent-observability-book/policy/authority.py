@@ -68,10 +68,12 @@ def cases():
     grant, _ = bg.invoke("user:lead-ana", "user:lead-raj",
                          "approval service down", 150)
     decision, why = bg.decide(call, claims, grant)
+    ends = int(grant["expires"].replace(
+        tzinfo=timezone.utc).timestamp())
     basis = {"kind": "break-glass", "id": "bg_01",
-             "max": "150.00", "expires": T0 + 30 * 60}
+             "max": "150.00", "expires": ends}
     out.append(("$120 ord_5655", "bg_01, two leads, max $150, "
-                f"to {hhmm(T0 + 1800)}",
+                f"to {hhmm(ends)}",
                 {"decision": decision,
                  "determining_policies": [why]},
                 token(call, basis, "op_5", T0), T0))

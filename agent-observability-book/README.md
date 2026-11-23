@@ -6,24 +6,20 @@ Every idea in the book runs here against one company: Pronto, the online grocery
 
 ## Quick start
 
+You need Python 3.12 or later, Git and `make` (on Windows, use WSL).
+
 ```bash
-git clone https://github.com/coachmanjeet/AI-Observability-Course.git
+git clone --branch book2-draft \
+  https://github.com/coachmanjeet/AI-Observability-Course.git
 cd AI-Observability-Course/agent-observability-book
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-pytest -q          # every chapter's tests
-make receipt       # Chapter 2: build and validate the example receipts
-make tamper        # Chapter 2: alter one receipt; the validator fails
-make maturity      # Chapter 3: score Pronto's fleet on the maturity model
-make trace         # Chapter 4: trace Speedy's $40 refund with OpenTelemetry
-make lint          # Chapter 4: check the trace against the GenAI conventions
-make trace-receipts  # Chapter 4: build R1 receipts from the trace alone
-make handoff       # Chapter 5: one conversation across MCP, A2A and a queue
-make decisions     # Chapter 6: why each action happened, and what else used a record
-make collector     # Chapter 7: a night through redaction and tail sampling
-make figures       # rebuild the print figures (needs rsvg-convert, ImageMagick)
+make demo          # smoke test: Saturday night's two refunds
+make test          # every chapter's tests, about a minute
+make help          # every lab, by chapter
 ```
 
-Everything runs offline with Python 3.10 or later. Speedy runs on `MockModel`, a deterministic stand-in for a tool-calling model, so every output in the book is reproducible.
+Everything runs offline. Speedy runs on `MockModel`, a deterministic stand-in for a tool-calling model, so every output in the book is reproducible. The book's Appendix H lists every lab and a symptom-to-lab index: start from "money moved and no receipt was written" or "a customer was paid twice" and it names the lab that reproduces it.
 
 ## Map to the book
 
