@@ -7,14 +7,14 @@
 <path d="M0,18 v32 a84.0,5 0 0 0 168,0 v-32" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <ellipse cx="84.0" cy="18" rx="84.0" ry="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84.0" y="36.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Registry and runtime</text>
-<text x="84.0" y="50.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 15, 16</text>
+<text x="84.0" y="50.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 11, 12</text>
 <path d="M171,35 L210,35" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,58 L424,58" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
 <text x="224" y="78.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">for_whom</text>
 <text x="224" y="93.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">cust_7f3a91, two scopes</text>
 <rect x="0" y="65" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84" y="78.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Identity provider</text>
-<text x="84" y="92.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 17, 18</text>
+<text x="84" y="92.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 12, 13</text>
 <path d="M171,81 L210,81" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,104 L424,104" fill="none" stroke="#000000" stroke-width="1.4"/>
 <text x="224" y="124.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">knowing_what</text>
@@ -22,14 +22,14 @@
 <path d="M0,110 v32 a84.0,5 0 0 0 168,0 v-32" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <ellipse cx="84.0" cy="110" rx="84.0" ry="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84.0" y="128.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Context packs, sources</text>
-<text x="84.0" y="142.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 6, 9, 11–13</text>
+<text x="84.0" y="142.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 5, 8, 9, 10</text>
 <path d="M171,127 L210,127" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,150 L424,150" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
 <text x="224" y="170.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">under_which_rule</text>
 <text x="224" y="185.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">allow, sampled review</text>
 <polygon points="18,157 34,173 18,189 2,173" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="42" y="170.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">Policy gateway</text>
-<text x="42" y="184.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">Ch 19, 21</text>
+<text x="42" y="184.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#000000">Ch 14, 16</text>
 <path d="M171,173 L210,173" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,196 L424,196" fill="none" stroke="#000000" stroke-width="1.4"/>
 <text x="224" y="216.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">did_what</text>
@@ -37,28 +37,28 @@
 <path d="M0,204 v-7 h28 v7" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <rect x="0" y="203" width="168" height="34" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84.0" y="217.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Tools, systems of record</text>
-<text x="84.0" y="231.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 5, 8, 27</text>
+<text x="84.0" y="231.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 7, 21</text>
 <path d="M171,219 L210,219" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,242 L424,242" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
 <text x="224" y="262.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">at_what_cost</text>
 <text x="224" y="277.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">$0.0142, one meter</text>
 <rect x="0" y="249" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84" y="262.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Meter</text>
-<text x="84" y="276.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 7, 28</text>
+<text x="84" y="276.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 6, 22</text>
 <path d="M171,265 L210,265" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,288 L424,288" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
 <text x="224" y="308.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">where</text>
 <text x="224" y="323.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">aws us-west-2, data in US</text>
 <rect x="0" y="295" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84" y="308.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Cloud resource attributes</text>
-<text x="84" y="322.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 32</text>
+<text x="84" y="322.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 25</text>
 <path d="M171,311 L210,311" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,334 L424,334" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
 <text x="224" y="354.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">evidence</text>
 <text x="224" y="369.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">trace 4bf92f35…</text>
 <rect x="0" y="341" width="168" height="33" rx="0" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84" y="354.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Trace pipeline (OTel)</text>
-<text x="84" y="368.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4, 5</text>
+<text x="84" y="368.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 4</text>
 <path d="M171,357 L210,357" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M214,380 L424,380" fill="none" stroke="#000000" stroke-width="0.9" stroke-dasharray="2 2"/>
 <text x="224" y="400.0" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" text-anchor="start" fill="#000000">integrity</text>
@@ -66,7 +66,7 @@
 <path d="M0,386 v32 a84.0,5 0 0 0 168,0 v-32" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <ellipse cx="84.0" cy="386" rx="84.0" ry="5" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
 <text x="84.0" y="404.1" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Receipt store</text>
-<text x="84.0" y="418.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 8</text>
+<text x="84.0" y="418.2" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#000000">Ch 7</text>
 <path d="M171,403 L210,403" fill="none" stroke="#000000" stroke-width="1.5999999999999999" marker-end="url(#call)"/>
 <path d="M430,16 L434,16 L434,104 L430,104" fill="none" stroke="#000000" stroke-width="1.4"/>
 <text transform="translate(451,60.0) rotate(-90)" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Discover</text>

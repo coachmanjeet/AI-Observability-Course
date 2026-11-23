@@ -28,10 +28,10 @@
 <rect x="4" y="182" width="300.0" height="22" rx="0" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
 <text x="310.0" y="198.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">8.6 MB</text>
 <text x="4" y="220.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">received: 1,000 traces, 5,189 spans, 1,157 PII values</text>
-<rect x="4" y="230" width="198.19085632955696" height="22" rx="0" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
-<text x="208.19085632955696" y="246.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">5.7 MB</text>
+<rect x="4" y="230" width="198.19003813406871" height="22" rx="0" fill="#c8c8c8" stroke="#000000" stroke-width="1.4"/>
+<text x="208.19003813406871" y="246.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">5.7 MB</text>
 <text x="4" y="268.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">after redaction: 1,000 traces, 5,189 spans, 0 PII values</text>
-<rect x="4" y="278" width="84.32298333416806" height="22" rx="0" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
-<text x="94.32298333416806" y="294.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">2.4 MB</text>
+<rect x="4" y="278" width="84.32125003246654" height="22" rx="0" fill="#ececec" stroke="#000000" stroke-width="1.4"/>
+<text x="94.32125003246654" y="294.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#000000">2.4 MB</text>
 <text x="4" y="316.0" font-family="Inter, 'DejaVu Sans', sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#4d4d4d">after tail sampling: 300 traces, 2,095 spans, 0 PII values</text>
 </svg>
